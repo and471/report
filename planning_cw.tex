@@ -4,15 +4,17 @@
 \usepackage{setspace}
 \usepackage{fullpage}
 \usepackage{graphicx}
+\usepackage{float}
 
 \begin{document}
 
 \title{Planning, Estimating and Tracking}
-\author{Andrew Higginson \and Bryan Liu \and Choo Jia Guang \and Emma Hulme \and 
+\author{Andrew Higginson \and Bryan Liu \and Jia Guang Choo \and Emma Hulme \and 
 Timothy 'The Power' van Bremen \and Thomas Taylor-Hall}
 \date{October 2014}
 \maketitle
 
+\setcounter{table}{0}
 \linespread{1.1}
 
 \section{Project Introduction}
@@ -22,40 +24,51 @@ projectors will simulataneously display content onto floor to ceiling glass
 panels that are visible to passers-by. Also, an 84-inch 4K resolution touch 
 screen is to be mounted by the entrance doors. 
 
-Our project consists of developing an "App Store" for uploading images and 
+Our project consists of developing an ``App Store" for uploading images and 
 interactive content to be displayed on the 4 projected screens. Also, we will be
 developing a playout system to show the content on multiple screens in multiple 
 resolutions.
 
-\section{User Requirements} \label{section:req}
+%Current plan and how we can adapt it:
+%	- agreed on estimation of amount of time it takes to ocmplete tasls
+%  - timeline
+%  - leeway for problems (experience from previous projects)
 
-To better understand user requirements and forming the 
+%How did we come up with it? 
+%	- identifying components
+%	- taking into account other 
 
-\begin{figure}[h]
+\section{Understanding User Requirements}
+
+\begin{figure}[H]
   \centering
-    \includegraphics[width = 0.75\textwidth, angle = 270]{./planning/userreq.jpg}
+    \includegraphics[width = 0.55\textwidth, trim= 0 0.55cm 0 1.4cm, clip]{./planning/userreq.jpg}
 
-  \caption{An illustration of the project's initial specification.}
+  \caption{Initial project specification in a diagram.}
   \label{fig:userreq}
 \end{figure}
 
-SEE GOOGLE DOC FOR THIS!
+To better understand user requirements and form the initial backlog, we have
+held an initial meeting with our supervisor, who acts as the client of the 
+project.
 
-Figure \ref{fig:userreq} illustrates the 
+The ``App Store" is broadly divided into the following 3 domains:
+\begin{itemize}
+  \item Submission: allowing users to login, view and submit 
+        visualisations/ advertisements
+  \item Moderation \& Scheduling: allowing administrators to approve
+        and schedule submissions for playout
+  \item Playout: allowing scheduled submissions to be projected in
+        specified sizes
+
+\end{itemize}
 
 
 
-\section{Project Plan}
-Current plan and how we can adapt it:
-	- agreed on estimation of amount of time it takes to ocmplete tasls
-  - timeline
-  - leeway for problems (experience from previous projects)
+Figure \ref{fig:userreq} illustrates requirements of the system.
+The full specification is also available in the appendix.
 
-How did we come up with it? 
-	- identifying components
-	- taking into account other 
-
-\subsection{Task Estimation}
+\section{Task Estimation}
 The group is acutely aware that with Computing examinations being held at the
 end of term, we could only practically carry out development work until the
 first week of December. Furthermore, committments in other courses mean that 
@@ -68,7 +81,7 @@ Based on such constraints, we have decided to commit to the following:
         obtain maximum possible feedback from the client/supervisor.
   \item To strictly adhere to original project scope: while we believe the
         current scope is managable, we would reject time-consuming items which
-        are out of scope unless a minimal working system is implemented.
+        are out of scope before a minimal working system is implemented.
 \end{enumerate}
 
 
@@ -76,12 +89,38 @@ Based on such constraints, we have decided to commit to the following:
   \centering
     \includegraphics[width = 0.99\textwidth]{./planning/timeline.jpg}
    
-  \caption{Project plan with timeline.}
+  \caption{Project plan with timeline}
   \label{fig:timeline}
 \end{figure}
 
+
+\begin{table}[h]
+  \begin{tabular}{c | c | c | c }
+    Academic Week & 3 \& 4 (-30/10) & 5 (-6/11) \\
+    Iteration/ Sprint & 1 & 2 \\ \hline
+    Tasks & Front-page + grid view (FE) & External Request Access \\
+          & Docker Setup (BE)           & Submit Visualisation \\
+          & Hello-world server (Flask) (BE) & \\
+          & MongoDB Setup + Integration (BE) & \\
+          & Jenkins Setup at Production VM (BE) & \\
+          & Internal Kerberos Login (BE) & \\
+  \end{tabular}
+
+  \vspace{10pt}
+  \begin{tabular}{c | c | c | c | c}
+    Academic Week & 6 (-13/11) & 7 (-20/11) & 8 (-27/11) & 9 (-4/12) \\
+    Iteration/ Sprint & 3 & 4 & 5 & 6 \\ \hline
+    Tasks & Comment/ view existing visualisations & Scheduling & 
+            \multicolumn{2}{c}{Playout} \\
+          & Admin moderation/ approval &  \\
+  \end{tabular}
+  \caption{Project timeline}
+  \label{table:timeline}
+\end{table}
+
 % Estimation & Planning - Iteration Plans + Release Plans
-The resultant plan and timeline shown in figure \ref{fig:timeline} is a
+The resultant plan and timeline shown in figure \ref{fig:timeline} and table
+\ref{table:timeline} is a
 combination of the plan for next iteration and the release plan, taking account
 of the current project scope. Each post-it note either represents a 
 concrete task to be completed during the next iteration (towards the left), or
@@ -100,16 +139,16 @@ system (size L) and the entire playout system (size XL) would take us one and
 two iteration(s) respectively.
 
 
-\subsection{Group organisation}
+\section{Group organisation} \label{sec:group}
 After we established the requirements of the project, each group member stated
 which part of the project they would like to work on. We found that there was a
 good split of two people that wanted to work on the frontend, two on the backend
 server code, and two on the database.
 
 Although this is a good split to initiate work, we realised that the frontend 
-aspect of the project may require more work in the long term. In addition, we 
-expect that the server code and database should be fully implemented a few
-weeks before the frontend is completed, only requiring minor fixes.
+aspect of the project may require more work approaching later iterations.
+In addition, we  expect that the server code and database should be fully 
+implemented in the first 4 iterations, only requiring minor fixes.
 
 Therefore, we decided that two people from the backend would move on to creating
 the playout software on the dedicated computers; one person would help with the
@@ -117,11 +156,43 @@ frontend and the remaining person would apply small fixes and refactors to the
 existing server/database code. 
 
 
-\subsection{Development Methods \& Project Tracking}
-  - using trello (physical story board not feasible, kanban)
-  - constantly communicating (messaging software, regular stand-ups)
+\section{Development Methods \& Project Tracking}
+The team has agreed to adopt a mixture of Agile Development Methodologies to
+sure our practical need.
 
-\begin{figure}[h]
+For project management, we generally follow the scrum method, adopting the
+following characteristics:
+\begin{itemize}
+  \item Roles: We see Dr. David Birch, our supervisor, as the Product Owner
+        who provide ideas and feedback for the development. At the same time,
+        the team have agreed that Andrew and Bryan should assume the role of
+        Scrum Masters to facilitate work and all team members should organise
+        work for themselves.
+  \item Ceremonies: Upon the initial meeting, we have established a
+        meeting with David on Each Thursday to review our previous sprint 
+        and plan our next sprint. We are also holding a development team
+        meeting every Monday to update each other on our progress and
+        review works done in past sprints
+  \item Artifacts: We keep our product backlog and iteration backlog on
+        Trello as part of our project tracking mechanism (more details
+        available in the later part of section)
+\end{itemize}
+
+We also integrate a few technical practices inspired by Extreme Programming:
+\begin{itemize}
+  \item Simple Design: including the use of lightweight technologies
+  \item Pair Programming: as mentioned in section \ref{sec:group}, we sorted
+        ourselves into 3 pairs, focusing on FE, BE and DB work respectively.
+        Such practice allows continuous development on all divisions without
+        being affected by cases which a member is required to focus on
+        other courseworks/ tests.
+
+
+\end{itemize} 
+%  - using trello (physical story board not feasible, kanban)
+%  - constantly communicating (messaging software, regular stand-ups)
+
+\begin{figure}
   \centering
     \includegraphics[width = 0.99\textwidth]{./planning/trello.jpg}
    
@@ -129,7 +200,7 @@ existing server/database code.
   \label{fig:trello}
 \end{figure}
 
-\subsection{Development Tools}
+\section{Development Tools}
  	- Flask for the backend as it's new and interesting, lightweight
 	- bryan wanted to experiment with MongoDB
 	- AngularJS for frontend for interest's sake
