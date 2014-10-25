@@ -10,8 +10,8 @@
 
 \title{Planning, Estimating and Tracking}
 \author{Andrew Higginson \and Bryan Liu \and Jia Guang Choo \and Emma Hulme \and 
-Timothy 'The Power' van Bremen \and Thomas Taylor-Hall}
-\date{October 2014}
+Timothy van Bremen \and Thomas Taylor-Hall}
+\date{\today}
 \maketitle
 
 \setcounter{table}{0}
@@ -19,15 +19,11 @@ Timothy 'The Power' van Bremen \and Thomas Taylor-Hall}
 
 \section{Project Introduction}
 As part of the renovation of the William Penney Building on the Sherfield 
-walkway, interactive screens are to be installed. Mounted inside the building, 4
-projectors will simulataneously display content onto floor to ceiling glass
+walkway, interactive screens are to be installed. Mounted inside the building, four projectors will simultaneously display content onto floor to ceiling glass
 panels that are visible to passers-by. Also, an 84-inch 4K resolution touch 
 screen is to be mounted by the entrance doors. 
 
-Our project consists of developing an ``App Store" for uploading images and 
-interactive content to be displayed on the 4 projected screens. Also, we will be
-developing a playout system to show the content on multiple screens in multiple 
-resolutions.
+Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens. Also, we will be developing a playout system to show the content on multiple screens in multiple resolutions.
 
 %Current plan and how we can adapt it:
 %	- agreed on estimation of amount of time it takes to ocmplete tasls
@@ -49,16 +45,16 @@ resolutions.
 \end{figure}
 
 To better understand user requirements and form the initial backlog, we have
-held an initial meeting with our supervisor, who acts as the client of the 
+held an initial meeting with our supervisor, who in this instance plays the role of ``client'' of the 
 project.
 
-The ``App Store" is broadly divided into the following 3 domains:
+The ``App Store" is broadly divided into the following three domains:
 \begin{itemize}
-  \item Submission: allowing users to login, view and submit 
+  \item \textbf{Submission}: allowing users to login, view and submit 
         visualisations/ advertisements
-  \item Moderation \& Scheduling: allowing administrators to approve
+  \item \textbf{Moderation \& Scheduling}: allowing administrators to approve
         and schedule submissions for playout
-  \item Playout: allowing scheduled submissions to be projected in
+  \item \textbf{Playout}: allowing scheduled submissions to be projected in
         specified sizes
 
 \end{itemize}
@@ -71,16 +67,16 @@ The full specification is also available in the appendix.
 \section{Task Estimation}
 The group is acutely aware that with Computing examinations being held at the
 end of term, we could only practically carry out development work until the
-first week of December. Furthermore, committments in other courses mean that 
+first week of December. Furthermore, commitments in other courses mean that 
 each team member is only able to devote around 16-20 hours per week to
 the project.
 
-Based on such constraints, we have decided to commit to the following:
+In light of these constraints, we have decided to commit to the following:
 \begin{enumerate}
-  \item To maintain a 1-week iteration: this allows the development team to
+  \item \textbf{To maintain a one-week iteration}: this allows the development team to
         obtain maximum possible feedback from the client/supervisor.
-  \item To strictly adhere to original project scope: while we believe the
-        current scope is managable, we would reject time-consuming items which
+  \item \textbf{To strictly adhere to original project scope}: while we believe the
+        current scope is manageable, we would reject time-consuming items which
         are out of scope before a minimal working system is implemented.
 \end{enumerate}
 
@@ -96,9 +92,9 @@ Based on such constraints, we have decided to commit to the following:
 
 \begin{table}[h]
   \begin{tabular}{c | c | c | c }
-    Academic Week & 3 \& 4 (-30/10) & 5 (-6/11) \\
-    Iteration/ Sprint & 1 & 2 \\ \hline
-    Tasks & Front-page + grid view (FE) & Access request for externals \\
+    \textbf{Academic Week} & 3 \& 4 (-30/10) & 5 (-6/11) \\
+    \textbf{Iteration/Sprint} & 1 & 2 \\ \hline
+    \textbf{Tasks} & Front-page + grid view (FE) & Access request for externals \\
           & Docker Setup (BE)           & Visualisation submission \\
           & Hello-world server (Flask) (BE) & \\
           & MongoDB Setup + Integration (BE) & \\
@@ -106,11 +102,11 @@ Based on such constraints, we have decided to commit to the following:
           & Internal Kerberos Login (BE) & \\
   \end{tabular}
 
-  \vspace{10pt}
+  \vspace{30pt}
   \begin{tabular}{c | c | c | c | c}
-    Academic Week & 6 (-13/11) & 7 (-20/11) & 8 (-27/11) & 9 (-4/12) \\
-    Iteration/ Sprint & 3 & 4 & 5 & 6 \\ \hline
-    Tasks & Comment/ view existing visualisations & Scheduling & 
+    \textbf{Academic Week} & 6 (-13/11) & 7 (-20/11) & 8 (-27/11) & 9 (-4/12) \\
+    \textbf{Iteration/Sprint} & 3 & 4 & 5 & 6 \\ \hline
+    \textbf{Tasks} & Comment/ view existing visualisations & Scheduling & 
             \multicolumn{2}{c}{Playout} \\
           & Admin moderation/ approval &  \\
   \end{tabular}
@@ -148,7 +144,7 @@ server code, and two on the database.
 Although this is a good split to initiate work, we realised that the frontend 
 aspect of the project may require more work approaching later iterations.
 In addition, we  expect that the server code and database should be fully 
-implemented in the first 4 iterations, only requiring minor fixes.
+implemented within the first four iterations, only requiring minor fixes thereafter.
 
 Therefore, we decided that two people from the backend would move on to creating
 the playout software on the dedicated computers; one person would help with the
@@ -173,7 +169,7 @@ following characteristics:
         and plan our next sprint. We are hold a development team
         meeting every Monday (figure \ref{fid:scrum} to update each other 
         on our progress and review works done in past sprints.
-  \item Artifacts: We keep our product backlog and iteration backlog on
+  \item Artefacts: We keep our product backlog and iteration backlog on
         Trello as part of our project tracking mechanism (more details
         available in the later part of section).
 \end{itemize}
@@ -194,7 +190,7 @@ We also integrate a few technical practices inspired by Extreme Programming:
         ourselves into 3 pairs, focusing on FE, BE and DB work respectively.
         Such practice allows continuous development on all divisions without
         being affected by cases which a member is required to shift his/her
-        focus from the project to courseworks/ tests temporarily.
+        focus from the project to courseworks/tests temporarily.
   \item Test-driven Development: %TODO
 
 \end{itemize} 
