@@ -25,15 +25,6 @@ screen is to be mounted by the entrance doors.
 
 Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens. Also, we will be developing a playout system to show the content on multiple screens in multiple resolutions.
 
-%Current plan and how we can adapt it:
-%	- agreed on estimation of amount of time it takes to ocmplete tasls
-%  - timeline
-%  - leeway for problems (experience from previous projects)
-
-%How did we come up with it? 
-%	- identifying components
-%	- taking into account other 
-
 \section{Understanding User Requirements}
 
 \begin{figure}[H]
@@ -44,8 +35,7 @@ Our project consists of developing an ``App Store" for uploading interactive con
   \label{fig:userreq}
 \end{figure}
 
-To better understand user requirements and form the initial backlog, we have
-held an initial meeting with our supervisor, who in this instance plays the role of ``client'' of the 
+To better understand user requirements and form the initial backlog of tasks, we held an exploratory meeting with our supervisor, who in this instance plays the role of ``client'' of the 
 project.
 
 The ``App Store" is broadly divided into the following three domains:
@@ -69,7 +59,7 @@ The group is acutely aware that with Computing examinations being held at the
 end of term, we could only practically carry out development work until the
 first week of December. Furthermore, commitments in other courses mean that 
 each team member is only able to devote around 16-20 hours per week to
-the project.
+the project. As a group, we have allowed some leeway for each task in case we run into technical errors. If this is the case, we will communicate between the group and come up with a solution if necessary.
 
 In light of these constraints, we have decided to commit to the following:
 \begin{enumerate}
@@ -92,7 +82,7 @@ In light of these constraints, we have decided to commit to the following:
 
 \begin{table}[h]
   \begin{tabular}{c | c | c | c }
-    \textbf{Academic Week} & 3 \& 4 (-30/10) & 5 (-6/11) \\
+    \textbf{Academic Week} & 3 \& 4 (ending 30/10) & 5 (ending 6/11) \\
     \textbf{Iteration/Sprint} & 1 & 2 \\ \hline
     \textbf{Tasks} & Front-page + grid view (FE) & Access request for externals \\
           & Docker Setup (BE)           & Visualisation submission \\
@@ -104,7 +94,7 @@ In light of these constraints, we have decided to commit to the following:
 
   \vspace{30pt}
   \begin{tabular}{c | c | c | c | c}
-    \textbf{Academic Week} & 6 (-13/11) & 7 (-20/11) & 8 (-27/11) & 9 (-4/12) \\
+    \textbf{Academic Week} & 6 (ending 13/11) & 7 (ending 20/11) & 8 (ending 27/11) & 9 (ending 4/12) \\
     \textbf{Iteration/Sprint} & 3 & 4 & 5 & 6 \\ \hline
     \textbf{Tasks} & Comment/view existing visualisations & Scheduling & 
             \multicolumn{2}{c}{Playout} \\
@@ -114,7 +104,7 @@ In light of these constraints, we have decided to commit to the following:
   \label{table:timeline}
 \end{table}
 
-% Estimation & Planning - Iteration Plans + Release Plans
+
 The resultant plan and timeline shown in figure \ref{fig:timeline} and table
 \ref{table:timeline} is a
 combination of the plan for next iteration and the release plan, taking account
@@ -124,7 +114,7 @@ high level themes to be implemented (towards the right). Each line segment at
 the bottom represents an iteration ending on Thursday, when the development
 team will meet with the client.
 
-% Estimation & Planning - T-Shirt Sizing
+
 Estimates on time required for the tasks were based on their relative size and
 time taken for us to complete similar ones in the past. For example, some of us
 have implemented a College (Kerberos) Login System well within a week, thus if
@@ -162,12 +152,11 @@ following characteristics:
   \item \textbf{Roles}: We see Dr. David Birch, our supervisor, as the \textit{Product Owner}
         who provide ideas and feedback for the development. At the same time,
         the team have agreed that Andrew and Bryan should assume the role of
-        \textit{Scrum Masters} to facilitate work and all team members should organise
-        work for themselves.
+        \textit{Scrum Masters} to facilitate work for the front end and back end respectively.
   \item \textbf{Ceremonies}: Upon the initial meeting, we have established a
         meeting with David each Thursday to review our previous sprint 
-        and plan our next sprint. We are hold a development team
-        meeting every Monday (figure \ref{fid:scrum} to update each other 
+        and plan our next sprint. We are to hold a development team
+        meeting every Monday (figure \ref{fig:scrum} to update each other 
         on our progress and review work done in past sprints.
   \item \textbf{Artefacts}: We keep our product backlog and iteration backlog on
         Trello as part of our project tracking mechanism (more details
@@ -179,7 +168,7 @@ following characteristics:
   \centering
     \includegraphics[width = 0.99\textwidth]{./planning/scrum.jpg}
    
-  \caption{Half-weekly "scrum" (development team meeting).}
+  \caption{Half-weekly ``scrum'' (development team meeting).}
   \label{fig:scrum}
 \end{figure}
 
@@ -191,19 +180,12 @@ We also integrate a few technical practices inspired by Extreme Programming:
         Such a practice allows continuous development on all divisions without
         being affected by instances in which a member is required to temporarily shift his or her
         focus from the project to other coursework/tests.
-  \item \textbf{Test-driven Development}: %TODO
+  \item \textbf{Test-driven Development}: during development, we will constantly be writing small tests to make sure individual features are working as expected before we move on to the next feature.
 
 \end{itemize} 
 
-% - Figure on TDD
-
 Finally, to keep track on the group's progress, we use an electronic task
-board on Trello. %(+doc, checklist, photo easily add-able)
-%  - using trello (physical story board not feasible, kanban)
-%  - constantly communicating (messaging software, regular stand-ups)
-
-% Why not follow other practice of kanban/XP/Scrum
-
+board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room. This development process follows the Kanban methodology.
 
 \begin{figure}[ht]
   \centering
@@ -214,14 +196,17 @@ board on Trello. %(+doc, checklist, photo easily add-able)
 \end{figure}
 
 \section{Development Tools}
-% 	- Flask for the backend as it's new and interesting, lightweight
-%	- bryan wanted to experiment with MongoDB%
-%	- AngularJS for frontend for interest's sake
-%	- Docker as we want to deploy on multiple virtual machines using cloudstack
-%	- can test backend if frontend has changed and is not working
- % - David's VM
-%	- dedicated comps to run playout software
+During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
 
+As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
 
+For the frontend, the AngularJS module was selected. This was chosen as Andrew and Emma wanted to learn a different method of implementing websites in Javascript. 
 
+After a lecture on deployment techniques, the group decided to use Docker. In a group project last year, the backend team had to wait if the frontend was broken to see if particular feature was working. Using Docker and extra virtual machines (created on the department's cloudstack), we can have a separate machine for each feature while it is in development, and have multiple copies of the web server running. Docker allows us to quickly set up the virtual machines via a script, installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, Docker will save us a lot of time later. 
+
+We have yet to concretely decide on the best solution for our playout system, as this is relatively independant of the technologies used for the web service. This will be decided in one of our weekly meetings.
+
+As usual, all of our code (including the Docker scripts) will be stored in a group git repository. As a group, we have decided to use branches with a short lifetime. Each minor feature will be implemented on it's own branch, with the master (or trunk) branch used for merging in features only. Merging will take place after the feature is tested on its own branch and vm. 
+
+To deploy the webserver, David has provided us with a Linux vm with root access. Setting up this vm will simply be a case of running our existing scripts with Docker. The playout software will be run on a dedicated computer hooked up to the four projectors, which will be provided by David. 
 \end{document}
