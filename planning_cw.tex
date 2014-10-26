@@ -23,7 +23,7 @@ walkway, interactive screens are to be installed. Mounted inside the building, f
 panels that are visible to passers-by. Also, an 84-inch 4K resolution touch 
 screen is to be mounted by the entrance doors. 
 
-Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens. Also, we will be developing a playout system to show the content on multiple screens in multiple resolutions.
+Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens. Administrators will also be able to use this system to moderate and schedule content. Finally, we will be developing a playout system to show the content on multiple screens in multiple resolutions.
 
 \section{Understanding User Requirements}
 
@@ -183,7 +183,9 @@ We also integrate a few technical practices inspired by Extreme Programming:
 \end{itemize} 
 
 Finally, to keep track on the group's progress, we use an electronic task
-board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room. This development process is a feature of the Kanban methodology. 
+board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room. This development process is a feature of the Kanban methodology.
+
+We chose to incorporate this into our way of working, as one of the team members, Andrew, had worked with Kanban previously, and found it very useful to visualise the work being done on a project.
 
 \begin{figure}[ht]
   \centering
@@ -198,11 +200,11 @@ During the inital phases of our project, we decided on which tools/technologies 
 
 As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
 
-For the frontend, the AngularJS module was selected. This was chosen as Andrew and Emma wanted to learn a different method of implementing websites in JavaScript. 
+For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
 
 After a lecture on deployment techniques, the group decided to use Docker. In a group project last year, the backend team had to wait if the frontend was broken to see if particular feature was working. Using Docker and extra virtual machines (created on the department's cloudstack), we can have a separate machine for each feature while it is in development, and have multiple copies of the web server running. Docker allows us to quickly set up the virtual machines via a script, installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, Docker will save us a lot of time later. 
 
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independant of the technologies used for the web service. This will be decided in one of our weekly meetings.
+We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
 
 As usual, all of our code (including the Docker scripts) will be stored in a group git repository. As a group, we have decided to use branches with a short lifetime. Each minor feature will be implemented on it's own branch, with the master (or trunk) branch used for merging in features only. Merging will take place after the feature is tested on its own branch and VM. 
 
