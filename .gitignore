@@ -1,7 +1,10 @@
 # temp files
-*.*~
+*~
 
 # latex files
 *.log
 *.aux
 *.pdf
+
+# compressed files
+*.gz
