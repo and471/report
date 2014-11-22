@@ -5,6 +5,7 @@
 \usepackage{fullpage}
 \usepackage{graphicx}
 \usepackage{float}
+\usepackage[justification=centering]{caption}
 
 
 \begin{document}
@@ -25,14 +26,40 @@ four projectors will simultaneously display content onto floor to ceiling glass
 panels that are visible to passers-by. Also, an 84-inch 4K resolution touch 
 screen is to be mounted by the entrance doors. 
 
-Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens. Administrators will also be able to use this system to moderate and schedule content. Finally, we will be developing a playout system to show the content on multiple screens in multiple resolutions.
+Our project consists of developing an ``App Store" for uploading interactive 
+content and visualisations to be displayed on the four projected screens. 
+Administrators will also be able to use this system to moderate and schedule 
+content. Finally, we will be developing a playout system to show the content 
+on multiple screens in multiple resolutions.
 
-\section{Product Management}
+\section{Relationships and Feedback}
+Our relationship with our supervisor David has consisted of weekly 
+meetings and emails if appropriate. Before designing a particular screen
+or user interface feature, we produce mockups. We then show these to 
+David, who gives his opinion and makes changes if necessary. After the next 
+sprint cycle, we show the implemented screens running on our web application. Figure
+\ref{meetingboard} shows the contents of the meetings - we report on our progress 
+over the last sprint cycle and David gives us feedback on our designs. Also, we 
+explain what features are in progress/to be done over the next week so David is 
+always kept in the loop.
 
-\subsection{}
+\begin{figure}[H]
+  \centering
+    \includegraphics[width = 0.5\textwidth]{./evaluation/meeting-board.jpg}
 
+  \caption{Meeting notes showing feedback from David and group progress.}
+  \label{fig:meetingboard}
+\end{figure}
 
-\subsection{}
+We have also got some representative model data to seed our databse, 
+instead of using dummy data. This was provided by David and will also be 
+used to test submission, moderation and display features of our system.
+
+For example, after we showed David mockups of the scheduling screen, he said that 
+he wanted priorities associated with each visualisation to be shown. We agreed as a 
+group that this would be easy to implement, and assigned the task to an appropriate
+group member on Trello. 
+
 
 \section{Requirements and Managing Tasks}
 In the first week of beginning our project, we met with our supervisor 
@@ -44,7 +71,7 @@ these and did not modify them.
 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
     \includegraphics[width = 0.5\textwidth]{./evaluation/specs.png}
 
@@ -75,7 +102,7 @@ have been using an internal wiki on gitlab to provide information about
 routing, controller actions and parameters. 
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
     \includegraphics[width = 0.5\textwidth]{./evaluation/trello-columns.png}
 
@@ -84,7 +111,7 @@ routing, controller actions and parameters.
 \end{figure}
 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \centering
     \includegraphics[width = 0.5\textwidth]{./evaluation/trello-due-date.png}
 
@@ -92,7 +119,58 @@ routing, controller actions and parameters.
   \label{fig:deadline}
 \end{figure}
 
+\section{Building the Right Thing - Assumption Validation}
+Given the tight time constraints for the entire project, we agreed to collect
+user feedback as soon as the project commences. This ensures the team
+is building the right thing which our client needs.
 
+\subsection{User Interface Mockups}
+Before we started to write any code for our front end UI, we have created
+a set of mockups (figure \ref{fig:mockup}) to give our supervisor (who acts 
+as our client) an idea on we see the application. The mockups serves as the basis
+of our discussion and changes could be made before any coding is carried out.
+
+For example, after we showed David mockups of the scheduling screen, he said that 
+he wanted priorities associated with each visualisation to be shown. We agreed as a 
+group that this would be easy to implement, and assigned the task to an appropriate
+group member on Trello.  %TODO: edit
+
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width = \textwidth]{./evaluation/mockup.png}
+   \end{center}
+   \caption{Mockups on User Interface}
+   \label{fig:mockup}
+\end{figure}
+
+\subsection{Scheduling Requirements}
+Compared to User Interfaces which user can see and feel, we believe 
+uncovering the client's assumption on scheduling via mockups or 
+prototypes would not be the most feasible means as it is mainly rule-based.
+We instead deliver our ideas with illustrations on whiteboard and
+capture feedback from David.
+
+Through discussions with David, we uncovered an assumption that 
+the scheduling algorithm should ensure the playout time is 
+directly proportional to some metric set by administrators. In response,
+we have created additional RSpec unit test to incoperate such requirements 
+in our scheduling algorithm.
+
+
+
+\begin{figure}[H]
+  \begin{minipage}{0.46\textwidth}
+      \includegraphics[width = 0.99\textwidth, trim = 0 4.5cm 0 7cm, clip]{./evaluation/scheduling_whiteboard.jpg}
+  \end{minipage}
+  \begin{minipage}{0.53\textwidth}
+      \includegraphics[width = 0.99\textwidth]{./evaluation/scheduling_spec.png}
+  \end{minipage}
+  \caption{Capturing scheduling requirements on whiteboard (left)\\ and subsequently via RSpec unit tests (right)}
+ 
+\end{figure}
+
+
+\subsection{Usability Testing}
 
 \section{Evaluation of Project}
 %How will we evaluate?
@@ -121,32 +199,6 @@ TODO: stuff from eval lecture
 
 
 
-\section{Relationships and Feedback}
-Our relationship with our supervisor David has consisted of weekly 
-meetings and emails if appropriate. Before designing a particular screen
-or user interface feature, we produce mockups. We then show these to 
-David, who gives his opinion and makes changes if necessary. After the next 
-sprint cycle, we show the implemented screens running on our web application. Figure
-\ref{meetingboard} shows the contents of the meetings - we report on our progress 
-over the last sprint cycle and David gives us feedback on our designs. Also, we 
-explain what features are in progress/to be done over the next week so David is 
-always kept in the loop.
 
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width = 0.5\textwidth]{./evaluation/meeting-board.jpg}
-
-  \caption{Meeting notes showing feedback from David and group progress.}
-  \label{fig:meetingboard}
-\end{figure}
-
-We have also got some representative model data to seed our databse, 
-instead of using dummy data. This was provided by David and will also be 
-used to test submission, moderation and display features of our system.
-
-For example, after we showed David mockups of the scheduling screen, he said that 
-he wanted priorities associated with each visualisation to be shown. We agreed as a 
-group that this would be easy to implement, and assigned the task to an appropriate
-group member on Trello. 
 
 \end{document}
