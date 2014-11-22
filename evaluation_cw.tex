@@ -38,16 +38,20 @@ meetings and emails if appropriate. Before designing a particular screen
 or user interface feature, we produce mockups. We then show these to 
 David, who gives his opinion and makes changes if necessary. After the next 
 sprint cycle, we show the implemented screens running on our web application. Figure
-\ref{meetingboard} shows the contents of the meetings - we report on our progress 
+\ref{fig:meetingboard} shows the contents of the meetings - we report on our progress 
 over the last sprint cycle and David gives us feedback on our designs. Also, we 
 explain what features are in progress/to be done over the next week so David is 
 always kept in the loop.
 
 \begin{figure}[H]
-  \centering
-    \includegraphics[width = 0.5\textwidth]{./evaluation/meeting-board.jpg}
-
-  \caption{Meeting notes showing feedback from David and group progress.}
+  \begin{minipage}{0.49\textwidth}
+    \includegraphics[width = \textwidth, trim = 0 2cm 0 7cm, clip]{./evaluation/meeting-board2.jpg}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+    \includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./evaluation/meeting-board.jpg}
+  \end{minipage}
+  \caption{Meeting notes showing feedback from David (our supervisor) and group progress \\
+                    after sprint cycles 2 (left) and 4 (right).}
   \label{fig:meetingboard}
 \end{figure}
 
@@ -61,7 +65,7 @@ group that this would be easy to implement, and assigned the task to an appropri
 group member on Trello. 
 
 
-\section{Requirements and Managing Tasks}
+\section{Product Requirement, Value \& Impact}
 In the first week of beginning our project, we met with our supervisor 
 David to draw out the initial components. Initially, these were general
 requirements that we divided into user, admin and interface 
@@ -79,17 +83,29 @@ these and did not modify them.
   \label{fig:specs}
 \end{figure}
 
+\subsection{Value Proposition}
+\begin{figure}[H]
+   \begin{center}
+      \includegraphics[width = 0.99\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./evaluation/value_prop_canvas.jpg}
+
+   \end{center}
+\end{figure}
 
 
+
+\section{Task Management}
 In the coming weeks, we then clarified and expanded these requirements as 
 a group. This allowed us to discuss implementation and technical details
 of specific features.
+
 
 During development, we are constantly looking at the requirements, which 
 we have stored in a shared document. In our weekly scrums, we have 
 presented the work we have done and discuss whether the project is on the 
 right track. In our discussions, David has refined how he wants our
 scheduling algorithm to schedule visualisations for a particular time. 
+
+
 
 We have been prioritising tasks using our Trello board with different
 columns. In addition to this, we have been constantly communication both 
@@ -119,16 +135,31 @@ routing, controller actions and parameters.
   \label{fig:deadline}
 \end{figure}
 
-\section{Building the Right Thing - Assumption Validation}
+
+
+
+\subsection{Story Splitting}
+
+
+
+
+\subsection{Spikes - Experiments with new technologies}
+
+
+
+
+\section{Building the right thing - Assumption Validation}
 Given the tight time constraints for the entire project, we agreed to collect
 user feedback as soon as the project commences. This ensures the team
 is building the right thing which our client needs.
 
-\subsection{User Interface Mockups}
+\subsection{User interface mockups}
 Before we started to write any code for our front end UI, we have created
 a set of mockups (figure \ref{fig:mockup}) to give our supervisor (who acts 
-as our client) an idea on we see the application. The mockups serves as the basis
-of our discussion and changes could be made before any coding is carried out.
+as our client) an idea on how we see the application. The mockups serves as the basis
+of our discussion and changes could be made before any coding is carried out -
+once the code implementation starts, it would take far much time and manpower to 
+modify existing codes, as well as delaying job scheduled afterwards.
 
 For example, after we showed David mockups of the scheduling screen, he said that 
 he wanted priorities associated with each visualisation to be shown. We agreed as a 
@@ -137,26 +168,24 @@ group member on Trello.  %TODO: edit
 
 \begin{figure}[H]
    \begin{center}
-      \includegraphics[width = \textwidth]{./evaluation/mockup.png}
+      \includegraphics[width = \textwidth, trim = 0 0 0 0cm, clip]{./evaluation/mockup.png}
    \end{center}
    \caption{Mockups on User Interface}
    \label{fig:mockup}
 \end{figure}
 
-\subsection{Scheduling Requirements}
+\subsection{Requirements on intangible ideas}
 Compared to User Interfaces which user can see and feel, we believe 
-uncovering the client's assumption on scheduling via mockups or 
-prototypes would not be the most feasible means as it is mainly rule-based.
+uncovering the client's assumption on playout scheduling via mockups or 
+prototypes would not be feasible as the algorithm is mainly rule-based.
 We instead deliver our ideas with illustrations on whiteboard and
-capture feedback from David.
+capture feedback from our supervisor.
 
-Through discussions with David, we uncovered an assumption that 
-the scheduling algorithm should ensure the playout time is 
-directly proportional to some metric set by administrators. In response,
-we have created additional RSpec unit test to incoperate such requirements 
+Throughout discussions we have uncovered several assumptions, with one of them
+expecting the scheduling algorithm to ensure playout time is 
+directly proportional to metric set by administrators. In response,
+we have created additional unit tests to incoperate such requirements 
 in our scheduling algorithm.
-
-
 
 \begin{figure}[H]
   \begin{minipage}{0.46\textwidth}
@@ -169,8 +198,23 @@ in our scheduling algorithm.
  
 \end{figure}
 
+\subsection{User testing}
+We have also conducted implicit user tests during demonstrations of new features,
+where we ask our supervisor to conduct a task with minimal instruction and guidance
+(e.g. to navigate to the visualisation scheduling page and schedule some visualistions
+for playout).
 
-\subsection{Usability Testing}
+Such testing allows us to learn what are obvious to us but obscure to users.
+For example, in one of our demonstrations we observed that our supervior 
+took slightly longer than we expected and had multiple pauses when
+being asked to navigate to the visualisation moderation and scheduling pages. This 
+indicates the icon to show the user menu might not be evident to users and
+description for menu items might not be clear enough. Based on such observations
+we have changed the size of the ``show menu" button, as well as explored the effect
+of different link colours on user menu.
+
+We are planning to extend the user to test to cover more users, including staff
+and students who would potentially use the platform to submit and view visualisations.
 
 \section{Evaluation of Project}
 %How will we evaluate?
