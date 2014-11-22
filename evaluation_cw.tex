@@ -33,15 +33,11 @@ content. Finally, we will be developing a playout system to show the content
 on multiple screens in multiple resolutions.
 
 \section{Relationships and Feedback}
+Early on we identified that the main stakeholder in our project is our supervisor David. The core of our project is the scheduling component, which he would operate as an administrator, and so his opinion of the overall design of the project was critical. We also identified our second class of stakeholder, those who browse the visualisation catalogue and submit visualisations and adverts. Their stake is relatively large as without their full engagement and satisfaction, the variety of content being shown will remain small. Finally those see the visualisations being played out. Whilst this final set of users are important, their stake is relatively small, in that all they need to see is the content being played out successfully.
+
 Our relationship with our supervisor David has consisted of weekly 
-meetings and emails if appropriate. Before designing a particular screen
-or user interface feature, we produce mockups. We then show these to 
-David, who gives his opinion and makes changes if necessary. After the next 
-sprint cycle, we show the implemented screens running on our web application. Figure
-\ref{fig:meetingboard} shows the contents of the meetings - we report on our progress 
-over the last sprint cycle and David gives us feedback on our designs. Also, we 
-explain what features are in progress/to be done over the next week so David is 
-always kept in the loop.
+meetings, and emails if appropriate. Finally, we explain what features are in progress/to be done over the next week so David is 
+always kept in the loop. We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also so that discussions we not biased towards any kind of implementation, so that we fitted our implementation around the best ideas, and not the other way around.
 
 \begin{figure}[H]
   \begin{minipage}{0.49\textwidth}
@@ -55,7 +51,7 @@ always kept in the loop.
   \label{fig:meetingboard}
 \end{figure}
 
-We have also got some representative model data to seed our databse, 
+We have also received some representative model data to seed our database, 
 instead of using dummy data. This was provided by David and will also be 
 used to test submission, moderation and display features of our system.
 
@@ -101,7 +97,7 @@ a group. This allowed us to discuss implementation and technical details
 of specific features.
 
 
-During development, we are constantly looking at the requirements, which 
+During development, we are constantly looking at the requirements for all of our stakeholders, which 
 we have stored in a shared document. In our weekly scrums, we have 
 presented the work we have done and discuss whether the project is on the 
 right track. In our discussions, David has refined how he wants our
@@ -195,13 +191,13 @@ Given the tight time constraints for the entire project, we agreed to collect
 user feedback as soon as the project commences. This ensures the team
 is building the right thing which our client needs.
 
+
 \subsection{User interface mockups}
-Before we started to write any code for our front end UI, we have created
-a set of mockups (figure \ref{fig:mockup}) to give our supervisor (who acts 
-as our client) an idea on how we see the application. The mockups serves as the basis
-of our discussion and changes could be made before any coding is carried out -
-once the code implementation starts, it would take far much time and manpower to 
-modify existing codes, as well as delaying job scheduled afterwards.
+A release cycle in our project generally takes the following form. Before implementing a particular part of our project, we begin with creating mockups (figure \ref{fig:mockup}). These are relatively quick to produce and allow us to quickly think through the design of our project, with being tied down to any implementation details which would affect our thinking. After completion, we then show the mockups to the main stakeholder in the project, our supervisor David, who gives us feedback/changes. Once a general design is settled on, within that week's sprint cycle, we complete the main implementation of the UI, but only do so up to the point of it being useful to show how it would be used. It is not yet interfacing with the backend, and hence small changes at this point are simple to do, with the following week's sprint cycle involving 'hooking' up this UI prototype and our backend.\\
+
+We also make sure that this prototype is in some way, seeded with some dummy/representative data, so that it is clear how each part of the project will operate in practice.\\
+
+This way of working allows us to 'pivot' many times, and with minimal overhead of reimplementation, as it allows us to identify problems, or learn more about the issue we are trying to solve, before we write large volumes of code which may end up to be not useful. The fact that we have this lean approach also \textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
 During a meeting with David, our supervisor, he mentioned after going 
 through the mockups that it would be a good if we could show the priorities
@@ -229,7 +225,7 @@ capture feedback from our supervisor.
 Throughout discussions we have uncovered several assumptions, with one of them
 expecting the scheduling algorithm to ensure playout time is 
 directly proportional to metric set by administrators. In response,
-we have created additional unit tests to incoperate such requirements 
+we have created additional unit tests to incorporate such requirements 
 in our scheduling algorithm.
 
 \begin{figure}[H]
@@ -259,7 +255,7 @@ we have changed the size of the ``show menu" button, as well as explored the eff
 of different link colours on user menu.
 
 We are planning to extend the user to test to cover more users, including staff
-and students who would potentially use the platform to submit and view visualisations.
+and students who would potentially use the platform to submit and view visualisations, the second in our list of stakeholders.
 
 \section{Evaluation of Project}
 %How will we evaluate?
