@@ -45,7 +45,7 @@ always kept in the loop.
 
 \begin{figure}[H]
   \begin{minipage}{0.49\textwidth}
-    \includegraphics[width = \textwidth, trim = 0 2cm 0 7cm, clip]{./evaluation/meeting-board2.jpg}
+    \includegraphics[width = \textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./evaluation/meeting-board2.jpg}
   \end{minipage}
   \begin{minipage}{0.49\textwidth}
     \includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./evaluation/meeting-board.jpg}
@@ -87,8 +87,10 @@ these and did not modify them.
 \begin{figure}[H]
    \begin{center}
       \includegraphics[width = 0.99\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./evaluation/value_prop_canvas.jpg}
-
    \end{center}
+   \caption{Value proposition canvas for our client (Imperial Data
+            Science Institute).}
+   \label{fig:valpropcanvas}
 \end{figure}
 
 
@@ -139,14 +141,54 @@ routing, controller actions and parameters.
 
 
 \subsection{Story Splitting}
+While some of the requirements require only a few hours effort. We believe
+it would be highly unlikely to implement some of the features within an
+iteration. In such cases we have splitted the features into multiple units and
+implement them in different iterations based on their priority.
 
+An example would be on the user story
+ "As a user, I want to access the platform via a set of
+credentials so that I can upload visualisation (user)/ perform moderation and
+scheduling (administrator)". We consider this to be technically challenging
+if we consider all possible users and decided to split it into:
 
+\begin{itemize}
+  \item As an internal user (student/staff at Imperial), I want to access the 
+        platform via college login so that I can upload/ moderate and schedule
+        without memorising an extra set of credentials.
+  \item As an external user, I want to access the platform via some kind
+        of access request system so that I could participate in visualisation
+        sharing as well. 
+\end{itemize}
 
+While being reduced in size, splitting the story has also helped us to 
+further understand the needs
+of different groups of users. We have decided to implement the former requirement
+first as other features, such as scheduling and moderation, would require
+a working version of access control, thus having a higher priority.
+The later requirement can then be scheduled
+to be carried out in parallel with the mentioned features.
 
 \subsection{Spikes - Experiments with new technologies}
+Throughout development, we have also devote a small proportion of time to
+experiment on technologies involved in later iterations. This allows us to
+better understand the complexity we will face and react accordingly.
 
+While we have scheduled to implement the playout system in iterations 5 and 6
+(the last two iterations),
+investigation on relevant technologies, including QT and its adapters, were
+made from iteration 2. By performing preliminary research, it allows 
+us to confirm that 2 weeks would be a reasonable estimate in system 
+implementation. Furthermore, we believe the investigation would result 
+in a more gentle learning curve, and reduces the risk for development 
+grinding to a halt as team members would
+at least have some basic knowledge on QT and some code segments are produced.
 
-
+Not all spikes brings good news - investigation on Kerberos login libraries has
+revealed that the adapter for Flask (with Python) is actually broken.
+Though being required to scrap the entire implementation, the spike allows us
+to switch development language early and thus avoids incurring high 
+cost further into development.
 
 \section{Building the right thing - Assumption Validation}
 Given the tight time constraints for the entire project, we agreed to collect
@@ -161,10 +203,13 @@ of our discussion and changes could be made before any coding is carried out -
 once the code implementation starts, it would take far much time and manpower to 
 modify existing codes, as well as delaying job scheduled afterwards.
 
-For example, after we showed David mockups of the scheduling screen, he said that 
-he wanted priorities associated with each visualisation to be shown. We agreed as a 
-group that this would be easy to implement, and assigned the task to an appropriate
-group member on Trello.  %TODO: edit
+During a meeting with David, our supervisor, he mentioned after going 
+through the mockups that it would be a good if we could show the priorities
+associated with each visualisation in timeslot view, even if the visualisation
+is not selected.
+%TODO: consider moving the  
+We agreed as a group that this would be easy to implement, and assigned the 
+task to an appropriate group member on Trello.
 
 \begin{figure}[H]
    \begin{center}
@@ -189,7 +234,7 @@ in our scheduling algorithm.
 
 \begin{figure}[H]
   \begin{minipage}{0.46\textwidth}
-      \includegraphics[width = 0.99\textwidth, trim = 0 4.5cm 0 7cm, clip]{./evaluation/scheduling_whiteboard.jpg}
+      \includegraphics[width = 0.99\textwidth, trim = 0 1cm 0 1.5cm, clip]{./evaluation/scheduling_whiteboard.jpg}
   \end{minipage}
   \begin{minipage}{0.53\textwidth}
       \includegraphics[width = 0.99\textwidth]{./evaluation/scheduling_spec.png}
@@ -206,8 +251,8 @@ for playout).
 
 Such testing allows us to learn what are obvious to us but obscure to users.
 For example, in one of our demonstrations we observed that our supervior 
-took slightly longer than we expected and had multiple pauses when
-being asked to navigate to the visualisation moderation and scheduling pages. This 
+made multiple pauses when
+being asked to navigate to the moderation and scheduling pages. This 
 indicates the icon to show the user menu might not be evident to users and
 description for menu items might not be clear enough. Based on such observations
 we have changed the size of the ``show menu" button, as well as explored the effect
