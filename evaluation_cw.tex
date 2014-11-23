@@ -219,25 +219,30 @@ We are planning to extend this user testing to include more potential users, esp
 view visualisations.
 
 \section{Evaluation}
-
-As a group, we are constantly evaluating the correctness of our project by 
-unit and system tests after a feature is implemented via RSpec.
+While being able to evaluate the correctness of our project by unit and system tests after a feature is implemented via RSpec, we require some other means to test the quality of our feature, as well as our group's progress.
 
 \subsection{Validated learning \& Pivoting}
 
-As mentioned in Section \ref{sec:uimockup}, producing mockups and prototypes with representative data and obtaining feedback based on them allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
+As mentioned in Section \ref{sec:validation}, obtaining feedback via mockups, prototypes with representative data and user testing allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
 \subsection{Project progress}
+	
+Quantitatively, we evaluated our project by cross checking with our initial requirements and see how fast we are ticking them off. Using our Trello board and version control, we can easily see by whom and at what time each feature has been implemented. Combining with our size estimate on the tasks, we are able to analyse the group's performance via a Cumulative Flow Diagram (figure \ref{fig:cumuflow}).
 
-Quantitatively, we evaluated our project by ticking off our initial requirements. Also, we used the system ourselves, from both the user and administrator perspectives, to evaluate the project from both our stakeholders' points of view. This includes uploading visualisations and viewing other visualisations as a user, and moderating and scheduling visualisations as an administrator.
+\begin{figure}[H]
 
-Using our Trello board and version control, we can easily see by whom each feature has been implemented. To improve our teamwork for future group projects, we will sit down as a group and describe our strengths and weaknesses in this project.
+  \includegraphics[width = 0.99\textwidth]{./evaluation/cumu_flow.png}
+  \caption{Cumulative flow diagram for our team based on tasks' status}
+  \label{fig:cumuflow}
+\end{figure}
 
-% TODO: get externals to evaluate, people from data science institute? 
-
-% TODO: stuff from eval lecture
-
-% TODO: metrics: move trello to here
+The diagram tracks the tasks, each carrying a story point based on their size estimate, on the columns ``To Do (This week)", ``In Progress" and ``Done". We can observe the following from the diagram:
+\begin{enumerate}
+  \item In the last week of October, the group did not make much progress in completing tasks in progress and starting to work on new tasks. We relate the observation with problems in setting up Jenkins, forming a bottleneck in the entire development back then.
+  \item The lead time (time required between starting the work and completing the task) is usually around 2 weeks. Given the way we work on a new feature (2 cycles per feature - detailed in section \ref{ui:mockup}), we believe we are on a good track in getting individual components done.
+  \item Within the first 3 weeks in November, the team has completed tasks worth 35-40 story points. Given the minimal system were estimated to worth ~90 story points, we believe the team would be able
+to meet the deadline in by the second week of December with similar effort.
+\end{enumerate}
 
 
 
