@@ -32,12 +32,31 @@ Administrators will also be able to use this system to moderate and schedule
 content. Finally, we will be developing a playout system to show the content 
 on multiple screens in multiple resolutions.
 
-\section{Relationships and Feedback}
-Early on we identified that the main stakeholder in our project is our supervisor David. The core of our project is the scheduling component, which he would operate as an administrator, and so his opinion of the overall design of the project was critical. We also identified our second class of stakeholder, those who browse the visualisation catalogue and submit visualisations and adverts. Their stake is relatively large as without their full engagement and satisfaction, the variety of content being shown will remain small. Finally those see the visualisations being played out. Whilst this final set of users are important, their stake is relatively small, in that all they need to see is the content being played out successfully.
+\section{Stakeholder Relationships}
+Early on we identified that the main stakeholder in our project is
+our supervisor David. The core of our project is the scheduling component,
+which he would operate as an administrator, and so his opinion of the overall
+design of the project was critical. We also identified our second class of
+stakeholder, those who browse the visualisation catalogue and submit
+visualisations and adverts. Their stake is relatively large as without
+their full engagement and satisfaction, the variety of content being
+shown will remain small. Finally those see the visualisations being
+played out. Whilst this final set of users are important, their stake is
+relatively small, in that all they need to see is the content being played
+out successfully.
 
-Our relationship with our supervisor David has consisted of weekly 
-meetings, and emails if appropriate. Finally, we explain what features are in progress/to be done over the next week so David is 
-always kept in the loop. We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also so that discussions we not biased towards any kind of implementation, so that we fitted our implementation around the best ideas, and not the other way around.
+In terms of customer relationship, we see our supervisor David as somewhere 
+between an internal and external customer, which we hold weekly meetings
+and exchange emails frequently but not contacting in person daily. 
+During weekly meetings, we explain what features are in progress/to be done
+over the next week so David is always kept in the loop (figure 
+\ref{fig:meetingboard}). We tended to keep 
+discussions fairly high-level, and only discussed implementation 
+details/technologies when asked to do so, or when we felt that it was 
+important to the discussion. We did this to mimic the scenario of David 
+being our client, but also so that discussions we not biased towards any 
+kind of implementation, so that we fitted our implementation around the best 
+ideas, and not the other way around.
 
 \begin{figure}[H]
   \begin{minipage}{0.49\textwidth}
@@ -46,30 +65,27 @@ always kept in the loop. We tended to keep discussions fairly high-level, and on
   \begin{minipage}{0.49\textwidth}
     \includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./evaluation/meeting-board.jpg}
   \end{minipage}
-  \caption{Meeting notes showing feedback from David (our supervisor) and group progress \\
+  \caption{Meeting notes with feedback from David (our supervisor) and group progress \\
                     after sprint cycles 2 (left) and 4 (right).}
   \label{fig:meetingboard}
 \end{figure}
-
-We have also received some representative model data to seed our database, 
-instead of using dummy data. This was provided by David and will also be 
-used to test submission, moderation and display features of our system.
-
-For example, after we showed David mockups of the scheduling screen, he said that 
-he wanted priorities associated with each visualisation to be shown. We agreed as a 
-group that this would be easy to implement, and assigned the task to an appropriate
-group member on Trello. 
 
 
 \section{Product Requirement, Value \& Impact}
 In the first week of beginning our project, we met with our supervisor 
 David to draw out the initial components. Initially, these were general
-requirements that we divided into user, admin and interface 
-requirements. We later sent these requirements to David so he could check
-they were satisfactory and have them for his records. He was happy with 
-these and did not modify them.
+requirements including:
 
+\begin{itemize}
+  \item Stakeholder requirments resembling user stories (e.g.
+        a user can to submit scientific visualisation and/or advertisements, 
+        as well as to state preference(s) on playout).
+  \item Interface requirements - what user should expect it could do
+        based on the user stories above (e.g. The scheduling system should
+        schedule items to play out in rotation, so passersby would not be
+        bored by ``fixed" playout).
 
+\end{itemize}
 
 \begin{figure}[H]
   \centering
@@ -80,9 +96,32 @@ these and did not modify them.
 \end{figure}
 
 \subsection{Value Proposition}
+We then further clarify our understanding on stakeholders and how our system
+creates value for them via multiple value proposition canvasses. Figure
+\ref{fig:valpropcanvas} shows the canvas for Imperial Data Science Institute,
+which our supervisor is associated with. It includes a customer profile
+containing list of jobs, gains and pains, and corresponding products/services,
+gain creators and pain relievers on the value map. Some of the gains/pains
+of the institute, along with their creators/relievers are as follows:
+
+\begin{itemize}
+  \item Gain: makes the walkway more interesting
+        (by showing visualisations to passersby)
+  \item Pain: requires a large amount of visualisations
+        (relieved by inviting users to submit visualisations)
+  \item Gain: creates income opportunities
+        (by showing adverts)
+  \item Pain: attracts inappropriate submissions from users
+        (relieved through admin moderation)
+\end{itemize}
+
+
+The canvasses enables us to disregard features that deliver low or no value
+and make more reasonable assumptions about our stakeholders.
+
 \begin{figure}[H]
    \begin{center}
-      \includegraphics[width = 0.99\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./evaluation/value_prop_canvas.jpg}
+      \includegraphics[width = 0.9\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./evaluation/value_prop_canvas.jpg}
    \end{center}
    \caption{Value proposition canvas for our client (Imperial Data
             Science Institute).}
@@ -92,12 +131,14 @@ these and did not modify them.
 
 
 \section{Task Management}
+%TODO
 In the coming weeks, we then clarified and expanded these requirements as 
 a group. This allowed us to discuss implementation and technical details
 of specific features.
 
 
-During development, we are constantly looking at the requirements for all of our stakeholders, which 
+During development, we are constantly looking at the requirements for 
+all of our stakeholders, which 
 we have stored in a shared document. In our weekly scrums, we have 
 presented the work we have done and discuss whether the project is on the 
 right track. In our discussions, David has refined how he wants our
@@ -138,7 +179,7 @@ routing, controller actions and parameters.
 
 \subsection{Story Splitting}
 While some of the requirements require only a few hours effort. We believe
-it would be highly unlikely to implement some of the features within an
+it would be highly unlikely to be able to implement some of the features within an
 iteration. In such cases we have splitted the features into multiple units and
 implement them in different iterations based on their priority.
 
@@ -191,25 +232,38 @@ Given the tight time constraints for the entire project, we agreed to collect
 user feedback as soon as the project commences. This ensures the team
 is building the right thing which our client needs.
 
+\subsection{UI mockups/ prototypes}
+A release cycle in our project generally takes the following form. Before
+ implementing a particular part of our project, we begin with creating
+ mockups (figure \ref{fig:mockup}). These are relatively quick to produce
+ and allow us to quickly think through the design of our project,
+ with being tied down to any implementation details which would affect
+ our thinking. After completion, we then show the mockups to the main
+ stakeholder in the project, our supervisor David, who gives us
+ feedback/changes. For example, he mentioned that it would be a good if we could 
+show the priorities associated with each visualisation in timeslot view, 
+even if the visualisation is not selected after viewing the mockups.
 
-\subsection{User interface mockups}
-A release cycle in our project generally takes the following form. Before implementing a particular part of our project, we begin with creating mockups (figure \ref{fig:mockup}). These are relatively quick to produce and allow us to quickly think through the design of our project, with being tied down to any implementation details which would affect our thinking. After completion, we then show the mockups to the main stakeholder in the project, our supervisor David, who gives us feedback/changes. Once a general design is settled on, within that week's sprint cycle, we complete the main implementation of the UI, but only do so up to the point of it being useful to show how it would be used. It is not yet interfacing with the backend, and hence small changes at this point are simple to do, with the following week's sprint cycle involving 'hooking' up this UI prototype and our backend.\\
+Once a general design is settled on, within that week's
+sprint cycle, we complete the main implementation of the UI, but only do 
+so up to the point of it being useful to show how it would be used. It is
+not yet interfacing with the backend, and hence small changes at this 
+point are simple to do, with the following week's sprint cycle involving
+'hooking' up this UI prototype and our backend.
 
-We also make sure that this prototype is in some way, seeded with some dummy/representative data, so that it is clear how each part of the project will operate in practice.\\
+We also make sure that this prototype is in some way, seeded with some
+dummy/representative data, so that it is clear how each part of the project
+will operate in practice.
 
-This way of working allows us to 'pivot' many times, and with minimal overhead of reimplementation, as it allows us to identify problems, or learn more about the issue we are trying to solve, before we write large volumes of code which may end up to be not useful. The fact that we have this lean approach also \textbf{encourages us} to pivot more often, as there is no reason not to do so.
-
-During a meeting with David, our supervisor, he mentioned after going 
-through the mockups that it would be a good if we could show the priorities
-associated with each visualisation in timeslot view, even if the visualisation
-is not selected.
-%TODO: consider moving the  
-We agreed as a group that this would be easy to implement, and assigned the 
-task to an appropriate group member on Trello.
+This way of working allows us to 'pivot' many times, and with minimal overhead
+of reimplementation, as it allows us to identify problems, or learn more about
+the issue we are trying to solve, before we write large volumes of code which
+may end up to be not useful. The fact that we have this lean approach also
+\textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
 \begin{figure}[H]
    \begin{center}
-      \includegraphics[width = \textwidth, trim = 0 0 0 0cm, clip]{./evaluation/mockup.png}
+      \includegraphics[width = 0.9\textwidth, trim = 0 0 0 0cm, clip]{./evaluation/mockup.png}
    \end{center}
    \caption{Mockups on User Interface}
    \label{fig:mockup}
@@ -255,9 +309,10 @@ we have changed the size of the ``show menu" button, as well as explored the eff
 of different link colours on user menu.
 
 We are planning to extend the user to test to cover more users, including staff
-and students who would potentially use the platform to submit and view visualisations, the second in our list of stakeholders.
+and students who would potentially use the platform to submit and 
+view visualisations, the second in our list of stakeholders.
 
-\section{Evaluation of Project}
+\section{Evaluation and Feedback}
 %How will we evaluate?
 As a group, we are constantly evaluating our project by testing after a 
 feature is implemented. We make use of both RSpec and manual testing. In 
