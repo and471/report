@@ -5,6 +5,10 @@
 *.log
 *.aux
 *.pdf
+*.lot
+*.lof
+*.toc
+
 
 # compressed files
 *.gz
