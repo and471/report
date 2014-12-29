@@ -1,4 +1,4 @@
-\documentclass[a4paper, titlepage]{article}
+﻿\documentclass[a4paper, titlepage]{article}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -51,28 +51,63 @@
 \newpage
 \pagenumbering{arabic}
 \section{Introduction}
+As part of the renovation of the William Penney Building on the Sherfield walkway, interactive screens are to be installed.
+Mounted inside the building, multile projectors will simultaneously display content onto floor to ceiling glass
+panels that are visible to passers-by. Also, an 84-inch 4K resolution touch screen is to be mounted by the entrance doors. 
+
+Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens.
+Administrators will also be able to use this system to moderate and schedule content to be displayed. Finally, we will be developing a playout system 
+to show the content on multiple screens in multiple resolutions.
+
 
 \subsection{Motivation}
+Web application + desktop application
+Can use previous experience
+Oppurtunity to learn new technologies
+
 
 \subsection{Objectives}
+Robust playout system, not like others around college!
+Intelligent scheduling
+Smooth interface
+Don't want to spend hours scheduling to the very last second
+Secure
+
 
 \subsubsection{Visualisation Submission}
+Done by any logged in user (external or college)
+Must be moderated after
+Can be an uploaded file or a visualisation hosted externally
 
 
 \subsubsection{Quality Control and Moderation}
+Don't want to be displaying inappropriate content
+Admins can approve or reject visualisations
+Rejected ones are deleted
 
 
 \subsubsection{``AppStore'' for Visualisation}
 
 
 \subsubsection{Scheduling \& Featuring of Visualisation Display}
+Use default visualisations
+Keep the screen moving at all times
+Handle multiple screens in multplie conigurations
+Render visualisations on backend
 
 
 \subsubsection{Video Walls Playout Software}
-
+Written in Python
+Secure and Robust
+Will run on dedicated Windows machine
+Cross platform for future use
 
 
 \subsection{Achievements}
+New techmologies learnt
+Adjust to an Agile way of working
+Manage time with exams and other courses
+
 
 \newpage
 \section{Project Management}
@@ -251,21 +286,53 @@ To deploy the webserver, David has provided us with a Linux VM with root access.
 
 
 \subsubsection{Version Control}
+Everyone with experience in git
+Again cross platform
+Commit messages used in conjunction with communicating to each other
+Short branch life for features
+Master release branch
+
 
 \subsubsection{Unified Development Envorinment}
+Docker to reproduce dev environment
+Work on own vms in cloudstack within docker container
+Good for testing features away from master
+
 
 \subsubsection{Test-driven Development}
 
+
 \subsubsection{Continuous Integration \& Build Promotion}
+Jenkins installed on a release vm
+Tests code every time we push to master by pulling it
+Tells us quickly if something is wrong
 
 
 \newpage
 \section{Design and Implementation}
+BE: 
+  ruby on rails (changed from flask as we were getting stuck - consulted with David)
+  gems for features - devise, token authentication, carrierwave
+  rails deals with db nicely
+  ruby for scheduling algorithm - translated from Java
+  
+FE: 
+  angular for one-page smooth application
+  google material design guidelines
+
+PO: 
+  python and gtk (?)
+  cross platform for Windows + Linux
+  make use of thrreading module for timers
+  web kits
+
 
 \newpage
 \section{Evaluation}
 
 \subsection{Stakeholder Relationships}
+Between us and David, constant communication and feedback every week
+
 
 \subsubsection{Stakeholders}
 
@@ -493,6 +560,8 @@ The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress"
 \section{Conclusion}
 
 \subsection{Future Extensions}
+
+
 
 
 % -- Appendix
