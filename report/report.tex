@@ -285,43 +285,13 @@ We chose to incorporate this into our way of working, as one of the team members
   \label{fig:trello}
 \end{figure}
 
-
-
-\newpage
-\section{Design and Implementation}
-
-During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
-
-As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
-
-For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
-
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
-
-BE: 
-  ruby on rails (changed from flask as we were getting stuck - consulted with David)
-  gems for features - devise, token authentication, carrierwave
-  rails deals with db nicely
-  ruby for scheduling algorithm - translated from Java
-  
-FE: 
-  angular for one-page smooth application
-  google material design guidelines
-
-PO: 
-  python and gtk (?)
-  cross platform for Windows + Linux
-  make use of thrreading module for timers
-  web kits
-
-
 \subsection{Development Tools}
 
 \begin{figure}[ht]
   \centering
-    \includegraphics[width = 0.99\textwidth]{./impl/devtools.pdf}
+    \includegraphics[width = 0.99\textwidth]{./projman/devtools.pdf}
   \caption{Development methods and tools utilised in project.}
-  \label{fig:impl_devtools}
+  \label{fig:projman_devtools}
 \end{figure}
 
 
@@ -354,6 +324,36 @@ Tells us quickly if something is wrong
 
 
 To deploy the webserver, David has provided us with a Linux VM with root access. Setting up this VM will simply be a case of running our existing scripts with Docker. The playout software will be run on a dedicated computer hooked up to the four projectors, which will be provided by David. 
+
+\newpage
+\section{Design and Implementation}
+
+During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
+
+As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
+
+For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
+
+We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
+
+BE: 
+  ruby on rails (changed from flask as we were getting stuck - consulted with David)
+  gems for features - devise, token authentication, carrierwave
+  rails deals with db nicely
+  ruby for scheduling algorithm - translated from Java
+  
+FE: 
+  angular for one-page smooth application
+  google material design guidelines
+
+PO: 
+  python and gtk (?)
+  cross platform for Windows + Linux
+  make use of thrreading module for timers
+  web kits
+
+
+
 
 \newpage
 \section{Evaluation}
