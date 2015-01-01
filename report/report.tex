@@ -112,7 +112,9 @@ Manage time with exams and other courses
 \newpage
 \section{Project Management}
 
-\subsection{Task Estimation}
+\subsection{Task Estimation \& Planning}
+
+\subsubsection{Practical Constraints}
 The group is acutely aware that with Computing examinations being held at the
 end of term, we could only practically carry out development work until the
 first week of December. Furthermore, commitments in other courses mean that 
@@ -122,54 +124,62 @@ the project. As a group, we have allowed some leeway for each task in case we ru
 In light of these constraints, we have decided to commit to the following:
 \begin{enumerate}
   \item \textbf{To maintain a one-week iteration}: this allows the development team to
-        obtain maximum possible feedback from the client/supervisor.
+        obtain maximum possible feedback from our supervisor, who act as our client.
   \item \textbf{To strictly adhere to the original project scope}: while we believe the
         current scope is manageable, we would reject time-consuming items which
-        are out of scope before a minimal working system is implemented.
+        are out of scope before a minimal working system, as mentioned in section ??, is implemented.
 \end{enumerate}
 
+\subsubsection{Release \& Iteration Plans}
 
 \begin{figure}[h]
   \centering
-%    \includegraphics[width = 0.99\textwidth]{./planning/timeline.jpg}
-   
+    \includegraphics[width = 0.99\textwidth]{./projman/timeline.jpg}
   \caption{Project plan with timeline}
-  \label{fig:timeline}
+  \label{fig:projman_timeline}
 \end{figure}
 
 
-\begin{table}[h]
-  \begin{tabular}{c | c | c | c }
-    \textbf{Academic Week} & 3 \& 4 (ending 30/10) & 5 (ending 6/11) \\
-    \textbf{Iteration/Sprint} & 1 & 2 \\ \hline
-    \textbf{Tasks} & Front-page + grid view (FE) & Access request for externals \\
-          & Docker Setup (BE)           & Visualisation submission \\
-          & Hello-world server (Flask) (BE) & \\
-          & MongoDB Setup + Integration (BE) & \\
-          & Jenkins Setup at Production VM (BE) & \\
-          & Internal Kerberos Login (BE) & \\
-  \end{tabular}
-
-  \vspace{30pt}
-  \begin{tabular}{c | c | c | c }
-    \textbf{Academic Week} & 6 (ending 13/11) & 7 (ending 20/11) & 8 \& 9 (ending 4/12) \\
-    \textbf{Iteration/Sprint} & 3 & 4 & 5 \& 6 \\ \hline
-    \textbf{Tasks} & Comment/view existing visualisations & Scheduling &  Playout \\
-          & Admin moderation/ approval &  \\
-  \end{tabular}
-  \caption{Project timeline}
-  \label{table:timeline}
-\end{table}
-
-
-The resultant plan and timeline shown in figure \ref{fig:timeline} and table
-\ref{table:timeline} is a
-combination of the plan for next iteration and the release plan, taking account
-of the current project scope. Each post-it note either represents a 
+Taking account of the current project scope, the resultant plan and timeline shown in figure 
+\ref{fig:projman_timeline} is a
+combination of the plan for next iteration and the release plan, further elaborated in tables 
+\ref{tab:projman_rplan} and \ref{tab:projman_iplan}. Each post-it note either represents a 
 concrete task to be completed during the next iteration (towards the left), or
 high level themes to be implemented (towards the right). Each line segment at
 the bottom represents an iteration ending on Thursday, when the development
 team will meet with the client.
+
+\begin{table}[h]
+  \begin{center}
+  \begin{tabular}{c | c | c}
+     \textbf{Academic Week (ending date)} & \textbf{Iteration/Sprint} & \textbf{Feature to Release} \\ \hline
+     3 \& 4 (30 Oct) & 1 & Infrastructure setup \\
+      & & Internal login \\
+     5 (6 Nov) & 2 & Access request for externals \\
+      & & Visualisation submission \\
+     6 (13 Nov) & 3 & Comment/view existing visualisation \\
+      & & Admin moderation/ approval \\
+     7 (20 Nov) & 4 & Scheduling \\
+     8 \& 9 (4 Dec) & 5 \& 6 & Playout \\
+  \end{tabular}
+  \end{center}
+  \caption{Release plan}
+  \label{tab:projman_rplan}
+\end{table}
+
+\begin{table}[h]
+  \begin{tabular}{c | c | c | c }
+    \textbf{Iteration} & 1 & 2 & 3 \\ \hline
+   \textbf{Tasks} & Front-page \& Grid view & Individual vis$^\textrm{n}$ page template & View/controller hookup\\
+      & Docker setup & Configure uploading library & (existing visualisations)\\
+      & Hello-world server & Models \& RESTful APIs& Moderation (controller actions)\\
+      & Jenkins setup & (for users and visualisations)& Default vis$^\textrm{n}$ seeding\\
+      & Kerberos login& Vis$^\textrm{n}$ BG colour extraction & Model extension (comments)\\
+      & ... & ... & ...
+  \end{tabular}
+  \caption{Tasks to be completed for each iteration (partial)}
+  \label{tab:projman_iplan}
+\end{table}
 
 
 Estimates on time required for the tasks were based on their relative size and
@@ -182,28 +192,42 @@ system (size L) and the entire playout system (size XL) would take us one and
 two iteration(s) respectively.
 
 
-\subsection{Group organisation} \label{sec:projman_group}
+\subsection{Group Organisation} \label{sec:projman_group}
+
+\subsubsection{Team Formation}
 After we established the requirements of the project, each group member stated
 which part of the project they would like to work on. We found that there was a
-good split of two people that wanted to work on the frontend, two on the backend
-server code, and two on the database.
+good split of two people (Andrew \& Emma) that wanted to work on the frontend,
+two (Thomas \& Timothy) on the backend server code, and two (Bryan \& Jia Guang)
+focusing on database and scheduling.
 
 Although this is a good split to initiate work, we realised that the frontend 
 aspect of the project may require more work approaching later iterations.
-In addition, we  expect that the server code and database should be fully 
+In addition, we expect that the server code and database should be fully 
 implemented within the first four iterations, only requiring minor fixes thereafter.
 
 Therefore, we decided that two people from the backend would move on to creating
 the playout software on the dedicated computers; one person would help with the
 frontend and the remaining person would apply small fixes and refactors to the
-existing server/database code. 
+existing server/database code.
 
-We also asked each group member if there were any specific technologies they would like to use, as we realise this project should also be an opportunity to explore new technologies. After collating these, the member who suggested a technology was then tasked with researching more about it, and finding out if it met the requirements of the project.
+\subsubsection{Team Coordination}
+% TODO: Chatley: Think about how to synchronise FE and BE work, what if one gets ahead/behind?
 
 
-\subsection{Development Process}
+\subsubsection{Preference on Technologies}
+We also asked each group member if there were any specific technologies they 
+would like to use, as we realise this project should also be an opportunity to explore new
+technologies. After collating these, the member who suggested a technology was then 
+tasked with researching more about it, and finding out if it met the requirements of the project.
+The member will also be responsible to implement the features with the technology should it be
+deemed fit.
+
+
+
+\subsection{Development Methods} \label{sec:projman_devprocess}
 The team has agreed to adopt a mixture of agile development methodologies to
-sure our practical need.
+ensure our practical need and assist the group's working flow.
 
 \subsubsection{General Project Management}
 
@@ -212,104 +236,68 @@ following characteristics:
 \begin{itemize}
   \item \textbf{Roles}: We see Dr. David Birch, our supervisor, as the \textit{Product Owner}
         who provide ideas and feedback for the development. At the same time,
-        the team have agreed that Andrew and Bryan should assume the role of
-        \textit{Scrum Masters} to facilitate work for the front end and back end respectively.
+        the team have agreed that Andrew should assume the role of
+        \textit{Scrum Masters} to facilitate work.
   \item \textbf{Ceremonies}: Upon the initial meeting, we have established a
         meeting with David each Thursday to review our previous sprint 
         and plan our next sprint. We are to hold a development team
-        meeting every Monday (figure \ref{fig:scrum}) to update each other 
+        meeting every Monday (figure \ref{fig:projman_scrum}) to update each other 
         on our progress and review work done in past sprints.
   \item \textbf{Artefacts}: We keep our product backlog and iteration backlog on
         Trello as part of our project tracking mechanism (more details
-        available in the later part of section).
+        available in section \ref{sec:projman_tracking}).
 \end{itemize}
 
 
 \begin{figure}[ht]
   \centering
-%    \includegraphics[width = 0.99\textwidth]{./planning/scrum.jpg}
-   
+    \includegraphics[width = 0.99\textwidth]{./projman/scrum.jpg}
   \caption{Half-weekly ``scrum'' (development team meeting).}
-  \label{fig:scrum}
+  \label{fig:projman_scrum}
 \end{figure}
 
 \subsubsection{Technical Practices}
 
 We also integrate a few technical practices inspired by Extreme Programming:
 \begin{itemize}
-  \item \textbf{Pair Programming}: as mentioned in section \ref{sec:projman_group}, we sorted
+  \item \textbf{Pair Programming}: As mentioned in section \ref{sec:projman_group}, we sorted
         ourselves into three pairs, focusing on frontend (FE), backend (BE) and database (DB) work.
         Such a practice allows continuous development on all divisions without
         being affected by instances in which a member is required to temporarily shift his or her
-        focus from the project to other coursework/tests.
-  \item \textbf{Test-driven Development}: during development, we will constantly be writing small tests to make sure individual features are working as expected before we move on to the next feature.
+        focus from the project to other coursework/tests. All members are open to team
+        with different members for different tasks, though it turned out members have similar
+        preference and usually end up in the same pairs for different tasks.
+  \item \textbf{Test-driven Development}: During development, we always write unit and system tests prior to conducting the actual implementation. This ensures individual features are working as expected before we move on to the next feature.
 
 \end{itemize} 
 
-\subsubsection{Project Tracking}
+\subsubsection{Project Tracking} \label{sec:projman_tracking}
 
 Finally, to keep track on the group's progress, we use an electronic task
-board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room. This development process is a feature of the Kanban methodology.
+board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room.
 
-We chose to incorporate this into our way of working, as one of the team members, Andrew, had worked with Kanban previously, and found it very useful to visualise the work being done on a project.
+We chose to incorporate this into our way of working, as one of the team members, Andrew, had been involved in projects using Trello, and found it very useful to visualise the work being done on a project.
 
 \begin{figure}[ht]
   \centering
-%    \includegraphics[width = 0.99\textwidth]{./planning/trello.jpg}
-   
+    \includegraphics[width = 0.99\textwidth]{./projman/trello.jpg}
   \caption{Using Trello to keep track of progress.}
   \label{fig:trello}
 \end{figure}
 
-\subsection{Development Tools}
 
-\begin{figure}[ht]
-  \centering
-%    \includegraphics[width = 0.99\textwidth]{./planning/trello.jpg}
-   
-  \caption{Development methods and tools utilised in project.}
-  \label{fig:trello}
-\end{figure}
+
+\newpage
+\section{Design and Implementation}
+
 During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
 
 As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
 
 For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
 
-After a lecture on deployment techniques, the group decided to use Docker. In a group project last year, the backend team had to wait if the frontend was broken to see if particular feature was working. Using Docker and extra virtual machines (created on the department's cloudstack), we can have a separate machine for each feature while it is in development, and have multiple copies of the web server running. Docker allows us to quickly set up the virtual machines via a script, installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, Docker will save us a lot of time later. 
-
 We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
 
-As usual, all of our code (including the Docker scripts) will be stored in a group git repository. As a group, we have decided to use branches with a short lifetime. Each minor feature will be implemented on it's own branch, with the master (or trunk) branch used for merging in features only. Merging will take place after the feature is tested on its own branch and VM. 
-
-To deploy the webserver, David has provided us with a Linux VM with root access. Setting up this VM will simply be a case of running our existing scripts with Docker. The playout software will be run on a dedicated computer hooked up to the four projectors, which will be provided by David. 
-
-
-\subsubsection{Version Control}
-Everyone with experience in git
-Again cross platform
-Commit messages used in conjunction with communicating to each other
-Short branch life for features
-Master release branch
-
-
-\subsubsection{Unified Development Envorinment}
-Docker to reproduce dev environment
-Work on own vms in cloudstack within docker container
-Good for testing features away from master
-
-
-\subsubsection{Test-driven Development}
-
-
-\subsubsection{Continuous Integration \& Build Promotion}
-Jenkins installed on a release vm
-Tests code every time we push to master by pulling it
-Tells us quickly if something is wrong
-
-
-\newpage
-\section{Design and Implementation}
 BE: 
   ruby on rails (changed from flask as we were getting stuck - consulted with David)
   gems for features - devise, token authentication, carrierwave
@@ -326,6 +314,46 @@ PO:
   make use of thrreading module for timers
   web kits
 
+
+\subsection{Development Tools}
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./impl/devtools.pdf}
+  \caption{Development methods and tools utilised in project.}
+  \label{fig:impl_devtools}
+\end{figure}
+
+
+
+\subsubsection{Unified Development Envorinment}
+Docker to reproduce dev environment
+Work on own vms in cloudstack within docker container
+Good for testing features away from master
+
+
+After a lecture on deployment techniques, the group decided to use Docker. In a group project last year, the backend team had to wait if the frontend was broken to see if particular feature was working. Using Docker and extra virtual machines (created on the department's cloudstack), we can have a separate machine for each feature while it is in development, and have multiple copies of the web server running. Docker allows us to quickly set up the virtual machines via a script, installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, Docker will save us a lot of time later. 
+
+\subsubsection{Version Control}
+Everyone with experience in git
+Again cross platform
+Commit messages used in conjunction with communicating to each other
+Short branch life for features
+Master release branch
+
+As usual, all of our code (including the Docker scripts) will be stored in a group git repository. As a group, we have decided to use branches with a short lifetime. Each minor feature will be implemented on it's own branch, with the master (or trunk) branch used for merging in features only. Merging will take place after the feature is tested on its own branch and VM. 
+
+\subsubsection{Test-driven Development}
+
+
+\subsubsection{Continuous Integration \& Build Promotion}
+Jenkins installed on a release vm
+Tests code every time we push to master by pulling it
+Tells us quickly if something is wrong
+
+
+
+To deploy the webserver, David has provided us with a Linux VM with root access. Setting up this VM will simply be a case of running our existing scripts with Docker. The playout software will be run on a dedicated computer hooked up to the four projectors, which will be provided by David. 
 
 \newpage
 \section{Evaluation}
