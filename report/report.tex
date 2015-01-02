@@ -18,7 +18,8 @@
 \textit{\large Commissioned by Imperial Data Science Institute}}
 
 \author{Andrew Higginson\\ Bryan Liu \\ Emma Hulme \\ Jia Guang Choo \\
-        Thomas Taylor-Hall \\ Timothy van Bremen \\\\ \textit{Supervised by:} \\
+        Thomas Taylor-Hall \\ Timothy van Bremen \\\\ 
+        Department of Computing \\ Imperial College London \\\\ \textit{Supervised by:} \\
         Prof. Yi-ke Guo \\ Dr. David Birch}
 
 \date{January 2015}
@@ -87,7 +88,8 @@ Rejected ones are deleted
 
 
 \subsubsection{``AppStore'' for Visualisation}
-
+% Online website / app store to display visualisations
+% View/ comment/like; top/new visualisations
 
 \subsubsection{Scheduling \& Featuring of Visualisation Display}
 Use default visualisations
@@ -251,7 +253,7 @@ following characteristics:
 
 \begin{figure}[ht]
   \centering
-    \includegraphics[width = 0.99\textwidth]{./projman/scrum.jpg}
+    \includegraphics[width = 0.99\textwidth, trim= 0 0 0 3cm, clip]{./projman/scrum.jpg}
   \caption{Half-weekly ``scrum'' (development team meeting).}
   \label{fig:projman_scrum}
 \end{figure}
@@ -286,6 +288,9 @@ We chose to incorporate this into our way of working, as one of the team members
 \end{figure}
 
 \subsection{Development Tools}
+We have also employed a variety of tools in parallel of our technologies used
+in main implementation, illustrated in figure \ref{fig:projman_devtools}, to
+enhance our performance.
 
 \begin{figure}[ht]
   \centering
@@ -296,25 +301,50 @@ We chose to incorporate this into our way of working, as one of the team members
 
 
 
-\subsubsection{Unified Development Envorinment}
-Docker to reproduce dev environment
-Work on own vms in cloudstack within docker container
-Good for testing features away from master
+\subsubsection{Unified Development Envorinment} \label{sec:projman_devenv}
+%Docker to reproduce dev environment
+%Work on own vms in cloudstack within docker container
+% Good for testing features away from master
 
+% VM
+% Docker
 
-After a lecture on deployment techniques, the group decided to use Docker. In a group project last year, the backend team had to wait if the frontend was broken to see if particular feature was working. Using Docker and extra virtual machines (created on the department's cloudstack), we can have a separate machine for each feature while it is in development, and have multiple copies of the web server running. Docker allows us to quickly set up the virtual machines via a script, installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, Docker will save us a lot of time later. 
+In a group project last year, the backend team had to wait to see if the frontend was broken to ensure a 
+particular feature was working. Utilising the newly available CloudStack from the department,
+we are able to create a number of virtual machines (VMs) for each feature while it is in development,
+and have multiple copies of the web server running from each VM respectively.
+
+While the VM comes nearly for free, they might come with slightly different specification,
+which might cause discrepancies further into development. After a lecture on deployment techniques, the group decided to use Docker. Docker allows us to quickly set up standardised VMs (containers), installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, it proves that Docker saved us a lot of time.
+
+To further speed up development process, we have also written a number of automated scripts
+to build Docker images (templace for a container VM), as well as starting and stopping the
+webserver when called.
 
 \subsubsection{Version Control}
-Everyone with experience in git
-Again cross platform
-Commit messages used in conjunction with communicating to each other
-Short branch life for features
-Master release branch
+The team has decided to continue using Git as our version control system, as all of us have had
+at least two years of relevant experience from previous projects and laboratory work. Furthermore,
+Git is supported by multiple OS platforms with minimal configuration (e.g. end-of-line CRLF/ LF conversions),
+allowing one to continue their work should a linux machine, for example, is not available.
 
-As usual, all of our code (including the Docker scripts) will be stored in a group git repository. As a group, we have decided to use branches with a short lifetime. Each minor feature will be implemented on it's own branch, with the master (or trunk) branch used for merging in features only. Merging will take place after the feature is tested on its own branch and VM. 
+As usual, all of our code (including the scripts mentioned in \ref{sec:projman_devenv}) 
+are stored in a group git repository. Instead of naming branches under team members'
+name and working under it individually for the entire project span, we have decided to use branches with a short lifetime.
+Each minor feature is implemented on it's own branch, and the master branch is only used for merging in features for release
+after being tested locally on its own branch and associated local VM (see section \ref{sec:projman_tdd}).
+Such practice makes it easier for different team members, under pair programming, to work on the same feature,
+while making it easier for the team to backtrack should any problem arise.
 
-\subsubsection{Test-driven Development}
+Moreover, with meaningful yet concise commit messages, we can effectively
+communicate with each other what we have done along with updating our task-board
+on Trello and sending messages on Facebook Messenger.
 
+
+\subsubsection{Test-driven Development} \label{sec:projman_tdd}
+
+% RSpec - Nice integration with RoR
+% Failed test - imp - passed test - (refactor) cycle
+% Another automated script to run all test in seperate Docker container
 
 \subsubsection{Continuous Integration \& Build Promotion}
 Jenkins installed on a release vm
@@ -328,13 +358,34 @@ To deploy the webserver, David has provided us with a Linux VM with root access.
 \newpage
 \section{Design and Implementation}
 
+
+
+
+We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
+
+\subsection{Implementation Tools}
+
+\subsubsection{Front-end: }
+% Andrew: please add section headings as appropriate
+
+FE: 
+  angular for one-page smooth application
+  google material design guidelines
+
+For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
+
+
+\subsubsection{Back-end: Initial Attempt - Flask (Python) \& MongoDB}
+
 During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
 
 As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
 
-For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
+% Advantage of MongoDB - fast read, scalable, JS-like (easy FE adaptation)
 
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
+% Problems - broken kerberos adapter, 
+
+\subsubsection{Back-end: Finalised Use - Ruby on Rails}
 
 BE: 
   ruby on rails (changed from flask as we were getting stuck - consulted with David)
@@ -342,9 +393,8 @@ BE:
   rails deals with db nicely
   ruby for scheduling algorithm - translated from Java
   
-FE: 
-  angular for one-page smooth application
-  google material design guidelines
+
+\subsubsection{Playout Software: }
 
 PO: 
   python and gtk (?)
@@ -352,6 +402,52 @@ PO:
   make use of thrreading module for timers
   web kits
 
+
+\subsection{AppStore Design}
+
+% Feel free to add more subsubsections!
+
+\subsubsection{Architecture}
+
+% Diagram on system architecture, showing RESTful API, HTML gets and playout software gets
+% RoR enforces MVC architectural pattern
+
+\subsubsection{Models}
+
+% Diagram for model relationship
+% 1 or 2 paragraphs for each model - what it represents/does, relate to the objectives in section 1
+
+
+\subsubsection{Controller Actions}
+
+% Briefly describe controller actions which requires routing, etc. - what it does 
+
+% Andrew: is it worth to write a view section?
+% \subsubsection{Views}
+
+
+\subsubsection{Scheduling Library}
+
+% Jackie: Brief mention of the library and the functions (high-level)
+% Tom: Description on middle-man
+
+\subsubsection{Playout Software}
+
+% Working mechanism - how it grabs visualisation, rendering, QR...
+
+
+
+\subsection{Technical Challenges \& Risks}
+
+% TODO: Any technical challenges encountered and how addressed?
+% TODO: Any risks anticipated, and how mitigated
+% Please feel free to introduce subsections
+
+\subsubsection{From Java Scheduling to Ruby Scheduling}
+% Translation on scheduling from Java to Ruby
+
+
+\subsubsection{Security}
 
 
 
