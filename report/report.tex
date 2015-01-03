@@ -67,7 +67,7 @@ Can use previous experience
 Oppurtunity to learn new technologies
 
 
-\subsection{Objectives}
+\subsection{Objectives} \label{sec:intro_objectives}
 
 \begin{figure}[h]
   \centering
@@ -387,11 +387,6 @@ it resolved as soon as possible.
 \newpage
 \section{Design and Implementation}
 
-
-
-
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
-
 \subsection{Implementation Tools}
 
 \subsubsection{Front-end: }
@@ -425,6 +420,8 @@ BE:
 
 \subsubsection{Playout Software: }
 
+We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
+
 PO: 
   python and gtk (?)
   cross platform for Windows + Linux
@@ -438,13 +435,39 @@ PO:
 
 \subsubsection{Architecture}
 
+\begin{figure}[ht]
+  \centering
+%    \includegraphics[width = 0.99\textwidth]{./impl/architecture.jpg}
+  \caption{System architecture for the AppStore}
+  \label{fig:impl_models}
+\end{figure}
+
 % Diagram on system architecture, showing RESTful API, HTML gets and playout software gets
 % RoR enforces MVC architectural pattern
 
 \subsubsection{Models}
 
+\begin{figure}[ht]
+  \centering
+%    \includegraphics[width = 0.99\textwidth]{./impl/models.jpg}
+  \caption{Models of entities and resources in system and their relationship}
+  \label{fig:impl_models}
+\end{figure}
+
 % Diagram for model relationship
 % 1 or 2 paragraphs for each model - what it represents/does, relate to the objectives in section 1
+
+A \textbf{user} ...
+
+A \textbf{visualisation} ...
+
+A \textbf{comment} ...
+
+A \textbf{programme} ...
+
+A \textbf{timeslot} ...
+
+A \textbf{playout session} ...
 
 
 \subsubsection{Controller Actions}
@@ -475,6 +498,18 @@ PO:
 \subsubsection{From Java Scheduling to Ruby Scheduling}
 % Translation on scheduling from Java to Ruby
 
+\begin{figure}[ht]
+  \begin{minipage}{0.49\textwidth}
+%    \includegraphics[width = 0.99\textwidth]{./impl/java_scheduling.jpg}
+  \end{minipage}
+  \begin{minipage}{0.49\textwidth}
+%    \includegraphics[width = 0.99\textwidth]{./impl/ruby_scheduling.jpg}
+  \end{minipage}
+    
+  \caption{Implementing scheduling libarary in Java (left) and translation to Ruby (right)}
+  \label{fig:impl_translation}
+\end{figure}
+
 
 \subsubsection{Security}
 
@@ -497,19 +532,19 @@ Our last group of stakeholders are those who see the visualisations being played
 
 \subsubsection{Customer relationship}
 
-Where customer relationships are concerned, we see our most important stakeholder, our supervisor, David, as somewhere between an internal and external customer, whom we hold weekly meetings and exchange emails frequently with but not contact in person daily. During weekly meetings, we explain the features that are in progress/to be done over the next week, so that David is always kept in the loop (Figure \ref{fig:meetingboard}).
+Where customer relationships are concerned, we see our most important stakeholder, our supervisor, David, as somewhere between an internal and external customer, whom we hold weekly meetings and exchange emails frequently with but not contact in person daily. During weekly meetings, we explain the features that are in progress/to be done over the next week, so that David is always kept in the loop (Figure \ref{fig:eval_meetingboard}).
 
 We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also to ensure that discussions were not biased towards any kind of implementation, allowing us to fit our implementation around the best ideas, and not the other way around.
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \begin{minipage}{0.49\textwidth}
-    %\includegraphics[width = \textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./evaluation/meeting-board2.jpg}
+    \includegraphics[width = \textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./eval/meeting-board2.jpg}
   \end{minipage}
   \begin{minipage}{0.49\textwidth}
-    %\includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./evaluation/meeting-board.jpg}
+    \includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./eval/meeting-board.jpg}
   \end{minipage}
   \caption{Meeting notes with group progress and feedback from David (our supervisor) after sprint cycles 2 (left) and 4 (right).}
-  \label{fig:meetingboard}
+  \label{fig:eval_meetingboard}
 \end{figure}
 
 Furthermore, with the aid of Jenkins, we are able to give the address of our ``release VM'' to David, where he can see the latest working version of the project. From this, David can constantly evaluate and provide feedback on our project features through all stages of development.
@@ -549,13 +584,6 @@ requirements including:
 
 \end{itemize}
 
-\begin{figure}[H]
-  \centering
-    %\includegraphics[width = 0.9\textwidth, trim = 0 15cm 0 5cm, clip]{./evaluation/specs.png}
-  \caption{Initial specifications (partial) on shared repository.}
-  \label{fig:specs}
-\end{figure}
-
 In the following weeks, we then clarified and expanded on these requirements as a group. This allowed us to discuss the implementation and technical details of specific features.
 
 \subsubsection{Value Proposition}
@@ -572,34 +600,34 @@ We also further clarified our understanding of stakeholders and how our system c
 
   \item Pain: Attracts inappropriate submissions from users (relieved through admin moderation)
 
+  % Put the 3rd pair of gain/pain in
+
 \end{itemize}
 
 The canvasses enable us to disregard features that deliver low or no value, and make more reasonable assumptions about our stakeholders. We believe that the latter has resulted in fewer problems for us when we began our product validation, detailed in Section \ref{sec:validation}.
 
-\begin{figure}[H]
+\begin{figure}[ht]
    \begin{center}
-      %\includegraphics[width = 0.9\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./evaluation/value_prop_canvas.jpg}
+      \includegraphics[width = 0.9\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./eval/value_prop_canvas.jpg}
    \end{center}
    \caption{Value proposition canvas for our client (Imperial Data Science Institute).}
-   \label{fig:valpropcanvas}
+   \label{fig:eval_valpropcanvas}
 \end{figure}
 
 \subsection{Task Management}
-%TODO: if required to expand
-
 During development, we constantly looked at the requirements from all of our stakeholders, which we stored in a shared document. In our weekly scrums, we presented the work that we have done to one another and discussed whether the project is on the right track.
 
 We prioritised tasks on our Trello board using different columns. In addition, we constantly communicated both face-to-face and online, to make sure that group members are implementing assigned tasks at the right times. We also used the Trello board actively to update the rest of the group when tasks have been completed, hence saving us the trouble of constantly asking the rest of the group or looking at code to find out if a feature has already been implemented. When appropriate, group members working on the backend used an internal wiki on Gitlab to provide information about routing, controller actions, and parameters. 
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \begin{minipage}{0.49\textwidth}
-    %\includegraphics[width = \textwidth]{./evaluation/trello-columns.png}
+    \includegraphics[width = \textwidth]{./eval/trello-columns.png}
   \end{minipage}
   \begin{minipage}{0.49\textwidth}
-    %\includegraphics[width = \textwidth]{./evaluation/trello-due-date.png}
+    \includegraphics[width = \textwidth]{./eval/trello-due-date.png}
   \end{minipage}
   \caption{Priority columns on our Trello board (left); \\Setting a due date for a particular task (right).}
-  \label{fig:trello}
+  \label{fig:eval_trello}
 \end{figure}
 
 \subsubsection{Story Splitting}
@@ -631,25 +659,25 @@ While we planned to implement the playout system only in iterations 5 and 6 (the
 
 However, not all spikes bring good news - investigation on Kerberos login libraries has revealed that the adapter for Flask (with Python) is actually broken, forcing us to scrap the entire implementation. Nonetheless, the spike allowed us to switch our choice of development language early and avoid incurring high costs further into development.
 
-\subsection{Building the right thing - Assumption Validation} \label{sec:validation}
+\subsection{Building the right thing - Assumption Validation} \label{sec:eval_validation}
 
 Given the tight deadlines for the entire project, we agreed to collect
 user feedback as soon as the project commenced. This ensures that we are building the right product for our stakeholders.
 
-\subsubsection{UI mockups/ prototypes} \label{sec:uimockup}
+\subsubsection{UI mockups/ prototypes} \label{sec:eval_uimockup}
 
-Before implementing a particular part of our project, we begin with creating mockups (Figure \ref{fig:mockup}). These can be produced in a relatively short time, and allows us to quickly think through the design of our project, without being tied down to any implementation details. After completion, we show the mockups to the main stakeholder in the project i.e. our supervisor, who gives us feedback. For example, he mentioned that it will be a good idea to show the priorities associated with each visualisation in the timeslot views, even if the visualisation is not selected after viewing the mockups.
+Before implementing a particular part of our project, we begin with creating mockups (Figure \ref{fig:eval_mockup}). These can be produced in a relatively short time, and allows us to quickly think through the design of our project, without being tied down to any implementation details. After completion, we show the mockups to the main stakeholder in the project i.e. our supervisor, who gives us feedback. For example, he mentioned that it will be a good idea to show the priorities associated with each visualisation in the timeslot views, even if the visualisation is not selected after viewing the mockups.
 
 Once we have settled on a general design, we complete the main implementation of the UI within that week's sprint cycle, but only up to the point where we can see how it will be used. As it is not interacting with the backend at this point, small changes are easily implemented, with the following week's sprint cycle involving ``hooking'' up this UI prototype with our backend.
 
 We also made sure that this prototype is seeded with some dummy/representative data in some way, so that it is clear how each part of the project will operate in practice.
 
-\begin{figure}[H]
+\begin{figure}[ht]
    \begin{center}
-     % \includegraphics[width = 0.9\textwidth, trim = 0 0 0 0cm, clip]{./evaluation/mockup.png}
+      \includegraphics[width = 0.9\textwidth, trim = 0 0 0 0cm, clip]{./eval/mockup.png}
    \end{center}
    \caption{Mockups on User Interface}
-   \label{fig:mockup}
+   \label{fig:eval_mockup}
 \end{figure}
 
 \subsubsection{Requirements on intangible ideas}
@@ -658,15 +686,15 @@ Compared to UIs which users can see and feel, we believed that uncovering the cl
 
 Throughout these discussions, we uncovered several assumptions made by our supervisor, one of which is expecting the scheduling algorithm to ensure that playout time is directly proportional to metric set by administrators. In response, we have created additional unit tests to incorporate such requirements in our scheduling algorithm.
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \begin{minipage}{0.46\textwidth}
-     % \includegraphics[width = 0.99\textwidth, trim = 0 1cm 0 1.5cm, clip]{./evaluation/scheduling_whiteboard.jpg}
+      \includegraphics[width = 0.99\textwidth, trim = 0 1cm 0 1.5cm, clip]{./eval/scheduling_whiteboard.jpg}
   \end{minipage}
   \begin{minipage}{0.53\textwidth}
-     % \includegraphics[width = 0.99\textwidth]{./evaluation/scheduling_spec.png}
+      \includegraphics[width = 0.99\textwidth]{./eval/scheduling_spec.png}
   \end{minipage}
   \caption{Capturing scheduling requirements on whiteboard (left), \\ and subsequently via RSpec unit tests (right)}
- 
+  \label{fig:eval_scheduling}
 \end{figure}
 
 \subsubsection{User testing}
@@ -684,16 +712,17 @@ Even as we are able to evaluate the correctness of our project by unit and syste
 
 \subsubsection{Validated learning \& Pivoting}
 
-As mentioned in Section \ref{sec:validation}, obtaining feedback via mockups, prototypes with representative data and user testing allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
+As mentioned in Section \ref{sec:eval_validation}, obtaining feedback via mockups, prototypes with representative data and user testing allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
 \subsubsection{Project progress}
 	
-Quantitatively, we evaluated our project by tracking how fast we were ticking off our initial requirements. Using our Trello board and version control system, we can easily see by whom and at what time each feature has been implemented. By combining these with our estimates of the size of each task, we are able to analyse the group's performance via a Cumulative Flow Diagram (Figure \ref{fig:cumuflow}).
+Quantitatively, we evaluated our project by tracking how fast we were ticking off our initial requirements. Using our Trello board and version control system, we can easily see by whom and at what time each feature has been implemented. By combining these with our estimates of the size of each task, we are able to analyse the group's performance via a Cumulative Flow Diagram (Figure \ref{fig:eval_cumuflow}).
 
-\begin{figure}[H]
-  %\includegraphics[width = 0.99\textwidth]{./evaluation/cumu_flow.png}
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./eval/cumu_flow.png}
   \caption{Cumulative flow diagram for our team based on tasks' status}
-  \label{fig:cumuflow}
+  \label{fig:eval_cumuflow}
 \end{figure}
 
 The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress" and ``Done", where each task carries a story point based on their size estimate. From the diagram, we can make the following observations:
@@ -715,7 +744,9 @@ The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress"
 \subsection{Future Extensions}
 
 
-
+% ======================================
+% ======================================
+% ======================================
 
 % -- Appendix
 \newpage
