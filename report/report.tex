@@ -68,6 +68,14 @@ Oppurtunity to learn new technologies
 
 
 \subsection{Objectives}
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width = 0.55\textwidth, trim = 0 0 0 1cm, clip]{./intro/userreq.jpg}
+  \caption{Initial project specification in a diagram}
+  \label{fig:intro_userreq}
+\end{figure}
+
 Robust playout system, not like others around college!
 Intelligent scheduling
 Smooth interface
@@ -276,7 +284,7 @@ We also integrate a few technical practices inspired by Extreme Programming:
 \subsubsection{Project Tracking} \label{sec:projman_tracking}
 
 Finally, to keep track on the group's progress, we use an electronic task
-board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we will constantly be communicating personally in labs, online via messaging services, and regular stand-ups in a meeting room.
+board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we were constantly communicating personally in labs, online via messaging services (mainly Facebook Messenger), and regular stand-ups in a meeting room.
 
 We chose to incorporate this into our way of working, as one of the team members, Andrew, had been involved in projects using Trello, and found it very useful to visualise the work being done on a project.
 
@@ -299,8 +307,6 @@ enhance our performance.
   \label{fig:projman_devtools}
 \end{figure}
 
-
-
 \subsubsection{Unified Development Envorinment} \label{sec:projman_devenv}
 %Docker to reproduce dev environment
 %Work on own vms in cloudstack within docker container
@@ -309,13 +315,14 @@ enhance our performance.
 % VM
 % Docker
 
-In a group project last year, the backend team had to wait to see if the frontend was broken to ensure a 
+In a group project last year, the backend team had to rely on frontend not in a broken state to ensure a 
 particular feature was working. Utilising the newly available CloudStack from the department,
 we are able to create a number of virtual machines (VMs) for each feature while it is in development,
 and have multiple copies of the web server running from each VM respectively.
 
 While the VM comes nearly for free, they might come with slightly different specification,
-which might cause discrepancies further into development. After a lecture on deployment techniques, the group decided to use Docker. Docker allows us to quickly set up standardised VMs (containers), installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, it proves that Docker saved us a lot of time.
+which might cause discrepancies further into development. After a lecture on deployment techniques, the group decided to use Docker. Docker allows us to quickly set up standardised VMs (containers), installing any dependencies we need automatically. Although it may be a steep learning curve at the start of our project, it proves that Docker saved us a lot of time, 
+for instance ensuring all supporting libraries exist in local VM.
 
 To further speed up development process, we have also written a number of automated scripts
 to build Docker images (templace for a container VM), as well as starting and stopping the
@@ -328,12 +335,12 @@ Git is supported by multiple OS platforms with minimal configuration (e.g. end-o
 allowing one to continue their work should a linux machine, for example, is not available.
 
 As usual, all of our code (including the scripts mentioned in \ref{sec:projman_devenv}) 
-are stored in a group git repository. Instead of naming branches under team members'
+are stored in a group git repository on the department's GitLab server. Instead of naming branches under team members'
 name and working under it individually for the entire project span, we have decided to use branches with a short lifetime.
 Each minor feature is implemented on it's own branch, and the master branch is only used for merging in features for release
 after being tested locally on its own branch and associated local VM (see section \ref{sec:projman_tdd}).
-Such practice makes it easier for different team members, under pair programming, to work on the same feature,
-while making it easier for the team to backtrack should any problem arise.
+Such practice makes it easier for different team members, under pair programming, to work on the same feature.
+It also makes it easier for the team to backtrack and locate the bug should any problem arise by checking a small number of commits on that particular branch.
 
 Moreover, with meaningful yet concise commit messages, we can effectively
 communicate with each other what we have done along with updating our task-board
@@ -341,19 +348,41 @@ on Trello and sending messages on Facebook Messenger.
 
 
 \subsubsection{Test-driven Development} \label{sec:projman_tdd}
+With Ruby on Rails being our choice of implementation language (refer to section \ref{sec:impl_RoR}),
+RSpec is inevitably the obvious choice for testing server codes.
+While it is nicely integrated with Ruby on Rails, with test templates automatically
+generated along with new code segments (models and controllers);
+tests written with RSpec is highly human-readable and thus
+easing the difficulty in maintainence as the tests themselves are already
+decent documentation of our implementation.
+
+We also have an automated script to run all written tests in a seperate
+environment (Docker container) without affecting the webserver, minimising
+the disruption to the server's normal operation during development.
+
 
 % RSpec - Nice integration with RoR
 % Failed test - imp - passed test - (refactor) cycle
 % Another automated script to run all test in seperate Docker container
 
 \subsubsection{Continuous Integration \& Build Promotion}
-Jenkins installed on a release vm
-Tests code every time we push to master by pulling it
-Tells us quickly if something is wrong
+% Jenkins installed on a release vm
+% Tests code every time we push to master by pulling it
+% Tells us quickly if something is wrong
 
+While it is cumbersome to manually stop, test and restart the server
+everytime we implement a feature or provide a fix, we have
+included a Jenkins instance in our release virtual machine to automate
+the code integration and deployment process, allowing us to focus on
+development.
 
+Our Jenkins instance is equipped with a GitLab hook: upon any team member's
+commit towards the master branch of the project git repository, the hook would
+automatically execute a short script which pulls the updates, runs the tests
+on the updated code and integrates the updates. If something went wrong,
+Jenkins would notify us immediately and we could look at the issue and get
+it resolved as soon as possible.
 
-To deploy the webserver, David has provided us with a Linux VM with root access. Setting up this VM will simply be a case of running our existing scripts with Docker. The playout software will be run on a dedicated computer hooked up to the four projectors, which will be provided by David. 
 
 \newpage
 \section{Design and Implementation}
@@ -385,7 +414,7 @@ As Bryan and Jackie were more interested in the database side, they chose to use
 
 % Problems - broken kerberos adapter, 
 
-\subsubsection{Back-end: Finalised Use - Ruby on Rails}
+\subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
 
 BE: 
   ruby on rails (changed from flask as we were getting stuck - consulted with David)
@@ -569,7 +598,7 @@ We prioritised tasks on our Trello board using different columns. In addition, w
   \begin{minipage}{0.49\textwidth}
     %\includegraphics[width = \textwidth]{./evaluation/trello-due-date.png}
   \end{minipage}
-  \caption{Priority columns on our Trello board (left), and \\ setting a due date for a particular task (right).}
+  \caption{Priority columns on our Trello board (left); \\Setting a due date for a particular task (right).}
   \label{fig:trello}
 \end{figure}
 
