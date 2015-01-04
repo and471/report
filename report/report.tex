@@ -86,6 +86,10 @@ Finally, we were excited to be able to work on something that we may see and com
 
 \subsection{Objectives} \label{sec:intro_objectives}
 
+From the initial project specification, and discussion with our supervisor(s), we started to extract features/objectives we wanted to achieve. We then added these to our Kanban Board (see section \ref{sec:projman_devprocess}) so that throughout development, we had these high-level goals in mind. 
+
+These however did not remain completely static and would change/be added to, based on subsequent discussions with our supervisor(s), as we 'pivoted' towards the best solution.
+
 \begin{figure}[h]
   \centering
     \includegraphics[width = 0.55\textwidth, trim = 0 0 0 1cm, clip]{./intro/userreq.jpg}
@@ -93,44 +97,75 @@ Finally, we were excited to be able to work on something that we may see and com
   \label{fig:intro_userreq}
 \end{figure}
 
-Robust playout system, not like others around college!
-Intelligent scheduling
-Smooth interface
-Don't want to spend hours scheduling to the very last second
-Secure
+\subsubsection{Primary Objectives} \label{sec:primary_objectives}
+\begin{itemize}
+\item Users can view visualisations through a web interface
+\item Users can submit content to be considered for played back
+\item Administrators can moderate submitted content
+\item Administrators can schedule content to be played back
+\item Content should be served for playback by an intelligent algorithm
+\item Scheduling component should be secure from outside attacks
+\item Playback system should be robust
+\end{itemize}
 
+\subsubsection{Secondary Objectives} \label{sec:secondary_objectives}
+(Derived from primary objectives and subsequent discussions)
 
-\subsubsection{Visualisation Submission}
-Done by any logged in user (external or college)
-Must be moderated after
-Can be an uploaded file or a visualisation hosted externally
+\begin{itemize}
+\item Scheduling should be flexible, but require as little input as possible
+\item There should be some guarantee for the amount of time a content item is shown, given its priority
+\item Playback system should be aesthetically smooth and not reveal any implementation through its appearance
+\item Playback system should not be tied to any specific screen configuration or platform and should intelligently use the displays at its disposal
+\item Content can be played back over multiple screens
+\item System should rely on Imperial credentials for authentication, by should allow external users to request access
+\item Users should be able to 'like' content items and comment on them
+\item Allow submitting of both advertisements and visualisations
+\item Allow submitting of different formats - images, static web content and videos
+\end{itemize}
 
+\subsection{Stakeholders}
 
-\subsubsection{Quality Control and Moderation}
-Don't want to be displaying inappropriate content
-Admins can approve or reject visualisations
-Rejected ones are deleted
+Shortly after receiving the project specifications, we identified the stakeholders in our project, their relative importance, and their requirements.
 
+\subsubsection{Administrators}
+These are members of staff inside the Data Science Institute who would moderate submitted content, and decide which content items should be scheduled for playback. They require both the moderation and scheduling processes to be as easy as possible, and suited to them, as they are processes which will be repeated very often.
 
-\subsubsection{``AppStore'' for Visualisation}
-% Online website / app store to display visualisations
-% View/ comment/like; top/new visualisations
+As these users will be using the system most, and the components they interact with are not precisely defined in the specification, their opinion throughout the development process is very important.
 
-\subsubsection{Scheduling \& Featuring of Visualisation Display}
-Use default visualisations
-Keep the screen moving at all times
-Handle multiple screens in multplie conigurations
-Render visualisations on backend
+\textbf{Requirements}
+\begin{itemize}
+\item Approve or reject submitted content
+\item Choose content to be selected for playback, along with relative priorities and times in which to be shown
+\end{itemize}
 
+\subsubsection{Users of visualisation catalogue}
 
-\subsubsection{Video Walls Playout Software}
-Written in Python
-Secure and Robust
-Will run on dedicated Windows machine
-Cross platform for future use
+These are users of the web application component of our system. They should be able to view those visualisations which have been approved, and find out more about a certain visualisation and 'like' and comment on a visualisation. This should be done via a modern looking interface (to reflect the cutting edge Data Science Institute) and they should be able to do so on any device of their choosing (i.e. mobile, tablet or through a traditional desktop interface).
+
+Furthermore they should be able to submit content of their own, which after moderation, may be selected for playback. This should be easy to do, supporting a wide variety of formats, and should be done through a slick interface which the user should be confident will get their submission seen.
+
+\textbf{Requirements}
+\begin{itemize}
+\item View moderated content and interact in a visual and intuitive way
+\item 'Like' and comment on content items
+\item Submit content to be selected for playback
+\end{itemize}
+
+\subsubsection{Users of playback software (passers-by)}
+
+These are students, members of staff and visitors who may pass by or enter the Data Science Institute and see the content projected onto the visualisation panels. They interact with the system in a fairly distant way, and their interaction is fairly well defined - they view the projected content.
+
+Whilst they don't need a large amount of input through the development process, we did identify that how the interact should be aesthetically smooth. They should see content projected correctly, with seamless transitions between content items, and should never have any implementation revealed to them (i.e. an error causing the underlying system to be revealed).
+
+\textbf{Requirements}
+\begin{itemize}
+\item View projected content
+\end{itemize}
 
 
 \subsection{Achievements}
+TODO
+
 New techmologies learnt
 Adjust to an Agile way of working
 Manage time with exams and other courses
