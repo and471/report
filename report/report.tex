@@ -1,4 +1,4 @@
-﻿\documentclass[a4paper, titlepage]{article}
+\documentclass[a4paper, titlepage]{article}
 
 \usepackage[english]{babel}
 \usepackage[utf8x]{inputenc}
@@ -10,6 +10,7 @@
 \usepackage{parskip}
 \usepackage{setspace}
 \usepackage[justification=centering]{caption}
+\usepackage{subcaption}
 
 \linespread{1.1}
 
@@ -52,20 +53,36 @@
 \newpage
 \pagenumbering{arabic}
 \section{Introduction}
-As part of the renovation of the William Penney Building on the Sherfield walkway, interactive screens are to be installed.
-Mounted inside the building, multile projectors will simultaneously display content onto floor to ceiling glass
-panels that are visible to passers-by. Also, an 84-inch 4K resolution touch screen is to be mounted by the entrance doors. 
+As part of the renovation of the William Penney Building, the part of the building facing onto the Sherfield walkway will be undergoing major changes in order to further promote the home of the Imperial Data Science Institute. These changes include mounting an 840inch 4K touch panel adjacent to the building's entrance, as well as replacing the existing small windows with floor to ceiling glass panel, onto which content can be projected to the hundreds of students, teaching staff and visitors who pass by everyday.
 
-Our project consists of developing an ``App Store" for uploading interactive content and visualisations to be displayed on the four projected screens.
-Administrators will also be able to use this system to moderate and schedule content to be displayed. Finally, we will be developing a playout system 
-to show the content on multiple screens in multiple resolutions.
+\begin{figure}[h!]
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./intro/Entrance.jpg}
+  \caption{A render of the proposed changes to the entrance}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.8\linewidth]{./intro/External.jpg}
+  \caption{A render of the proposed changes to the whole exterior (facing onto the Sherfield Walkway}
+  \label{fig:sub2}
+\end{subfigure}
+\end{figure}
 
+Our project comes in 3 parts. The first is to develop playout software which will display content on these large panels, making use of the panels either as several discrete screens, or grouping panels to form large continuous surfaces. The second is to develop a scheduling component, allowing administrators to select and schedule the content shown on these panels. The third is to create an online 'store' where content to be shown on the panels can be viewed, submitted and moderated.
 
 \subsection{Motivation}
-Web application + desktop application
-Can use previous experience
-Oppurtunity to learn new technologies
+The \textbf{Imperial Data Science Institute} \textit{"conducts research on the foundations of data science. Its mission is to foster the development of advanced theory, technology and systems that contribute to the state-of-the-art in data science and big data, notably by funding data-driven research projects and by organizing seminars. The Institute empowers Imperial College and its partners to collaborate in the pursuit of world-class data-driven innovation."}\footnote{http://www3.imperial.ac.uk/data-science}
 
+Despite the exciting world leading innovation happening inside the William Penney Building, its bland looking exterior does not allow passers-by to experience any of the work happening inside. The building is situated on the Sherfield Walkway, one of the busiest parts of the South Kensington campus, due to its centrality in the campus, and also its proximity to the main eating facilities of the campus (the Junior and Senior Common Rooms) and several faculty buildings (Sherfield Building, Huxley Building, ACE Extension). 
+
+Furthermore, the work of the Data Science Institute is unique in that it is very easy to display and present the results of research, in a way that passers-by, regardless of their own areas of studies, can understand, in the form of data visualisations. Many such visualisations already exist and the new projection panels, combined with the large daily footfall, provide a perfect way to increase awareness of the Data Science Institute on campus, and to showcase its latest world-leading research.
+
+We decided to take on this project as we found the scope of the project exciting, the opportunity to revisit and perfect our skills in areas previously explored (such as creating a web application), the opportunity to make use of our more JMC mathematical orientated knowledge (the algorithms used for scheduling) and finally the opportunity to explore new areas of software engineering we hadn't yet experienced in our studies (a GUI application with a large focus on aesthetics and reliability). Furthermore, the project lent itself very well to be divided into 3 discrete parts (the playback software, scheduling, and visualisation catalogue) and so we felt it would be easy to delegate work between the 6 group members, even splitting into smaller subgroups, each working on a different part.
+
+Finally, we were excited to be able to work on something that we may see and come into contact with everyday - \textit{a rare opportunity}.
 
 \subsection{Objectives} \label{sec:intro_objectives}
 
