@@ -401,18 +401,19 @@ For the frontend, given the amount of similar web application projects Andrew an
 
 \subsubsection{Back-end: Initial Attempt - Flask (Python) \& MongoDB}
 
-During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features. We found that Flask met this criterion.
+During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features.
 
-As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB. 
 
 % Advantage of MongoDB - fast read, scalable, JS-like (easy FE adaptation)
+As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. We see MongoDB especially helpful especially in early development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented, dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be beneficial to the project in long-term. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
 
-% Problems - broken kerberos adapter, 
+% Problems - broken kerberos adapter, (changed from flask as we were getting stuck - consulted with David)
+
 
 \subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
 
 BE: 
-  ruby on rails (changed from flask as we were getting stuck - consulted with David)
+  ruby on rails 
   gems for features - devise, token authentication, carrierwave
   rails deals with db nicely
   ruby for scheduling algorithm - translated from Java
