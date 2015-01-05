@@ -497,19 +497,37 @@ During the inital phases of our project, we decided on which tools/technologies 
 
 
 % Advantage of MongoDB - fast read, scalable, JS-like (easy FE adaptation)
-As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. We see MongoDB especially helpful especially in early development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented, dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be beneficial to the project in long-term. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
+As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL
+solution. Again, this was based on interest. We see MongoDB especially helpful especially in early
+development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented,
+dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be
+beneficial to the project in long-term. Bryan used time at the beginning of the project to check that 
+Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
 
 % Problems - broken kerberos adapter, (changed from flask as we were getting stuck - consulted with David)
-TODO
+After about a week of usage, we found that there had been lots of small problems in development. After 
+experimenting with a Kerberos authentication module for Flask, we found that the documentation was 
+very poor and some behaviour was erratic. Also, creation and maintenance of the database was taking 
+longer than previous web projects. 
 
+As a group, we decided that it would be beneficial to switch technologies to Ruby on Rails, as we had
+previous experience and was quicker to set up. We consulted with David in our weekly scrum, who was
+happy for us to change. The change would not affect end users of the system, and would still enable us 
+to develop in the same environments. 
 
 \subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
-TODO 
-BE: 
-  ruby on rails 
-  gems for features - devise, token authentication, carrierwave
-  rails deals with db nicely
-  ruby for scheduling algorithm - translated from Java
+
+We used our previous experience in Ruby on Rails to quickly and easily set up the project. We could also
+use a wide range of gems for particular features, especially for authentication users with the college
+Kerberos servers. Using rails also meant a smooth interaction with the database, which also required 
+little setup. In the first few days of development we noticed that we were implementing features much
+faster and feeling more confident with the work that lied ahead. 
+
+We decided to use Java to initially write the scheduling algorithm, which would then be translated to 
+Ruby. This was because we were more confident with Java, and it's object orientated paradigm would make 
+the algorithm easier to implement. We thought (correctly) that this method would be quicker than
+implementing the algorithm in Ruby from the outset. Intelligent design and use of comments meant that
+the resulting Ruby code would be well structured and efficient.
   
 
 \subsubsection{Playout Software: }
