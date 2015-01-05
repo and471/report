@@ -634,10 +634,24 @@ this image processing to a separate thread. Although this meant that these colou
 immediately, the nature of admin moderation meant that uploaded visualisations are very likely to be 
 shown before this new thread finishes its work.
 
-%Andrew + Emma, any probs with frontned? 
+%Andrew + Emma, any probs and risks with frontned? 
 
 
 % TODO: Any risks anticipated, and how mitigated
+We anticipated that the cross platform playout software requirement may cause issues due to Python
+and/or Gtk versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
+machines with Windows and Linux (or virtual machines), and to test very frequently. We agreed that after
+every small feature implemented, it would need to be tested on both platforms. This resulted in robust, 
+cross-platform code.
+
+
+As our application has a small user hierarchy (with passers-by being users with no account at all!), we 
+predicted that our app may show some information to inappropriate users. For example, we didn't want a 
+non-admin user to access any non-approved visualisations. To remedy this, we conducted a full test of
+our routing and API on the server, logged in as admins, non-admins, and not logged in at all. 
+
+
+
 % Please feel free to introduce subsections
 
 \subsubsection{From Java Scheduling to Ruby Scheduling}
