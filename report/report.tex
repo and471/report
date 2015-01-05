@@ -53,54 +53,62 @@
 \newpage
 \pagenumbering{arabic}
 \section{Introduction}
-As part of the renovation of the William Penney Building, the part of the building facing onto the Sherfield walkway will be undergoing major changes in order to further promote the home of the Imperial Data Science Institute. These changes include mounting an 840inch 4K touch panel adjacent to the building's entrance, as well as replacing the existing small windows with floor to ceiling glass panel, onto which content can be projected to the hundreds of students, teaching staff and visitors who pass by everyday.
+As part of the renovation of the William Penney Building, the part of the building facing onto the Sherfield walkway will be undergoing major changes in order to further promote the home of the Imperial Data Science Institute. These changes include mounting an 84 inch 4K touch panel adjacent to the building's entrance, as well as replacing the existing small windows with floor to ceiling glass panel, onto which content can be projected to the hundreds of students, teaching staff and visitors who pass by everyday via eight HD projectors.
 
 \begin{figure}[h!]
 \centering
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./intro/Entrance.jpg}
-  \caption{A render of the proposed changes to the entrance}
+  \includegraphics[width=.9\linewidth]{./intro/Entrance.jpg}
+  \caption{Entrance}
   \label{fig:sub1}
 \end{subfigure}%
 \begin{subfigure}{.5\textwidth}
   \centering
-  \includegraphics[width=.8\linewidth]{./intro/External.jpg}
-  \caption{A render of the proposed changes to the whole exterior (facing onto the Sherfield Walkway}
+  \includegraphics[width=.9\linewidth]{./intro/External.jpg}
+  \caption{Whole exterior (facing Sherfield Walkway)}
   \label{fig:sub2}
 \end{subfigure}
+\caption{A render of the proposed changes to William Penney Building}
+\label{fig:intro_WPrender}
 \end{figure}
 
-Our project comes in 3 parts. The first is to develop playout software which will display content on these large panels, making use of the panels either as several discrete screens, or grouping panels to form large continuous surfaces. The second is to develop a scheduling component, allowing administrators to select and schedule the content shown on these panels. The third is to create an online 'store' where content to be shown on the panels can be viewed, submitted and moderated.
+Our project comes in 3 parts. The first is to develop playout software which will display content on these large panels, making use of the panels either as several discrete screens, or grouping panels to form large continuous surfaces. The second is to develop a scheduling component, allowing administrators to select and schedule the content shown on these panels. The third is to create an online 'store'/catalogue where content to be shown on the panels can be viewed, submitted and moderated.
 
 \subsection{Motivation}
+
+\subsubsection{Imperial Data Science Institute: Improved Recognition}
 The \textbf{Imperial Data Science Institute} \textit{"conducts research on the foundations of data science. Its mission is to foster the development of advanced theory, technology and systems that contribute to the state-of-the-art in data science and big data, notably by funding data-driven research projects and by organizing seminars. The Institute empowers Imperial College and its partners to collaborate in the pursuit of world-class data-driven innovation."}\footnote{http://www3.imperial.ac.uk/data-science}
 
 Despite the exciting world leading innovation happening inside the William Penney Building, its bland looking exterior does not allow passers-by to experience any of the work happening inside. The building is situated on the Sherfield Walkway, one of the busiest parts of the South Kensington campus, due to its centrality in the campus, and also its proximity to the main eating facilities of the campus (the Junior and Senior Common Rooms) and several faculty buildings (Sherfield Building, Huxley Building, ACE Extension). 
 
 Furthermore, the work of the Data Science Institute is unique in that it is very easy to display and present the results of research, in a way that passers-by, regardless of their own areas of studies, can understand, in the form of data visualisations. Many such visualisations already exist and the new projection panels, combined with the large daily footfall, provide a perfect way to increase awareness of the Data Science Institute on campus, and to showcase its latest world-leading research.
 
-We decided to take on this project as we found the scope of the project exciting, the opportunity to revisit and perfect our skills in areas previously explored (such as creating a web application), the opportunity to make use of our more JMC mathematical orientated knowledge (the algorithms used for scheduling) and finally the opportunity to explore new areas of software engineering we hadn't yet experienced in our studies (a GUI application with a large focus on aesthetics and reliability). Furthermore, the project lent itself very well to be divided into 3 discrete parts (the playback software, scheduling, and visualisation catalogue) and so we felt it would be easy to delegate work between the 6 group members, even splitting into smaller subgroups, each working on a different part.
+\subsubsection{Development Team: Skills Development}
+We decided to take on this project as we found the scope of the project exciting, the opportunity to revisit and perfect our skills in areas previously explored (such as creating a web application), the opportunity to make use of our more JMC mathematical orientated knowledge (the algorithms used for scheduling) and finally the opportunity to explore new areas of software engineering we hadn't yet experienced in our studies (a GUI application with a large focus on aesthetics and reliability). 
+
+Furthermore, the project lent itself very well to be divided into 3 discrete parts (the playback software, scheduling, and visualisation catalogue) and so we felt it would be easy to delegate work between the 6 group members, even splitting into smaller subgroups, each working on a different part.
 
 Finally, we were excited to be able to work on something that we may see and come into contact with everyday - \textit{a rare opportunity}.
 
 \subsection{Objectives} \label{sec:intro_objectives}
 
-From the initial project specification, and discussion with our supervisor(s), we started to extract features/objectives we wanted to achieve. We then added these to our Kanban Board (see section \ref{sec:projman_devprocess}) so that throughout development, we had these high-level goals in mind. 
+From the initial project specification, and discussion with our supervisor(s), we started to extract features/objectives we wanted to achieve. We then added these to our Trello Board (see section \ref{sec:projman_devprocess}) so that throughout development, we had these high-level goals in mind. 
 
 These however did not remain completely static and would change/be added to, based on subsequent discussions with our supervisor(s), as we 'pivoted' towards the best solution.
 
 \begin{figure}[h]
   \centering
-    \includegraphics[width = 0.55\textwidth, trim = 0 0 0 1cm, clip]{./intro/userreq.jpg}
-  \caption{Initial project specification in a diagram}
+    \includegraphics[width = 0.55\textwidth, trim = 0 0.5cm 0 1.2cm, clip]{./intro/userreq.jpg}
+  \caption{Illustration of initial project specification}
   \label{fig:intro_userreq}
 \end{figure}
 
 \subsubsection{Primary Objectives} \label{sec:primary_objectives}
 \begin{itemize}
+\itemsep-1mm
 \item Users can view visualisations through a web interface
-\item Users can submit content to be considered for played back
+\item Users can submit content to be considered for play-back
 \item Administrators can moderate submitted content
 \item Administrators can schedule content to be played back
 \item Content should be served for playback by an intelligent algorithm
@@ -112,15 +120,16 @@ These however did not remain completely static and would change/be added to, bas
 (Derived from primary objectives and subsequent discussions)
 
 \begin{itemize}
+\itemsep-1mm
+\item System should rely on Imperial credentials for authentication, by should allow external users to request access
+\item Users should be able to 'like' content items and comment on them
+\item Allow submitting of both advertisements and visualisations
+\item Allow submitting of different formats - images, static web content and videos
 \item Scheduling should be flexible, but require as little input as possible
 \item There should be some guarantee for the amount of time a content item is shown, given its priority
 \item Playback system should be aesthetically smooth and not reveal any implementation through its appearance
 \item Playback system should not be tied to any specific screen configuration or platform and should intelligently use the displays at its disposal
 \item Content can be played back over multiple screens
-\item System should rely on Imperial credentials for authentication, by should allow external users to request access
-\item Users should be able to 'like' content items and comment on them
-\item Allow submitting of both advertisements and visualisations
-\item Allow submitting of different formats - images, static web content and videos
 \end{itemize}
 
 \subsection{Stakeholders}
@@ -341,10 +350,18 @@ board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and
 We chose to incorporate this into our way of working, as one of the team members, Andrew, had been involved in projects using Trello, and found it very useful to visualise the work being done on a project.
 
 \begin{figure}[ht]
-  \centering
-    \includegraphics[width = 0.99\textwidth]{./projman/trello.jpg}
-  \caption{Using Trello to keep track of progress.}
-  \label{fig:trello}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth]{./eval/trello-columns.png}
+    \caption{Priority columns on our Trello board}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth]{./eval/trello-due-date.png}
+    \caption{Setting a due date for a particular task}
+  \end{subfigure}
+  \caption{Using Trello for project tracking}
+  \label{fig:eval_trello}
 \end{figure}
 
 \subsection{Development Tools}
@@ -394,7 +411,7 @@ after being tested locally on its own branch and associated local VM (see sectio
 Such practice makes it easier for different team members, under pair programming, to work on the same feature.
 It also makes it easier for the team to backtrack and locate the bug should any problem arise by checking a small number of commits on that particular branch.
 
-Moreover, with meaningful yet concise commit messages, we can effectively
+Moreover, with meaningful yet concise commit messages, wiki residing in repository and issues, we can effectively
 communicate with each other what we have done along with updating our task-board
 on Trello and sending messages on Facebook Messenger.
 
@@ -571,60 +588,7 @@ A \textbf{playout session} ...
 \newpage
 \section{Evaluation}
 
-\subsection{Stakeholder Relationships}
-Between us and David, constant communication and feedback every week
-
-
-\subsubsection{Stakeholders}
-
-The main stakeholder in our project is our supervisor, David. The core of our project is the scheduling component, which he will operate as an administrator, so his opinion of the overall design of the project is critical.
-
-Our second class of stakeholders are those who browse the visualisation catalogue and submit visualisations and advertisements. Their stake is relatively large as without their full engagement and satisfaction, the variety of content being shown will remain small. 
-
-Our last group of stakeholders are those who see the visualisations being played out. While this set of users are still important, their stake is relatively small, in that all they want to see is the content being played out successfully.
-
-\subsubsection{Customer relationship}
-
-Where customer relationships are concerned, we see our most important stakeholder, our supervisor, David, as somewhere between an internal and external customer, whom we hold weekly meetings and exchange emails frequently with but not contact in person daily. During weekly meetings, we explain the features that are in progress/to be done over the next week, so that David is always kept in the loop (Figure \ref{fig:eval_meetingboard}).
-
-We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also to ensure that discussions were not biased towards any kind of implementation, allowing us to fit our implementation around the best ideas, and not the other way around.
-
-\begin{figure}[ht]
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width = \textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./eval/meeting-board2.jpg}
-  \end{minipage}
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width = \textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./eval/meeting-board.jpg}
-  \end{minipage}
-  \caption{Meeting notes with group progress and feedback from David (our supervisor) after sprint cycles 2 (left) and 4 (right).}
-  \label{fig:eval_meetingboard}
-\end{figure}
-
-Furthermore, with the aid of Jenkins, we are able to give the address of our ``release VM'' to David, where he can see the latest working version of the project. From this, David can constantly evaluate and provide feedback on our project features through all stages of development.
-
-\subsubsection{Feedback handling}
-
-Upon receiving feedback from our stakeholders, mainly from our supervisor, we handled them depending on their nature:
-
-\begin{itemize}
-
-  \item Change in minor details of a feature/design: \\
-        Usually happening in the prototype stage, they include changing font size/colour and displaying some extra information on a screen. As these changes take only a few hours at most to implement, we took the majority of such suggestions and fitted these XS-items in the next iteration.
-
-  \item Introduction of new, peripheral features: \\
-        These include features that are related but not essential for our three main components (submission, moderation/scheduling and playout): Multiple default playout lists, playing videos with linked themes consecutively, buttons to copy and paste previous timeslots, etc. \\
-        However, due to time limitations, we chose to integrate only one or two small-sized features into our planned implementation. The rest of the suggested features were put into an ``extra feature" list, which we only considered implementing after basic versions of the main components are completed. This ensures that we can produce a minimal product at the very least before our planned deadline.
-
-  \item Major changes in feature implementation: \\
-        As a result of differing assumptions, the feedback necessitates the changing of what we have already implemented. For instance, we were required to change the priority rules in our scheduling algorithm. When this happens, we spend a significant portion of the weekly meeting to clarify the assumptions that our supervisor has made, and try to combine them with our own assumptions and implementations. This feedback has sometimes resulted in some or all of our code being scrapped, but it generates a product which is more useful to our stakeholders.
-
-\end{itemize}
-
-In all cases, we have communicated with the personnel that provided the
-feedback with justification on our decisions. For example, we told
-our supervisor that we are happy to accede to his request of adding a button which copies previous timeslots as we rate it as a S-sized task which can fit into the planned iteration, but his request for linked videos to be scheduled to be screened consecutively would delay our plans, and thus should be considered only after the entire system is implemented minimally.
-
-\subsection{Product Requirement, Value \& Impact}
+\subsection{Product Requirement \& Stakeholder Relationships}
 
 In the first week of embarking on our project, we met with our supervisor to highlight the initial components required. At first, these were general
 requirements including:
@@ -641,23 +605,7 @@ In the following weeks, we then clarified and expanded on these requirements as 
 
 \subsubsection{Value Proposition}
 
-We also further clarified our understanding of stakeholders and how our system creates value for them via multiple value proposition canvasses. Figure \ref{fig:valpropcanvas} shows the canvas for the Imperial Data Science Institute, which our supervisor is associated with. It includes a customer profile with a list of jobs, gains and pains, and corresponding products/services, gain creators and pain relievers (value map). Some of the gains/pains of the institute, along with their creators/relievers are as follows:
-
-\begin{itemize}
-
-  \item Gain: Makes the walkway more interesting (by showing visualisations to passers-by)
-
-  \item Pain: Requires a large number of visualisations (relieved by inviting users to submit visualisations)
-
-  \item Gain: Creates income opportunities (by showing adverts)
-
-  \item Pain: Attracts inappropriate submissions from users (relieved through admin moderation)
-
-  % Put the 3rd pair of gain/pain in
-
-\end{itemize}
-
-The canvasses enable us to disregard features that deliver low or no value, and make more reasonable assumptions about our stakeholders. We believe that the latter has resulted in fewer problems for us when we began our product validation, detailed in Section \ref{sec:validation}.
+We also further clarified our understanding of stakeholders and how our system creates value for them via multiple value proposition canvasses. Figure \ref{fig:eval_valpropcanvas} shows the canvas for the Imperial Data Science Institute, which our supervisor is associated with. It includes a customer profile with a list of jobs, gains and pains, and corresponding products/services, gain creators and pain relievers (value map). The gains/pains of the institute, along with their creators/relievers are as follows:
 
 \begin{figure}[ht]
    \begin{center}
@@ -667,21 +615,82 @@ The canvasses enable us to disregard features that deliver low or no value, and 
    \label{fig:eval_valpropcanvas}
 \end{figure}
 
-\subsection{Task Management}
-During development, we constantly looked at the requirements from all of our stakeholders, which we stored in a shared document. In our weekly scrums, we presented the work that we have done to one another and discussed whether the project is on the right track.
+\begin{itemize}
 
-We prioritised tasks on our Trello board using different columns. In addition, we constantly communicated both face-to-face and online, to make sure that group members are implementing assigned tasks at the right times. We also used the Trello board actively to update the rest of the group when tasks have been completed, hence saving us the trouble of constantly asking the rest of the group or looking at code to find out if a feature has already been implemented. When appropriate, group members working on the backend used an internal wiki on Gitlab to provide information about routing, controller actions, and parameters. 
+\item Gain
+   \begin{itemize}
+      \itemsep-2mm
+      \item Makes the walkway more interesting (by showing visualisation to passers-by)
+      \item Creates income opportunities (by showing adverts)
+      \item Get the institute known by others (by showing scientific visualisation from the institute)
+      \item Promote Data Science (by sharing visualisations)
+   \end{itemize}
+
+\item Pain
+   \begin{itemize}
+      \itemsep-2mm
+      \item Requires a large number of visualisations (relieved by inviting users to submit visualisations)
+      \item Attracts inappropriate submissions from users (relieved through admin moderation)
+      \item Potentially inconvenient playout schedulling (relieved through automatic scheduling with minimal input)
+   \end{itemize}
+\end{itemize} 
+
+
+The canvasses enable us to disregard features that deliver low or no value, and make more reasonable assumptions about our stakeholders. We believe that the latter has resulted in fewer problems for us when we began our product validation, detailed in Section \ref{sec:eval_validation}.
+
+
+
+
+\subsubsection{Customer relationship}
+
+Where customer relationships are concerned, we see our most important stakeholder, our supervisor, David, as somewhere between an internal and external customer, whom we hold weekly meetings and exchange emails frequently with but not contact in person daily. During weekly meetings, we explain the features that are in progress/to be done over the next week, so that David is always kept in the loop (Figure \ref{fig:eval_meetingboard}).
+
+We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also to ensure that discussions were not biased towards any kind of implementation, allowing us to fit our implementation around the best ideas, and not the other way around.
 
 \begin{figure}[ht]
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width = \textwidth]{./eval/trello-columns.png}
-  \end{minipage}
-  \begin{minipage}{0.49\textwidth}
-    \includegraphics[width = \textwidth]{./eval/trello-due-date.png}
-  \end{minipage}
-  \caption{Priority columns on our Trello board (left); \\Setting a due date for a particular task (right).}
-  \label{fig:eval_trello}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./eval/meeting-board2.jpg}
+    \caption{After sprint cycle 2}
+  \end{subfigure}
+  \begin{subfigure}{0.5\textwidth}
+    \centering
+    \includegraphics[width = 0.9\textwidth, trim = 1.2cm 1.5cm 1.2cm 2.5cm, clip]{./eval/meeting-board.jpg}
+    \caption{After sprint cycle 4}
+  \end{subfigure}
+  \caption{Meeting notes with group progress and feedback from David (our supervisor)}
+  \label{fig:eval_meetingboard}
 \end{figure}
+
+Furthermore, with the aid of Jenkins, we are able to give the address of our ``release VM'' to David, where he can see the latest working version of the project. From this, David can constantly evaluate and provide feedback on our project features through all stages of development.
+
+\subsubsection{Feedback handling}
+
+Upon receiving feedback from our stakeholders, mainly from our supervisor, we handled them depending on their nature:
+
+\begin{itemize}
+
+  \item \textbf{Change in minor details of a feature/design:} \\
+        Usually happening in the prototype stage, they include changing font size/colour and displaying some extra information on a screen. As these changes take only a few hours at most to implement, we took the majority of such suggestions and fitted these XS-items in the next iteration.
+
+  \item \textbf{Introduction of new, peripheral features:} \\
+        These include features that are related but not essential for our three main components (submission, moderation/scheduling and playout): Multiple default playout lists, playing videos with linked themes consecutively, buttons to copy and paste previous timeslots, etc. \\
+        However, due to time limitations, we chose to integrate only one or two small-sized features into our planned implementation. The rest of the suggested features were put into an ``extra feature" list, which we only considered implementing after basic versions of the main components are completed. This ensures that we can produce a minimal product at the very least before our planned deadline.
+
+  \item \textbf{Major changes in feature implementation:} \\
+        As a result of differing assumptions, the feedback necessitates the changing of what we have already implemented. For instance, we were required to change the priority rules in our scheduling algorithm. When this happens, we spend a significant portion of the weekly meeting to clarify the assumptions that our supervisor has made, and try to combine them with our own assumptions and implementations. This feedback has sometimes resulted in some or all of our code being scrapped, but it generates a product which is more useful to our stakeholders.
+
+\end{itemize}
+
+In all cases, we have communicated with the personnel that provided the
+feedback with justification on our decisions. For example, we told
+our supervisor that we are happy to accede to his request of adding a button which copies previous timeslots as we rate it as a S-sized task which can fit into the planned iteration, but his request for linked videos to be scheduled to be screened consecutively would delay our plans, and thus should be considered only after the entire system is implemented minimally.
+
+
+
+
+\subsection{Task Management \& Team Progress}
+During development, we constantly looked at the requirements from all of our stakeholders, which we stored in a shared document. In our weekly scrums, we presented the work that we have done to one another and discussed whether the project is on the right track. As discussed in section \ref{projman_tracking}, we actively use Trello, Facebook Messenger and GitLab (wiki and issues) to make sure that group members are implementing assigned tasks at the right times, and obtaining help from the correct member as soon as possible.
 
 \subsubsection{Story Splitting}
 
@@ -712,7 +721,32 @@ While we planned to implement the playout system only in iterations 5 and 6 (the
 
 However, not all spikes bring good news - investigation on Kerberos login libraries has revealed that the adapter for Flask (with Python) is actually broken, forcing us to scrap the entire implementation. Nonetheless, the spike allowed us to switch our choice of development language early and avoid incurring high costs further into development.
 
+\subsubsection{Project progress}
+	
+Quantitatively, we evaluated our project by tracking how fast we were ticking off our initial requirements. Using our Trello board and version control system, we can easily see by whom and at what time each feature has been implemented. By combining these with our estimates of the size of each task, we are able to analyse the group's performance via a Cumulative Flow Diagram (Figure \ref{fig:eval_cumuflow}).
+
+\begin{figure}[ht]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./eval/cumu_flow.png}
+  \caption{Cumulative flow diagram for our team based on tasks' status}
+  \label{fig:eval_cumuflow}
+\end{figure}
+
+The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress" and ``Done", where each task carries a story point based on their size estimate. From the diagram, we can make the following observations:
+
+\begin{enumerate}
+
+  \item In the last week of October, the group did not make much headway for in-progress and to-do tasks. This observation is attributed to problems in setting up Jenkins, which caused a bottleneck in the entire development process.
+
+  \item The lead time (time required between starting and completing a task) is usually around 2 weeks. Given the way we work on a new feature (2 cycles per feature - detailed in Section \ref{sec:uimockup}), we believe that we are making healthy progress in getting individual components of our project done.
+
+  \item Within the first 3 weeks in November, the team has completed tasks worth 35-40 story points. Given that the minimal system is estimated to be worth $\approx$90 story points, we believe that we will be able to meet our deadline in the second week of December with a similar effort.
+
+\end{enumerate}
+
 \subsection{Building the right thing - Assumption Validation} \label{sec:eval_validation}
+
+As mentioned in Section \ref{sec:eval_validation}, obtaining feedback via mockups, prototypes with representative data and user testing allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
 Given the tight deadlines for the entire project, we agreed to collect
 user feedback as soon as the project commenced. This ensures that we are building the right product for our stakeholders.
@@ -759,36 +793,10 @@ Such testing allowed us to learn what is evident to us but obscure to our users.
 We are planning to extend this user testing to include more potential users, especially those that are ranked second in our list of stakeholders, such as staff and students who may use the platform to submit and 
 view visualisations.
 
-\subsection{Evaluation}
 
-Even as we are able to evaluate the correctness of our project by unit and system tests after a feature is implemented via RSpec, we still require some other means to test the quality of our features, as well as our group's progress.
 
-\subsubsection{Validated learning \& Pivoting}
 
-As mentioned in Section \ref{sec:eval_validation}, obtaining feedback via mockups, prototypes with representative data and user testing allowed us to 'pivot' many times with minimal reimplementation overhead. It also allows us to identify problems or learn more about the issues that we are trying to solve, before we write large volumes of code which may end up to be not useful. Moreover, this lean approach \textbf{encourages us} to pivot more often, as there is no reason not to do so.
 
-\subsubsection{Project progress}
-	
-Quantitatively, we evaluated our project by tracking how fast we were ticking off our initial requirements. Using our Trello board and version control system, we can easily see by whom and at what time each feature has been implemented. By combining these with our estimates of the size of each task, we are able to analyse the group's performance via a Cumulative Flow Diagram (Figure \ref{fig:eval_cumuflow}).
-
-\begin{figure}[ht]
-  \centering
-    \includegraphics[width = 0.99\textwidth]{./eval/cumu_flow.png}
-  \caption{Cumulative flow diagram for our team based on tasks' status}
-  \label{fig:eval_cumuflow}
-\end{figure}
-
-The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress" and ``Done", where each task carries a story point based on their size estimate. From the diagram, we can make the following observations:
-
-\begin{enumerate}
-
-  \item In the last week of October, the group did not make much headway for in-progress and to-do tasks. This observation is attributed to problems in setting up Jenkins, which caused a bottleneck in the entire development process.
-
-  \item The lead time (time required between starting and completing a task) is usually around 2 weeks. Given the way we work on a new feature (2 cycles per feature - detailed in Section \ref{sec:uimockup}), we believe that we are making healthy progress in getting individual components of our project done.
-
-  \item Within the first 3 weeks in November, the team has completed tasks worth 35-40 story points. Given that the minimal system is estimated to be worth $\approx$90 story points, we believe that we will be able to meet our deadline in the second week of December with a similar effort.
-
-\end{enumerate}
 
 
 \newpage
