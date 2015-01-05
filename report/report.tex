@@ -598,7 +598,6 @@ ActiveRecord. These were separated so that a team member could be assigned to a 
 \subsubsection{Scheduling Library}
 
 % Jackie: Brief mention of the library and the functions (high-level)
-% Tom: Description on middle-man
 
 As the scheduling library was implemented separately from the request controllers,
 we needed a middle-man to call the scheduling functions. When a timeslot is edited, i.e. 
@@ -616,6 +615,28 @@ has previously created for it, and generates a new schedule.
 \subsection{Technical Challenges \& Risks}
 
 % TODO: Any technical challenges encountered and how addressed?
+As mentioned previously, we encountered challenges when using Flask with Python for the backend to our 
+project. We were challenged with poor documentation for addition modules and long setup times for 
+trivial tasks. We addressed these by switching technologies to Ruby on Rails - with which we had 
+previous experience. 
+
+We also had a few issues when using Docker containers, whereby data was not being saved to the database.
+We assigned Bryan to work exclusively on Docker, while other members implemented features using dummy 
+data. This resulted in a quick fix of the problem, and Bryan then briefed the group on how to implement
+inside the Docker containers. 
+
+A small but intelligent feature of our webapp was to use colours in the frontend that are calculated 
+from the uploaded visualisation screenshots - done via ``color-thief''. Originally this image
+processing code was done on the client's side, but we noticed that it was computationally expensive,
+breaking our fluid interface requirement. We moved this to the sever side code, where it was still 
+affecting response times. After some research by Tom, we took advantage of Rails' thread safety to move
+this image processing to a separate thread. Although this meant that these colours were not generated 
+immediately, the nature of admin moderation meant that uploaded visualisations are very likely to be 
+shown before this new thread finishes its work.
+
+%Andrew + Emma, any probs with frontned? 
+
+
 % TODO: Any risks anticipated, and how mitigated
 % Please feel free to introduce subsections
 
