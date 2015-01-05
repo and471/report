@@ -585,6 +585,11 @@ A \textbf{playout session} ...
 \subsubsection{Controller Actions}
 
 % Briefly describe controller actions which requires routing, etc. - what it does 
+Rails uses a Model-View-Controller (MVC) architecture, making it easy for communication between the 
+server and browser and server and database. This meant that the server implementation boiled down to
+writing controller actions for HTTP requests, along with some utility functions. We used JSON to 
+communicate with the frontend - providing information from the database obtained with the built in 
+ActiveRecord. These were separated so that a team member could be assigned to a particular action.   
 
 % Andrew: is it worth to write a view section?
 % \subsubsection{Views}
