@@ -95,7 +95,7 @@ As part of the renovation of the William Penney Building, the part of the buildi
 \label{fig:intro_WPrender}
 \end{figure}
 
-Our project comes in 3 parts. The first is to develop playout software which will display content on these large panels, making use of the panels either as several discrete screens, or grouping panels to form large continuous surfaces. The second is to develop a scheduling component, allowing administrators to select and schedule the content shown on these panels. The third is to create an online 'store'/catalogue where content to be shown on the panels can be viewed, submitted and moderated.
+Our project comes in 3 parts. The first is to develop playout software which will display content on these large panels, making use of the panels either as several discrete screens, or grouping panels to form large continuous surfaces. The second is to develop a scheduling component, allowing administrators to select and schedule the content shown on these panels. The third is to create an online ``store''/catalogue where content to be shown on the panels can be viewed, submitted and moderated.
 
 \subsection{Motivation}
 
@@ -107,7 +107,7 @@ Despite the exciting world leading innovation happening inside the William Penne
 Furthermore, the work of the Data Science Institute is unique in that it is very easy to display and present the results of research, in a way that passers-by, regardless of their own areas of studies, can understand, in the form of data visualisations. Many such visualisations already exist and the new projection panels, combined with the large daily footfall, provide a perfect way to increase awareness of the Data Science Institute on campus, and to showcase its latest world-leading research.
 
 \subsubsection{Development Team: Skills Development}
-We decided to take on this project as we found the scope of the project exciting, the opportunity to revisit and perfect our skills in areas previously explored (such as creating a web application), the opportunity to make use of our more JMC mathematical orientated knowledge (the algorithms used for scheduling) and finally the opportunity to explore new areas of software engineering we hadn't yet experienced in our studies (a GUI application with a large focus on aesthetics and reliability). 
+We decided to take on this project as we found the scope of the project exciting, the opportunity to revisit and perfect our skills in areas previously explored (such as creating a web application), the opportunity to make use of our more JMC mathematical orientated knowledge (the algorithms used for scheduling) and finally the opportunity to explore new areas of software engineering we hadn't yet experienced in our studies (a GUI application with a large focus on aesthetics and reliability).
 
 Furthermore, the project lent itself very well to be divided into 3 discrete parts (the playback software, scheduling, and visualisation catalogue) and so we felt it would be easy to delegate work between the 6 group members, even splitting into smaller subgroups, each working on a different part.
 
@@ -117,7 +117,7 @@ Finally, we were excited to be able to work on something that we may see and com
 
 From the initial project specification, and discussion with our supervisor(s), we started to extract features/objectives we wanted to achieve. We then added these to our Trello Board (see section \ref{sec:projman_devprocess}) so that throughout development, we had these high-level goals in mind. 
 
-These however did not remain completely static and would change/be added to, based on subsequent discussions with our supervisor(s), as we 'pivoted' towards the best solution.
+These however did not remain completely static and would change/be extended, based on subsequent discussions with our supervisor(s), as we ``pivoted'' towards the best solution.
 
 \begin{figure}[h]
   \centering
@@ -130,7 +130,7 @@ These however did not remain completely static and would change/be added to, bas
 \begin{itemize}
 \itemsep-1mm
 \item Users can view visualisations through a web interface
-\item Users can submit content to be considered for play-back
+\item Users can submit content to be considered for playback
 \item Administrators can moderate submitted content
 \item Administrators can schedule content to be played back
 \item Content should be served for playback by an intelligent algorithm
@@ -144,7 +144,7 @@ These however did not remain completely static and would change/be added to, bas
 \begin{itemize}
 \itemsep-1mm
 \item System should rely on Imperial credentials for authentication, by should allow external users to request access
-\item Users should be able to 'like' content items and comment on them
+\item Users should be able to ``like'' content items and comment on them
 \item Allow submitting of both advertisements and visualisations
 \item Allow submitting of different formats - images, static web content and videos
 \item Scheduling should be flexible, but require as little input as possible
@@ -153,6 +153,7 @@ These however did not remain completely static and would change/be added to, bas
 \item Playback system should not be tied to any specific screen configuration or platform and should intelligently use the displays at its disposal
 \item Content can be played back over multiple screens
 \end{itemize}
+
 
 \subsection{Stakeholders}
 
@@ -167,19 +168,23 @@ As these users will be using the system most, and the components they interact w
 \begin{itemize}
 \item Approve or reject submitted content
 \item Choose content to be selected for playback, along with relative priorities and times in which to be shown
+\item Gain some idea of the when the user wants submissions to be played
 \end{itemize}
 
-\subsubsection{Users of visualisation catalogue}
 
-These are users of the web application component of our system. They should be able to view those visualisations which have been approved, and find out more about a certain visualisation and 'like' and comment on a visualisation. This should be done via a modern looking interface (to reflect the cutting edge Data Science Institute) and they should be able to do so on any device of their choosing (i.e. mobile, tablet or through a traditional desktop interface).
+
+\subsubsection{Users of visualisation catalogue (submitters)}
+
+These are users of the web application component of our system. They should be able to view those visualisations which have been approved, and find out more about a certain visualisation and ``like'' and comment on a visualisation. This should be done via a modern looking, smooth interface (to reflect the cutting edge Data Science Institute) and they should be able to do so on any device of their choosing (i.e. mobile, tablet or through a traditional desktop interface).
 
 Furthermore they should be able to submit content of their own, which after moderation, may be selected for playback. This should be easy to do, supporting a wide variety of formats, and should be done through a slick interface which the user should be confident will get their submission seen.
 
 \textbf{Requirements}
 \begin{itemize}
 \item View moderated content and interact in a visual and intuitive way
-\item 'Like' and comment on content items
+\item ``Like'' and comment on content items
 \item Submit content to be selected for playback
+\item Supply additional information on submission e.g. scheduling preference(s)
 \end{itemize}
 
 \subsubsection{Users of playback software (passers-by)}
@@ -188,10 +193,10 @@ These are students, members of staff and visitors who may pass by or enter the D
 
 Whilst they don't need a large amount of input through the development process, we did identify that how the interact should be aesthetically smooth. They should see content projected correctly, with seamless transitions between content items, and should never have any implementation revealed to them (i.e. an error causing the underlying system to be revealed).
 
+%I removed the 'like' requirement here as that was more of an extension
 \textbf{Requirements}
 \begin{itemize}
 \item View projected content
-\item 'Like' or vote for interesting visualisations
 \item See an ever-changing screen
 \end{itemize}
 
@@ -200,9 +205,9 @@ Whilst they don't need a large amount of input through the development process, 
 We have experimented successfully with new technologies such as AngularJS and Python using the GTk 
 library. Most of our previous applications have not contained a GUI, so implementing the playout
 system has been a substantial achievement. Also, as it was a requirement for the playout software 
-to be cross platform, we had to change our way of thinking when implementing. We had to ask ourselves;
-``How would we implement this feature?'' and ``Will this work on Linux and Windows systems?''. This style
-of development will help us for future projects.
+to be cross platform, we had to change our way of thinking when implementing. We had to ask ourselves:
+``How would we implement this feature?'' and ``Will this work on Linux and Windows systems?''. This 
+style of development will help us for future projects.
 
 Away from the technical side of development, we have achieved a good example of an ``Agile'' development
 process encorporating multiple features of different development styles, according to our preference. 
@@ -212,6 +217,11 @@ definitely use the ``Agile'' methodology in future.
 
 The project has also allowed us to learn how to manage time effectively, especially when juggling 
 other academic commitments like lectures and exams. 
+
+TODO
+%TODO: 
+%Have we completed all requirements?
+%DAvid likes it :)
 
 
 \newpage
