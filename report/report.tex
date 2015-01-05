@@ -531,15 +531,14 @@ the resulting Ruby code would be well structured and efficient.
   
 
 \subsubsection{Playout Software: }
+For the playout software, we decided to use Python with the Gtk graphics library. This was partly down
+to previous experience with Python but mostly because we needed the software to be cross platform. Hence,
+when developing the playout software, we used dual-boot Linux and Windows machines to test after every 
+feature was implemented. 
 
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
-
-TODO
-PO: 
-  python and gtk (?)
-  cross platform for Windows + Linux
-  make use of thrreading module for timers
-  web kits
+To continuously poll our server, we used timers in python, to make sure the software displays the 
+current visualisation. We also wanted to hide any Windows/Linux GUI elements, e.g. scroll bars, so we 
+made use of customised ``Web Kits''.
 
 
 \subsection{AppStore Design}
