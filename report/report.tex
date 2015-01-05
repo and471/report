@@ -78,13 +78,12 @@ prompts are shown.
 As part of the renovation of the William Penney Building, the part of the building facing onto the Sherfield walkway will be undergoing major changes in order to further promote the home of the Imperial Data Science Institute. These changes include mounting an 84 inch 4K touch panel adjacent to the building's entrance, as well as replacing the existing small windows with floor to ceiling glass panel, onto which content can be projected to the hundreds of students, teaching staff and visitors who pass by everyday via eight HD projectors.
 
 \begin{figure}[h!]
-\centering
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{./intro/Entrance.jpg}
   \caption{Entrance}
   \label{fig:sub1}
-\end{subfigure}%
+\end{subfigure}
 \begin{subfigure}{.5\textwidth}
   \centering
   \includegraphics[width=.9\linewidth]{./intro/External.jpg}
@@ -119,9 +118,9 @@ From the initial project specification, and discussion with our supervisor(s), w
 
 These however did not remain completely static and would change/be extended, based on subsequent discussions with our supervisor(s), as we ``pivoted'' towards the best solution.
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
-    \includegraphics[width = 0.55\textwidth, trim = 0 0.5cm 0 1.2cm, clip]{./intro/userreq.jpg}
+    \includegraphics[width = 0.5\textwidth, trim = 0 0.5cm 0 1.2cm, clip]{./intro/userreq.jpg}
   \caption{Illustration of initial project specification}
   \label{fig:intro_userreq}
 \end{figure}
@@ -166,6 +165,7 @@ As these users will be using the system most, and the components they interact w
 
 \textbf{Requirements}
 \begin{itemize}
+\itemsep-1mm
 \item Approve or reject submitted content
 \item Choose content to be selected for playback, along with relative priorities and times in which to be shown
 \item Gain some idea of the when the user wants submissions to be played
@@ -181,6 +181,7 @@ Furthermore they should be able to submit content of their own, which after mode
 
 \textbf{Requirements}
 \begin{itemize}
+\itemsep-1mm
 \item View moderated content and interact in a visual and intuitive way
 \item ``Like'' and comment on content items
 \item Submit content to be selected for playback
@@ -196,6 +197,7 @@ Whilst they don't need a large amount of input through the development process, 
 %I removed the 'like' requirement here as that was more of an extension
 \textbf{Requirements}
 \begin{itemize}
+\itemsep-1mm
 \item View projected content
 \item See an ever-changing screen
 \end{itemize}
@@ -242,14 +244,14 @@ In light of these constraints, we have decided to commit to the following:
         obtain maximum possible feedback from our supervisor, who act as our client.
   \item \textbf{To strictly adhere to the original project scope}: while we believe the
         current scope is manageable, we would reject time-consuming items which
-        are out of scope before a minimal working system, as mentioned in section ??, is implemented.
+        are out of scope before a minimal working system, as specified in section \ref{sec:intro_objectives}, is implemented.
 \end{enumerate}
 
 \subsubsection{Release \& Iteration Plans}
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
-    \includegraphics[width = 0.99\textwidth]{./projman/timeline.jpg}
+    \includegraphics[width = 0.99\textwidth, trim = 0 3.8cm 0 0.8cm, clip]{./projman/timeline.jpg}
   \caption{Project plan with timeline}
   \label{fig:projman_timeline}
 \end{figure}
@@ -264,7 +266,7 @@ high level themes to be implemented (towards the right). Each line segment at
 the bottom represents an iteration ending on Thursday, when the development
 team will meet with the client.
 
-\begin{table}[h]
+\begin{table}[h!]
   \begin{center}
   \begin{tabular}{c | c | c}
      \textbf{Academic Week (ending date)} & \textbf{Iteration/Sprint} & \textbf{Feature to Release} \\ \hline
@@ -282,7 +284,7 @@ team will meet with the client.
   \label{tab:projman_rplan}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[h!]
   \begin{tabular}{c | c | c | c }
     \textbf{Iteration} & 1 & 2 & 3 \\ \hline
    \textbf{Tasks} & Front-page \& Grid view & Individual vis$^\textrm{n}$ page template & View/controller hookup\\
@@ -344,7 +346,7 @@ Towards the end of the project, we used the issue tracker on Gitlab to let the g
 Although these could be assigned to a specific member, we left them open to the group, so an
 appropriate team member could address the issue. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \centering
     \includegraphics[width = 0.99\textwidth]{./projman/issue_page.png}
   \caption{Small section of the issue tracker on Gitlab}
@@ -388,7 +390,7 @@ following characteristics:
 \end{itemize}
 
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
     \includegraphics[width = 0.99\textwidth, trim= 0 0 0 3cm, clip]{./projman/scrum.jpg}
   \caption{Half-weekly ``scrum'' (development team meeting).}
@@ -412,12 +414,7 @@ We also integrate a few technical practices inspired by Extreme Programming:
 
 \subsubsection{Project Tracking} \label{sec:projman_tracking}
 
-Finally, to keep track on the group's progress, we use an electronic task
-board on Trello (see figure \ref{fig:trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we were constantly communicating personally in labs, online via messaging services (mainly Facebook Messenger), and regular stand-ups in a meeting room.
-
-We chose to incorporate this into our way of working, as one of the team members, Andrew, had been involved in projects using Trello, and found it very useful to visualise the work being done on a project.
-
-\begin{figure}[ht]
+\begin{figure}[h!]
   \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width = 0.9\textwidth]{./eval/trello-columns.png}
@@ -432,12 +429,18 @@ We chose to incorporate this into our way of working, as one of the team members
   \label{fig:eval_trello}
 \end{figure}
 
+Finally, to keep track on the group's progress, we use an electronic task
+board on Trello (see figure \ref{fig:eval_trello}). Here we can assign ourselves (and others) specific tasks and a general due date. Trello allows us to see what the other members of the group are doing and when a feature is expected to be completed. We can also easily add photos and checklists to see how the project is forming. We decided to use Trello as a physical story-board is not feasible. As well as Trello, we were constantly communicating personally in labs, online via messaging services (mainly Facebook Messenger), and regular stand-ups in a meeting room.
+
+We chose to incorporate this into our way of working, as one of the team members, Andrew, had been involved in projects using Trello, and found it very useful to visualise the work being done on a project.
+
+
 \subsection{Development Tools}
 We have also employed a variety of tools in parallel of our technologies used
 in main implementation, illustrated in figure \ref{fig:projman_devtools}, to
 enhance our performance.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
     \includegraphics[width = 0.99\textwidth]{./projman/devtools.pdf}
   \caption{Development methods and tools utilised in project.}
@@ -520,12 +523,43 @@ on the updated code and integrates the updates. If something went wrong,
 Jenkins would notify us immediately and we could look at the issue and get
 it resolved as soon as possible.
 
-This feature also meant that our supervisor, David, could look at the release vm 
+This feature also meant that our supervisor, David, could look at the release VM 
 for the most up to date version of our web application. 
+
+\newpage
+\subsection{User Interface Design}
+
+As mentioned previously, the design for the playback software was already pretty well defined, content is shown with little/no UI chrome, and hence we didn't have to consider this component too much in terms of user interface design.
+
+On the other hand, the Visualisation Catalogue and Scheduling components had very few constraints in the initial specification, and so we quickly set to work trying to decide on the overall design of our project.
+
+\subsubsection{Scheduling}
+Using skills we acquired in a previous relevant module, Human Centered Design, we decided to take a design-led approach to our project, which involved us sitting down with the important stakeholders in the final product, and finding out what they required from the product. As detailed above, this therefore took the form of meetings with the future 'Administrators' who would use the product to schedule content. We learned from discussions with them, that whilst they were happy for us to take the aesthetic design in any direction we wanted, the most important aspect to them would be the ease-of-use of the scheduling component. Their requirements were:
+\begin{itemize}
+\item Content should be able to be scheduled on a high level - the minute-by-minute timing should not be of concern to an administrator
+\item There should be some notion of weighting of different content item, and some associated guarantee about display time (e.g. to satisfy and external client request)
+\item Scheduling should be flexible, such that an administrator can override scheduling at any time
+\item If no content has been scheduled at a particular time, the system should gracefully react to this, by playing some default content
+\item There should be some way of easily repeating a content schedule previously created
+\end{itemize}
+
+From these requirements and subsequent discussions, we decided on the following 'high-level' design for scheduling.
+
+\textbf{Timeslots} are 'windows' which have a start and end time. Administrators create timeslots, and then assign content items which should be played within a timeslot. In a certain timeslot, a content item has an associated \textbf{priority}, an integer between 1 and 10 (inclusive). This priority is using by the scheduling algorithm to calculate the durations a content item should be shown, where the time a content item is shown is relatively proportional to its priority. For example, if we have two content items in a certain timeslots, with priorities 1 and 2, they will be shown for $\frac{1}{3}$ and $\frac{2}{3}$ of time time (respectively).
+
+An overriding mechanism is actually a side-effect of this design - if an administrator only wants one content item to be shown, they simply only assign one content item to a timeslot. This design allows administrators to quickly and easily assign content for different times of the day and days of a particular week, designating as much work to our algorithm as we can whilst maintaining flexibility.
+
+\subsubsection{Overall Design Principles}
+Having settled on this high-level design, we then start to drill down on what we wanted our project to look like in a more concrete way.
+
+As mentioned previously, we wanted users to be able to access and use the Visualisation Catalogue web application on whichever device they wanted, with little or no limitations between platforms. We found that Google's Material Design\footnote{http://www.google.co.uk/design/spec/material-design/introduction.html} principles matched the way we wanted to take our product, and they allowed us to design one interface, which adapted to the user's chosen device - a cohesive approach which didn't offer some 'lesser' interface based on device.
+
+Material Design's card metaphor also seemed to match perfectly with the concept of a visualisation or advert and so we decided to base the interface around them.
+
 
 
 \newpage
-\section{Design and Implementation}
+\section{System Design and Implementation}
 
 \subsection{Implementation Tools}
 
@@ -602,7 +636,7 @@ made use of customised ``Web Kits''.
 
 \subsubsection{Architecture}
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
 %    \includegraphics[width = 0.99\textwidth]{./impl/architecture.jpg}
   \caption{System architecture for the AppStore}
@@ -614,27 +648,32 @@ made use of customised ``Web Kits''.
 
 \subsubsection{Models}
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
-%    \includegraphics[width = 0.99\textwidth]{./impl/models.jpg}
-  \caption{Models of entities and resources in system and their relationship}
+    \includegraphics[width = 0.99\textwidth]{./impl/models.png}
+  \caption{Entity Relationship Diagram for models of entities and resources in system}
   \label{fig:impl_models}
 \end{figure}
 
 % Diagram for model relationship
 % 1 or 2 paragraphs for each model - what it represents/does, relate to the objectives in section 1
 
-A \textbf{user} ...
+\paragraph{User}
 
-A \textbf{visualisation} ...
+\paragraph{Visualisation}
 
-A \textbf{comment} ...
 
-A \textbf{programme} ...
+\paragraph{Comment}
 
-A \textbf{timeslot} ...
 
-A \textbf{playout session} ...
+\paragraph{Programme}
+
+
+\paragraph{Timeslot}
+
+
+\paragraph{Playout Session}
+
 
 
 \subsubsection{Controller Actions}
@@ -712,7 +751,7 @@ our routing and API on the server, logged in as admins, non-admins, and not logg
 \subsubsection{From Java Scheduling to Ruby Scheduling}
 % Translation on scheduling from Java to Ruby
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \begin{minipage}{0.49\textwidth}
 %    \includegraphics[width = 0.99\textwidth]{./impl/java_scheduling.jpg}
   \end{minipage}
@@ -750,7 +789,7 @@ In the following weeks, we then clarified and expanded on these requirements as 
 
 We also further clarified our understanding of stakeholders and how our system creates value for them via multiple value proposition canvasses. Figure \ref{fig:eval_valpropcanvas} shows the canvas for the Imperial Data Science Institute, which our supervisor is associated with. It includes a customer profile with a list of jobs, gains and pains, and corresponding products/services, gain creators and pain relievers (value map). The gains/pains of the institute, along with their creators/relievers are as follows:
 
-\begin{figure}[ht]
+\begin{figure}[h!]
    \begin{center}
       \includegraphics[width = 0.9\textwidth, trim = 1cm 6.5cm 1cm 4.5cm, clip]{./eval/value_prop_canvas.jpg}
    \end{center}
@@ -790,7 +829,7 @@ Where customer relationships are concerned, we see our most important stakeholde
 
 We tended to keep discussions fairly high-level, and only discussed implementation details/technologies when asked to do so, or when we felt that it was important to the discussion. We did this to mimic the scenario of David being our client, but also to ensure that discussions were not biased towards any kind of implementation, allowing us to fit our implementation around the best ideas, and not the other way around.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \begin{subfigure}{0.5\textwidth}
     \centering
     \includegraphics[width = 0.9\textwidth, trim = 0 0.4cm 0 1.6cm, clip]{./eval/meeting-board2.jpg}
@@ -866,7 +905,7 @@ However, not all spikes bring good news - investigation on Kerberos login librar
 	
 Quantitatively, we evaluated our project by tracking how fast we were ticking off our initial requirements. Using our Trello board and version control system, we can easily see by whom and at what time each feature has been implemented. By combining these with our estimates of the size of each task, we are able to analyse the group's performance via a Cumulative Flow Diagram (Figure \ref{fig:eval_cumuflow}).
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \centering
     \includegraphics[width = 0.99\textwidth]{./eval/cumu_flow.png}
   \caption{Cumulative flow diagram for our team based on tasks' status}
@@ -900,7 +939,7 @@ Once we have settled on a general design, we complete the main implementation of
 
 We also made sure that this prototype is seeded with some dummy/representative data in some way, so that it is clear how each part of the project will operate in practice.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
    \begin{center}
       \includegraphics[width = 0.9\textwidth, trim = 0 0 0 0cm, clip]{./eval/mockup.png}
    \end{center}
@@ -914,7 +953,7 @@ Compared to UIs which users can see and feel, we believed that uncovering the cl
 
 Throughout these discussions, we uncovered several assumptions made by our supervisor, one of which is expecting the scheduling algorithm to ensure that playout time is directly proportional to metric set by administrators. In response, we have created additional unit tests to incorporate such requirements in our scheduling algorithm.
 
-\begin{figure}[ht]
+\begin{figure}[h!]
   \begin{minipage}{0.46\textwidth}
       \includegraphics[width = 0.99\textwidth, trim = 0 1cm 0 1.5cm, clip]{./eval/scheduling_whiteboard.jpg}
   \end{minipage}
