@@ -220,11 +220,8 @@ definitely use the ``Agile'' methodology in future.
 The project has also allowed us to learn how to manage time effectively, especially when juggling 
 other academic commitments like lectures and exams. 
 
-TODO
-%TODO: 
-%Have we completed all requirements?
-%DAvid likes it :)
-
+As we have achieved most of the requirements (with the remaining needing to be finished off), the 
+project was quite successful. The application looks proffesionally designed and implemented.
 
 \newpage
 \section{Project Management}
@@ -236,9 +233,9 @@ The group is acutely aware that with Computing examinations being held at the
 end of term, we could only practically carry out development work until the
 first week of December. Furthermore, commitments in other courses mean that 
 each team member is only able to devote around 16-20 hours per week to
-the project. As a group, we have allowed some leeway for each task in case we run into technical errors. If this is the case, we will communicate between the group and come up with a solution if necessary.
+the project. As a group, we allowed some leeway for each task in case we run into technical errors. If this was the case, we communicated and came up with a solution if necessary.
 
-In light of these constraints, we have decided to commit to the following:
+In light of these constraints, we decided to commit to the following:
 \begin{enumerate}
   \item \textbf{To maintain a one-week iteration}: this allows the development team to
         obtain maximum possible feedback from our supervisor, who act as our client.
@@ -259,9 +256,9 @@ In light of these constraints, we have decided to commit to the following:
 
 Taking account of the current project scope, the resultant plan and timeline shown in figure 
 \ref{fig:projman_timeline} is a
-combination of the plan for next iteration and the release plan, further elaborated in tables 
+combination of the plan for subsequent iterations and the release plan, further elaborated in tables 
 \ref{tab:projman_rplan} and \ref{tab:projman_iplan}. Each post-it note either represents a 
-concrete task to be completed during the next iteration (towards the left), or
+concrete task to be completed during an iteration (towards the left), or
 high level themes to be implemented (towards the right). Each line segment at
 the bottom represents an iteration ending on Thursday, when the development
 team will meet with the client.
@@ -302,9 +299,9 @@ team will meet with the client.
 Estimates on time required for the tasks were based on their relative size and
 time taken for us to complete similar ones in the past. For example, some of us
 have implemented a College (Kerberos) Login System well within a week, thus if
-it is a size M, we can infer that the team (now double the size) is capable in 
+it is a size M, we inferred that the team (now double the size) is capable of 
 fitting two size M tasks within an iteration. For larger system modules, we
-assign a longer period specifically for that task: we expect the scheduling
+assign a longer period specifically for that task: we expected that the scheduling
 system (size L) and the entire playout system (size XL) would take us one and
 two iteration(s) respectively.
 
@@ -333,8 +330,9 @@ existing server/database code.
 TODO
 
 After forming the sub teams, we decided that Bryan and Andrew would be the two respective team 
-leaders. This way, they could delegate tasks to specific members at specific times, and give 
-deadlines for particular features - formalised via our Trello board.
+leaders for the server/database team and frontend team respectively. This way, they could delegate 
+tasks to specific members at specific times, and give deadlines for particular features - formalised 
+via our Trello board.
 
 We also coordinated our work by communicating on Facebook chat. Here we could ask how a particular 
 feature was coming along and also organise pair programming in labs. This was particularly useful as 
@@ -576,22 +574,27 @@ For the frontend, given the amount of similar web application projects Andrew an
 
 \subsubsection{Back-end: Initial Attempt - Flask (Python) \& MongoDB}
 
-During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest purposes. To make sure Flask was suitable, the backend team spent time researching additional modules that would allow us to implement future features.
+During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest and 
+learning purposes. To make sure Flask was suitable, the backend team spent time researching additional 
+modules that would allow us to implement future features.
 
 
 % Advantage of MongoDB - fast read, scalable, JS-like (easy FE adaptation)
 As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL
-solution. Again, this was based on interest. We see MongoDB especially helpful especially in early
-development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented,
-dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be
-beneficial to the project in long-term. Bryan used time at the beginning of the project to check that 
-Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
+solution. Again, this was based on interest. We saw that MongoDB is  especially helpful especially in 
+early development stage when the schema is not well-defined, as MongoDB is flexible with 
+document-oriented, dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and 
+scalability would be beneficial to the project in long-term. Bryan used time at the beginning of the 
+project to check that Flask was compatible with MongoDB and found it is possible with the library 
+\texttt{Flask-PyMongo}.
+
 
 % Problems - broken kerberos adapter, (changed from flask as we were getting stuck - consulted with David)
-After about a week of usage, we found that there had been lots of small problems in development. After 
-experimenting with a Kerberos authentication module for Flask, we found that the documentation was 
-very poor and some behaviour was erratic. Also, creation and maintenance of the database was taking 
-longer than previous web projects. 
+After about a week of usage, we found that there had been lots of small problems in development, as 
+well as Flask being one of the lesser-documented and feature-filled frameworks. After experimenting 
+with a Kerberos authentication module for Flask, we found that the documentation was very poor and some 
+behaviour was erratic. Also, creation and maintenance of the database was taking longer than previous 
+web projects. 
 
 As a group, we decided that it would be beneficial to switch technologies to Ruby on Rails, as we had
 previous experience and was quicker to set up. We consulted with David in our weekly scrum, who was
@@ -631,10 +634,10 @@ made use of customised ``Web Kits''.
 
 
 \subsection{AppStore Design}
-
 % Feel free to add more subsubsections!
 
-\subsubsection{Architecture}
+\subsubsection{Architecture} 
+lots TODO here
 
 \begin{figure}[h!]
   \centering
@@ -647,6 +650,8 @@ made use of customised ``Web Kits''.
 % RoR enforces MVC architectural pattern
 
 \subsubsection{Models}
+As multiple team members were changing the structure of the models, we kept track of their fields
+on the Gitlab Wiki page. 
 
 \begin{figure}[h!]
   \centering
@@ -659,20 +664,54 @@ made use of customised ``Web Kits''.
 % 1 or 2 paragraphs for each model - what it represents/does, relate to the objectives in section 1
 
 \paragraph{User}
+The user model represents those that submit and look at approved visualisations in the catalogue. 
+Additionally, the \textbf{isAdmin} field allows us to check which users are allowed to moderate 
+and schedule, after initially populating the database with a few administrators. 
+
+TODO diagram and has many relation with visualisations
 
 \paragraph{Visualisation}
+The visualisation model holds data about a submitted visualisation or advert. Although we have only used
+one model, it is flexible enough to support multiple file types (including web links and no files at 
+all). It is linked to a specific user and not displayed in the main program until it is approved by an 
+administrator.
+
+TODO diagram and relation (other relationships not shown)
 
 
 \paragraph{Comment}
+The comment model is a basic structure to hold a textual comment on a particular visualisation. It 
+belongs to one user and one visualisation. 
+
+TODO diagram and relation
 
 
 \paragraph{Programme}
+The programme model is created when an admin is scheduling. It holds the number of screens that a 
+visualisation is going to be displayed on and also the assigned priority, set by the admin. It is linked
+with a single visualisation, but as one visualisation may be scheduled many times this is not a 
+one-to-one relationship. Also, the programme is linked to a specific timeslot, as described below.
 
+TODO diagram
 
 \paragraph{Timeslot}
+A timeslot represents a section of time created by the admin when scheduling. It is specific to a date,
+and uniquely represented by a start time and end time using the Ruby ``date'' module. For robustness,
+we have used the ISO 8601 format throughout the application for easy transformations and comparisons. A 
+timeslot has many programmes that are to be displayed between the start and end times, according to our 
+scheduling algorithm.
+
+TODO diagram
 
 
 \paragraph{Playout Session}
+PlayoutSession records are generated solely by the scheduling algorithm. It describes when a 
+visualisation is to be scheduled in a particular timeslot, including the screens it spans. A 
+visualisation is displayed multiple times in a timeslot (in order to keep the screens interesting),
+so the same visualisation will have multiple start and end times for a timeslot, with the start and
+end screens also differing.
+
+TODO diagram
 
 
 
@@ -685,7 +724,7 @@ writing controller actions for HTTP requests, along with some utility functions.
 communicate with the frontend - providing information from the database obtained with the built in 
 ActiveRecord. These were separated so that a team member could be assigned to a particular action.   
 
-% Andrew: is it worth to write a view section?
+% TODO: Andrew: is it worth to write a view section?
 % \subsubsection{Views}
 
 
