@@ -757,7 +757,7 @@ We also further clarified our understanding of stakeholders and how our system c
 
   \item Pain: Attracts inappropriate submissions from users (relieved through admin moderation)
 
-  % Put the 3rd pair of gain/pain in
+  % TODO: put the 3rd pair of gain/pain in
 
 \end{itemize}
 
@@ -899,7 +899,48 @@ The diagram tracks the tasks on the columns ``To Do (This week)", ``In Progress"
 \section{Conclusion}
 
 \subsection{Future Extensions}
-TODO:
+TODO: 
+social sharing of visualisation/adverts
+mumtiple playback systems in same web application
+
+\subsubsection{QR Code Voting}
+After presenting our progress to Prof. Yike Guo, he suggested that we add further interaction with 
+passers-by on the Sherfield Walkway. To gauge interested, Prof. Guo said we could use Quick Response 
+(QR) codes on the displayed visualisations, that a passer-by could scan if he/she liked the 
+visualisation or advert being shown. This was not a feature we had though of before, but decided as a 
+group that it would be quick enough to implement in the remaining time frame, and very beneficial to
+the project. 
+
+To generate the QR code in the playout software, we used a Python module recommened by lots of users 
+online. In our database, we added a ``votes'' field to the visualisation model, and provided an API
+for users to ``like'' them. When a user scanned a QR Code, they are directed to that visualisation in 
+our application, and its vote field is incremented. As Andrew and Emma had been working to keep 
+appropriate parts of the application mobile-friendly, this required no other implementation. To show 
+popular visualisations, we added a button to order them by number of votes. This feature was also 
+useful to an admin when scheduling, as he/she could see which adverts/visualisations are liked the 
+most. 
+
+
+\subsubsection{Social Sharing}
+To expand interaction with external users, we could add social sharing technology to the 
+visualisations. We identified a potential use case of a student seeing an advert for an event, and 
+wanting to tell their friend via Facebook or Twitter. The QR codes could be expanded to take users to
+a mobile-friendly page with buttons for sharing on various social networks. This could involve using 
+the Facebook and Twitter API which are well documented and robust. 
+
+
+\subsubsection{Mutiple Playback Systems}
+In the final sprint cycle, David suggested a challenging but interesting extension. Although our 
+playout software is cross platform, reproducible and customizable for different screen orientations, 
+our webapp only allows for scheduling for one playout system at a time. 
+
+Theoretically, if another instance of our server was run on a different machine, we could support 
+multiple playout sessions. However, this is uneccessarily resource intensive. An useful extension 
+therefore is to support multiple playout sessions with a single web application. This would involve 
+implementing a more intelligent messaging interface between playout software and the server. In the 
+front end we would need to separate playout software with a clear indication of what location is
+being scheduled for. 
+
 
 % ======================================
 % ======================================
