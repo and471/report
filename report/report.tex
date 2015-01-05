@@ -53,6 +53,7 @@
 \newpage
 \pagenumbering{arabic}
 \section{Introduction}
+
 As part of the renovation of the William Penney Building, the part of the building facing onto the Sherfield walkway will be undergoing major changes in order to further promote the home of the Imperial Data Science Institute. These changes include mounting an 84 inch 4K touch panel adjacent to the building's entrance, as well as replacing the existing small windows with floor to ceiling glass panel, onto which content can be projected to the hundreds of students, teaching staff and visitors who pass by everyday via eight HD projectors.
 
 \begin{figure}[h!]
@@ -169,15 +170,27 @@ Whilst they don't need a large amount of input through the development process, 
 \textbf{Requirements}
 \begin{itemize}
 \item View projected content
+\item 'Like' or vote for interesting visualisations
+\item See an ever-changing screen
 \end{itemize}
 
 
 \subsection{Achievements}
-TODO
+We have experimented successfully with new technologies such as AngularJS and Python using the GTk 
+library. Most of our previous applications have not contained a GUI, so implementing the playout
+system has been a substantial achievement. Also, as it was a requirement for the playout software 
+to be cross platform, we had to change our way of thinking when implementing. We had to ask ourselves;
+``How would we implement this feature?'' and ``Will this work on Linux and Windows systems?''. This style
+of development will help us for future projects.
 
-New techmologies learnt
-Adjust to an Agile way of working
-Manage time with exams and other courses
+Away from the technical side of development, we have achieved a good example of an ``Agile'' development
+process encorporating multiple features of different development styles, according to our preference. 
+We can measure this by looking at our Trello board and meeting notes, and comparing our work to 
+previous project cycles. As a group we all stated that we enjoyed working on this project and would 
+definitely use the ``Agile'' methodology in future. 
+
+The project has also allowed us to learn how to manage time effectively, especially when juggling 
+other academic commitments like lectures and exams. 
 
 
 \newpage
@@ -284,6 +297,30 @@ existing server/database code.
 
 \subsubsection{Team Coordination}
 % TODO: Chatley: Think about how to synchronise FE and BE work, what if one gets ahead/behind?
+TODO
+
+After forming the sub teams, we decided that Bryan and Andrew would be the two respective team 
+leaders. This way, they could delegate tasks to specific members at specific times, and give 
+deadlines for particular features - formalised via our Trello board.
+
+We also coordinated our work by communicating on Facebook chat. Here we could ask how a particular 
+feature was coming along and also organise pair programming in labs. This was particularly useful as 
+the whole group could see development progress at the same time. Also, the chat allowed us to use our 
+time effectively - if a member needed a particular feature before he/she could start work, then they
+could implement a different feature in the mean time. 
+
+Towards the end of the project, we used the issue tracker on Gitlab to let the group know of small bugs.
+Although these could be assigned to a specific member, we left them open to the group, so an
+appropriate team member could address the issue. 
+
+\begin{figure}[h]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./projman/issue_page.png}
+  \caption{Small section of the issue tracker on Gitlab}
+  \label{fig:projman_issues}
+\end{figure}
+
+
 
 
 \subsubsection{Preference on Technologies}
@@ -452,6 +489,9 @@ on the updated code and integrates the updates. If something went wrong,
 Jenkins would notify us immediately and we could look at the issue and get
 it resolved as soon as possible.
 
+This feature also meant that our supervisor, David, could look at the release vm 
+for the most up to date version of our web application. 
+
 
 \newpage
 \section{Design and Implementation}
@@ -459,7 +499,8 @@ it resolved as soon as possible.
 \subsection{Implementation Tools}
 
 \subsubsection{Front-end: }
-% Andrew: please add section headings as appropriate
+% TODO Andrew: please add section headings as appropriate
+TODO 
 
 FE: 
   angular for one-page smooth application
@@ -474,29 +515,48 @@ During the inital phases of our project, we decided on which tools/technologies 
 
 
 % Advantage of MongoDB - fast read, scalable, JS-like (easy FE adaptation)
-As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL solution. Again, this was based on interest. We see MongoDB especially helpful especially in early development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented, dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be beneficial to the project in long-term. Bryan used time at the beginning of the project to check that Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
+As Bryan and Jackie were more interested in the database side, they chose to use MongoDB as a NoSQL
+solution. Again, this was based on interest. We see MongoDB especially helpful especially in early
+development stage when the schema is not well-defined, as MongoDB is flexible with document-oriented,
+dynamic schemas. Moreover, we believe MongoDB's ability in supporting fast read and scalability would be
+beneficial to the project in long-term. Bryan used time at the beginning of the project to check that 
+Flask was compatible with MongoDB and found it is possible with the library \texttt{Flask-PyMongo}.
 
 % Problems - broken kerberos adapter, (changed from flask as we were getting stuck - consulted with David)
+After about a week of usage, we found that there had been lots of small problems in development. After 
+experimenting with a Kerberos authentication module for Flask, we found that the documentation was 
+very poor and some behaviour was erratic. Also, creation and maintenance of the database was taking 
+longer than previous web projects. 
 
+As a group, we decided that it would be beneficial to switch technologies to Ruby on Rails, as we had
+previous experience and was quicker to set up. We consulted with David in our weekly scrum, who was
+happy for us to change. The change would not affect end users of the system, and would still enable us 
+to develop in the same environments. 
 
 \subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
 
-BE: 
-  ruby on rails 
-  gems for features - devise, token authentication, carrierwave
-  rails deals with db nicely
-  ruby for scheduling algorithm - translated from Java
+We used our previous experience in Ruby on Rails to quickly and easily set up the project. We could also
+use a wide range of gems for particular features, especially for authentication users with the college
+Kerberos servers. Using rails also meant a smooth interaction with the database, which also required 
+little setup. In the first few days of development we noticed that we were implementing features much
+faster and feeling more confident with the work that lied ahead. 
+
+We decided to use Java to initially write the scheduling algorithm, which would then be translated to 
+Ruby. This was because we were more confident with Java, and it's object orientated paradigm would make 
+the algorithm easier to implement. We thought (correctly) that this method would be quicker than
+implementing the algorithm in Ruby from the outset. Intelligent design and use of comments meant that
+the resulting Ruby code would be well structured and efficient.
   
 
 \subsubsection{Playout Software: }
+For the playout software, we decided to use Python with the Gtk graphics library. This was partly down
+to previous experience with Python but mostly because we needed the software to be cross platform. Hence,
+when developing the playout software, we used dual-boot Linux and Windows machines to test after every 
+feature was implemented. 
 
-We have yet to concretely decide on the best solution for our playout system, as this is relatively independent of the technologies used for the web service. Andrew briefly explored possible options and there is a high probability we will use the Qt toolkit, as it is a widely used, cross-platform option, however this will be decided in one of our weekly meetings nearer the end of our project.
-
-PO: 
-  python and gtk (?)
-  cross platform for Windows + Linux
-  make use of thrreading module for timers
-  web kits
+To continuously poll our server, we used timers in python, to make sure the software displays the 
+current visualisation. We also wanted to hide any Windows/Linux GUI elements, e.g. scroll bars, so we 
+made use of customised ``Web Kits''.
 
 
 \subsection{AppStore Design}
@@ -543,6 +603,11 @@ A \textbf{playout session} ...
 \subsubsection{Controller Actions}
 
 % Briefly describe controller actions which requires routing, etc. - what it does 
+Rails uses a Model-View-Controller (MVC) architecture, making it easy for communication between the 
+server and browser and server and database. This meant that the server implementation boiled down to
+writing controller actions for HTTP requests, along with some utility functions. We used JSON to 
+communicate with the frontend - providing information from the database obtained with the built in 
+ActiveRecord. These were separated so that a team member could be assigned to a particular action.   
 
 % Andrew: is it worth to write a view section?
 % \subsubsection{Views}
@@ -551,18 +616,60 @@ A \textbf{playout session} ...
 \subsubsection{Scheduling Library}
 
 % Jackie: Brief mention of the library and the functions (high-level)
-% Tom: Description on middle-man
+
+As the scheduling library was implemented separately from the request controllers,
+we needed a middle-man to call the scheduling functions. When a timeslot is edited, i.e. 
+visualisations/adverts where added to it, the scheduling function is called from
+the controller and the playout session records are created in the database. Any 
+subsequent changes to a timeslot clears the sessions that the scheduling algorithm 
+has previously created for it, and generates a new schedule. 
 
 \subsubsection{Playout Software}
 
-% Working mechanism - how it grabs visualisation, rendering, QR...
+% TODO: Working mechanism - how it grabs visualisation, rendering, QR...
 
 
 
 \subsection{Technical Challenges \& Risks}
 
 % TODO: Any technical challenges encountered and how addressed?
+As mentioned previously, we encountered challenges when using Flask with Python for the backend to our 
+project. We were challenged with poor documentation for addition modules and long setup times for 
+trivial tasks. We addressed these by switching technologies to Ruby on Rails - with which we had 
+previous experience. 
+
+We also had a few issues when using Docker containers, whereby data was not being saved to the database.
+We assigned Bryan to work exclusively on Docker, while other members implemented features using dummy 
+data. This resulted in a quick fix of the problem, and Bryan then briefed the group on how to implement
+inside the Docker containers. 
+
+A small but intelligent feature of our webapp was to use colours in the frontend that are calculated 
+from the uploaded visualisation screenshots - done via ``color-thief''. Originally this image
+processing code was done on the client's side, but we noticed that it was computationally expensive,
+breaking our fluid interface requirement. We moved this to the sever side code, where it was still 
+affecting response times. After some research by Tom, we took advantage of Rails' thread safety to move
+this image processing to a separate thread. Although this meant that these colours were not generated 
+immediately, the nature of admin moderation meant that uploaded visualisations are very likely to be 
+shown before this new thread finishes its work.
+
+%Andrew + Emma, any probs and risks with frontned? 
+
+
 % TODO: Any risks anticipated, and how mitigated
+We anticipated that the cross platform playout software requirement may cause issues due to Python
+and/or Gtk versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
+machines with Windows and Linux (or virtual machines), and to test very frequently. We agreed that after
+every small feature implemented, it would need to be tested on both platforms. This resulted in robust, 
+cross-platform code.
+
+
+As our application has a small user hierarchy (with passers-by being users with no account at all!), we 
+predicted that our app may show some information to inappropriate users. For example, we didn't want a 
+non-admin user to access any non-approved visualisations. To remedy this, we conducted a full test of
+our routing and API on the server, logged in as admins, non-admins, and not logged in at all. 
+
+
+
 % Please feel free to introduce subsections
 
 \subsubsection{From Java Scheduling to Ruby Scheduling}
@@ -598,7 +705,6 @@ requirements including:
   \item Stakeholder requirements resembling user stories (e.g. a user is allowed to submit scientific visualisations and/or advertisements, as well as to state his/her preference(s) on playout).
 
   \item System/Interface requirements - what users expect it to be able to do based on the user stories above (e.g. The scheduling system should schedule items to play out in rotation, so that passers-by will not be bored by the ``fixed" playout sessions).
-
 \end{itemize}
 
 In the following weeks, we then clarified and expanded on these requirements as a group. This allowed us to discuss the implementation and technical details of specific features.
@@ -685,8 +791,6 @@ Upon receiving feedback from our stakeholders, mainly from our supervisor, we ha
 In all cases, we have communicated with the personnel that provided the
 feedback with justification on our decisions. For example, we told
 our supervisor that we are happy to accede to his request of adding a button which copies previous timeslots as we rate it as a S-sized task which can fit into the planned iteration, but his request for linked videos to be scheduled to be screened consecutively would delay our plans, and thus should be considered only after the entire system is implemented minimally.
-
-
 
 
 \subsection{Task Management \& Team Progress}
@@ -803,6 +907,47 @@ view visualisations.
 \section{Conclusion}
 
 \subsection{Future Extensions}
+TODO: 
+social sharing of visualisation/adverts
+mumtiple playback systems in same web application
+
+\subsubsection{QR Code Voting}
+After presenting our progress to Prof. Yike Guo, he suggested that we add further interaction with 
+passers-by on the Sherfield Walkway. To gauge interested, Prof. Guo said we could use Quick Response 
+(QR) codes on the displayed visualisations, that a passer-by could scan if he/she liked the 
+visualisation or advert being shown. This was not a feature we had though of before, but decided as a 
+group that it would be quick enough to implement in the remaining time frame, and very beneficial to
+the project. 
+
+To generate the QR code in the playout software, we used a Python module recommened by lots of users 
+online. In our database, we added a ``votes'' field to the visualisation model, and provided an API
+for users to ``like'' them. When a user scanned a QR Code, they are directed to that visualisation in 
+our application, and its vote field is incremented. As Andrew and Emma had been working to keep 
+appropriate parts of the application mobile-friendly, this required no other implementation. To show 
+popular visualisations, we added a button to order them by number of votes. This feature was also 
+useful to an admin when scheduling, as he/she could see which adverts/visualisations are liked the 
+most. 
+
+
+\subsubsection{Social Sharing}
+To expand interaction with external users, we could add social sharing technology to the 
+visualisations. We identified a potential use case of a student seeing an advert for an event, and 
+wanting to tell their friend via Facebook or Twitter. The QR codes could be expanded to take users to
+a mobile-friendly page with buttons for sharing on various social networks. This could involve using 
+the Facebook and Twitter API which are well documented and robust. 
+
+
+\subsubsection{Mutiple Playback Systems}
+In the final sprint cycle, David suggested a challenging but interesting extension. Although our 
+playout software is cross platform, reproducible and customizable for different screen orientations, 
+our webapp only allows for scheduling for one playout system at a time. 
+
+Theoretically, if another instance of our server was run on a different machine, we could support 
+multiple playout sessions. However, this is uneccessarily resource intensive. An useful extension 
+therefore is to support multiple playout sessions with a single web application. This would involve 
+implementing a more intelligent messaging interface between playout software and the server. In the 
+front end we would need to separate playout software with a clear indication of what location is
+being scheduled for. 
 
 
 % ======================================
