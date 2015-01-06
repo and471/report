@@ -646,14 +646,16 @@ The playout software is essentially multiple WebKit WebView's, stacked to match 
 
 We chose this approach, instead of a simpler one, perhaps involving fully fledged web browsers, as it allows us to remove any UI chrome, which might reveal any implementation and hence provide a less-than-professional appearance. WebKit is also sufficiently mature and robust enough for us to rely upon it, and it provides a generous API so that we can make our application more intelligent (for example, only displaying new content once it has loaded in the WebView etc.)
 
+\subsection{AppStore Implemetation}
+
 \subsubsection{Architecture} 
 lots TODO here
 
 \begin{figure}[h!]
   \centering
-%    \includegraphics[width = 0.99\textwidth]{./impl/architecture.jpg}
+    \includegraphics[width = 0.99\textwidth]{./impl/architecture.png}
   \caption{System architecture for the AppStore}
-  \label{fig:impl_models}
+  \label{fig:impl_architecture}
 \end{figure}
 
 % Diagram on system architecture, showing RESTful API, HTML gets and playout software gets
@@ -793,16 +795,24 @@ has previously created for it, and generates a new schedule.
 
 
 \subsection{Technical Challenges \& Risks}
+
+\subsubsection{Mastery of Implementation Tools}
+During implementation, we have encountered quite a few bottlenecks when attempting
+to master the tools to achieve our objectives.
+
+\paragraph{Flask}
 As mentioned previously, we encountered challenges when using Flask with Python for the backend to our 
 project. We were challenged with poor documentation for addition modules and long setup times for 
 trivial tasks. We addressed these by switching technologies to Ruby on Rails - with which we had 
 previous experience. 
 
+\paragraph{Docker}
 We also had a few issues when using Docker containers, whereby data was not being saved to the database.
 We assigned Bryan to work exclusively on Docker, while other members implemented features using dummy 
 data. This resulted in a quick fix of the problem, and Bryan then briefed the group on how to implement
 inside the Docker containers. 
 
+\paragraph{Color-thief}
 A small but intelligent feature of our webapp was to use colours in the frontend that are calculated 
 from the uploaded visualisation screenshots - done via ``color-thief''. Originally this image
 processing code was done on the client's side, but we noticed that it was computationally expensive,
@@ -814,24 +824,6 @@ shown before this new thread finishes its work.
 
 %TODO: Andrew + Emma, any probs and risks with frontned? 
 
-
-% TODO: Any risks anticipated, and how mitigated
-We anticipated that the cross platform playout software requirement may cause issues due to Python
-and/or Gtk versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
-machines with Windows and Linux (or virtual machines), and to test very frequently. We agreed that after
-every small feature implemented, it would need to be tested on both platforms. This resulted in robust, 
-cross-platform code.
-
-As our application has a small user hierarchy (with passers-by being users with no account at all!), we 
-predicted that our app may show some information to inappropriate users. For example, we didn't want a 
-non-admin user to access any non-approved visualisations. To remedy this, we conducted a full test of
-our routing and API on the server, logged in as admins, non-admins, and not logged in at all. 
-
-As mentioned in the description of the models, we recognised that we would have a lot of work involving
-dates and times. We did not want to waste processing power and introduce minor bugs due to 
-discrepencies with dates. Due to Andrew's prior experience with using dates in applications, we decided 
-to standardize dates in the ISO 8601 format. This meant we did not have to do any conversions or string
-manipulations, and also to use Ruby's built-in functions in the \textit{datetime} module. 
 
 \subsubsection{From Java Scheduling to Ruby Scheduling}
 %  TODO: Translation on scheduling from Java to Ruby
@@ -855,12 +847,41 @@ the resulting Ruby code would be well structured and efficient.
   \label{fig:impl_translation}
 \end{figure}
 
+\subsubsection{Mitigating Technical Risks}
+
+% TODO: Any risks anticipated, and how mitigated
+
+\paragraph{Cross Platform Usage}
+We anticipated that the cross platform playout software requirement may cause issues due to Python
+and/or Gtk versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
+machines with Windows and Linux (or virtual machines), and to test very frequently. We agreed that after
+every small feature implemented, it would need to be tested on both platforms. This resulted in robust, 
+cross-platform code.
+
+\paragraph{User Access Control}
+As our application has a small user hierarchy (with passers-by being users with no account at all!), we 
+predicted that our app may show some information to inappropriate users. For example, we didn't want a 
+non-admin user to access any non-approved visualisations. To remedy this, we conducted a full test of
+our routing and API on the server, logged in as admins, non-admins, and not logged in at all. 
+
+\paragraph{Date \& Time Handling}
+As mentioned in the description of the models, we recognised that we would have a lot of work involving
+dates and times. We did not want to waste processing power and introduce minor bugs due to 
+discrepencies with dates. Due to Andrew's prior experience with using dates in applications, we decided 
+to standardize dates in the ISO 8601 format. This meant we did not have to do any conversions or string
+manipulations, and also to use Ruby's built-in functions in the \textit{datetime} module. 
+
 
 \subsubsection{Security}
 TODO: 
 use tokens and boolean flag only set to true when we seed it 
 test APIs 
 make sure non-admins cannot moderate, schedule, see non-approved data
+
+
+
+\subsection{Extensions}
+% Proposal (Bryan): Move the QR Voting from conclusion to here
 
 
 \newpage
