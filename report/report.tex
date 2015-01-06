@@ -14,8 +14,8 @@
 
 \linespread{1.1}
 
-\title{Visualisation AppStore \\ \vspace{10pt}
-\textit{\large Integrated platform for visualistion submission, scheduling and visualisation wall playout} \\ \vspace*{-5pt}
+\title{Visualisation Catalogue \\ \vspace{10pt}
+\textit{\large Integrated platform for visualistion submission, scheduling and visualisation playout} \\ \vspace*{-5pt}
 \textit{\large Commissioned by Imperial Data Science Institute}}
 
 \author{Andrew Higginson\\ Bryan Liu \\ Emma Hulme \\ Jia Guang Choo \\
@@ -641,7 +641,7 @@ The playout software is essentially multiple WebKit WebView's, stacked to match 
 
 We chose this approach, instead of a simpler one, perhaps involving fully fledged web browsers, as it allows us to remove any UI chrome, which might reveal any implementation and hence provide a less-than-professional appearance. WebKit is also sufficiently mature and robust enough for us to rely upon it, and it provides a generous API so that we can make our application more intelligent (for example, only displaying new content once it has loaded in the WebView etc.)
 
-\subsection{AppStore Implemetation}
+\subsection{Visualisation Catalogue Implemetation}
 
 \subsubsection{Architecture} 
 lots TODO here
@@ -649,7 +649,7 @@ lots TODO here
 \begin{figure}[h!]
   \centering
     \includegraphics[width = 0.99\textwidth]{./impl/architecture.png}
-  \caption{System architecture for the AppStore}
+  \caption{System architecture for Visualisation Catalogue}
   \label{fig:impl_architecture}
 \end{figure}
 
@@ -877,6 +877,22 @@ make sure non-admins cannot moderate, schedule, see non-approved data
 
 \subsection{Extensions}
 % Proposal (Bryan): Move the QR Voting from conclusion to here
+\subsubsection{QR Code Voting}
+After presenting our progress to Prof. Yike Guo, he suggested that we add further interaction with 
+passers-by on the Sherfield Walkway. To gauge interested, Prof. Guo said we could use Quick Response 
+(QR) codes on the displayed visualisations, that a passer-by could scan if he/she liked the 
+visualisation or advert being shown. This was not a feature we had though of before, but decided as a 
+group that it would be quick enough to implement in the remaining time frame, and very beneficial to
+the project. 
+
+To generate the QR code in the playout software, we used a Python module recommened by lots of users 
+online. In our database, we added a ``votes'' field to the visualisation model, and provided an API
+for users to ``like'' them. When a user scanned a QR Code, they are directed to that visualisation in 
+our application, and its vote field is incremented. As Andrew and Emma had been working to keep 
+appropriate parts of the application mobile-friendly, this required no other implementation. To show 
+popular visualisations, we added a button to order them by number of votes. This feature was also 
+useful to an admin when scheduling, as he/she could see which adverts/visualisations are liked the 
+most. 
 
 
 \newpage
@@ -1118,24 +1134,6 @@ capable of implementing them quicker, and moved other members onto the playback 
 
 \subsection{Future Extensions}
 
-\subsubsection{QR Code Voting}
-After presenting our progress to Prof. Yike Guo, he suggested that we add further interaction with 
-passers-by on the Sherfield Walkway. To gauge interested, Prof. Guo said we could use Quick Response 
-(QR) codes on the displayed visualisations, that a passer-by could scan if he/she liked the 
-visualisation or advert being shown. This was not a feature we had though of before, but decided as a 
-group that it would be quick enough to implement in the remaining time frame, and very beneficial to
-the project. 
-
-To generate the QR code in the playout software, we used a Python module recommened by lots of users 
-online. In our database, we added a ``votes'' field to the visualisation model, and provided an API
-for users to ``like'' them. When a user scanned a QR Code, they are directed to that visualisation in 
-our application, and its vote field is incremented. As Andrew and Emma had been working to keep 
-appropriate parts of the application mobile-friendly, this required no other implementation. To show 
-popular visualisations, we added a button to order them by number of votes. This feature was also 
-useful to an admin when scheduling, as he/she could see which adverts/visualisations are liked the 
-most. 
-
-
 \subsubsection{Social Sharing}
 To expand interaction with external users, we could add social sharing technology to the 
 visualisations. We identified a potential use case of a student seeing an advert for an event, and 
@@ -1170,7 +1168,7 @@ being scheduled for.
 
 \textbf{\Large Introduction}
 
-As part of the improvement plan in William Penney Building, windows facing the walkway will be replaced by floor-ceiling glass and projectors that will be internally mounted in WP (similar to that in DoC Teaching Lab). An AppStore system is required to accept upload from various parties and schedule them for playout, subject to moderation.\\
+As part of the improvement plan in William Penney (WP) Building, windows facing the walkway will be replaced by floor-ceiling glass and projectors that will be internally mounted in WP (similar to that in DoC Teaching Lab). An AppStore system is required to accept upload from various parties and schedule them for playout, subject to moderation.\\
 
 \textbf{\Large System Requirements} \vspace{5pt}
 
