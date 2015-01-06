@@ -661,7 +661,6 @@ The user model represents those that submit and look at approved visualisations 
 Additionally, the \textbf{isAdmin} field allows us to check which users are allowed to moderate 
 and schedule, after initially populating the database with a few administrators. 
 
-TODO diagram and has many relation with visualisations
 
 \paragraph{Visualisation}
 The visualisation model holds data about a submitted visualisation or advert. Although we have only used
@@ -669,23 +668,33 @@ one model, it is flexible enough to support multiple file types (including web l
 all). It is linked to a specific user and not displayed in the main program until it is approved by an 
 administrator.
 
-TODO diagram and relation (other relationships not shown)
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./relations/user-vis.png}
+  \caption{One to many relationship between \textbf{User} and \textbf{Visualisation}. Created when 
+  			user submits a visualisation and may be destroyed upon rejection by an administrator.}
+  \label{fig:rel-user-vis}
+\end{figure}
+
+
 
 
 \paragraph{Comment}
 The comment model is a basic structure to hold a textual comment on a particular visualisation. It 
 belongs to one user and one visualisation. 
 
-TODO diagram and relation
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./relations/user-comment-vis.png}
+  \caption{Diagram showing that a \textbf{User} has many \textbf{Comment}s, which belong to a unique
+  			\textbf{Visualisation}. Comments are created on the particular visualisation's page and
+  			linked with the current user via authentication tokens.}
+  \label{fig:rel-user-comment-vis}
+\end{figure}
 
 
-\paragraph{Programme}
-The programme model is created when an admin is scheduling. It holds the number of screens that a 
-visualisation is going to be displayed on and also the assigned priority, set by the admin. It is linked
-with a single visualisation, but as one visualisation may be scheduled many times this is not a 
-one-to-one relationship. Also, the programme is linked to a specific timeslot, as described below.
 
-TODO diagram
 
 \paragraph{Timeslot}
 A timeslot represents a section of time created by the admin when scheduling. It is specific to a date,
@@ -694,7 +703,25 @@ we have used the ISO 8601 format throughout the application for easy transformat
 timeslot has many programmes that are to be displayed between the start and end times, according to our 
 scheduling algorithm.
 
-TODO diagram
+
+\paragraph{Programme}
+The programme model is created when an admin is scheduling. It holds the number of screens that a 
+visualisation is going to be displayed on and also the assigned priority, set by the admin. It is linked
+with a single visualisation, but as one visualisation may be scheduled many times this is not a 
+one-to-one relationship. Also, the programme is linked to a specific timeslot, as described below.
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./relations/timeslot-programme-vis.png}
+  \caption{One to many relationship between a \textbf{Timeslot}, created when scheduling, and a 
+  			\textbf{Programme}, created when choosing a visualisation to be scheduled. Also shown is 
+  			the many to one relationship between \textbf{Programme}s and \textbf{Visualisation}s.}
+  \label{fig:rel-timeslot-programme-vis}
+\end{figure}
+
+
+
+
 
 
 \paragraph{Playout Session}
@@ -704,7 +731,17 @@ visualisation is displayed multiple times in a timeslot (in order to keep the sc
 so the same visualisation will have multiple start and end times for a timeslot, with the start and
 end screens also differing.
 
-TODO diagram
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width = 0.99\textwidth]{./relations/ps-vis.png}
+  \caption{After \textbf{Timeslot}s are passed to the scheduling algorithm, \textbf{PlayoutSession}s 
+  			are produced, which have a many to one relationship with \textbf{Visualisation}s, as they
+  			can be scheduled to be displayed mulitple times.}
+  \label{fig:rel-ps-vis}
+\end{figure}
+
+
+
 
 
 
