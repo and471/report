@@ -525,6 +525,7 @@ This feature also meant that our supervisor, David, could look at the release VM
 for the most up to date version of our web application. 
 
 \newpage
+\section{System Design and Implementation}
 \subsection{User Interface Design}
 
 As mentioned previously, the design for the playback software was already pretty well defined, content is shown with little/no UI chrome, and hence we didn't have to consider this component too much in terms of user interface design.
@@ -550,29 +551,50 @@ An overriding mechanism is actually a side-effect of this design - if an adminis
 \subsubsection{Overall Design Principles}
 Having settled on this high-level design, we then start to drill down on what we wanted our project to look like in a more concrete way.
 
-As mentioned previously, we wanted users to be able to access and use the Visualisation Catalogue web application on whichever device they wanted, with little or no limitations between platforms. We found that Google's Material Design\footnote{http://www.google.co.uk/design/spec/material-design/introduction.html} principles matched the way we wanted to take our product, and they allowed us to design one interface, which adapted to the user's chosen device - a cohesive approach which didn't offer some 'lesser' interface based on device.
+As mentioned previously, we wanted users to be able to access and use the Visualisation Catalogue web application on whichever device they wanted, with little or no limitations between platforms. We found that Google's Material Design\footnote{http://www.google.co.uk/design/spec/material-design/introduction.html} principles matched the way we wanted to take our product, and they allowed us to design one interface, which adapted to the user's chosen device - a cohesive approach which didn't offer some 'lesser' interface based on device. Material Design's card metaphor also seemed to match perfectly with the concept of a visualisation or advert and so we decided to base the interface around them.
 
-Material Design's card metaphor also seemed to match perfectly with the concept of a visualisation or advert and so we decided to base the interface around them.
+We began by sketching mockups of the ideas we had around the main site's interface, however due to already haven chosen to follow the Material Design guidelines, once we had agreed on basic ideas, we quickly migrated to more specific 'mockups'. We used Inkscape to create these, and presented them to our supervisors, before we started heavily implementing the UI, as a final check. We began with the main 'Visualisations View' and then migrated to the adminstrator-only parts of the site.
 
+The interface provides navigation via a side-menu, displayed whenever the user clicks the top-left 'hamburger' icon. Only the parts of the application the current user can access are shown (i.e. only administrators are shown the Schedule and Moderate menu items). The side-menu also alows access to the sign-in and out functionality of the web application.
 
+The 'Visualisations view' adopts a masonry-like grid layout, showing the approved visualisations that have been submitted. Visualisaitons can be filtered from this view via the search entry at the top right, or via the filters located in the side-menu. The search entry at the top right actually provides search for many other pages, and its behaviour depends on the current page.
 
-\newpage
-\section{System Design and Implementation}
+A user can click on a visualisation card to access the 'View visualisation' page which maintaining the card metaphor, provides more information, such as a full description, details about the user which submitted it, as well as revealing comments made about the visualisation, and allowing the user to 'like' or comment on it.
+
+Finally, the sign-in functionality is contained in the 'Sign in view', which allows a user to log-in with their Imperial username and password. By including the Imperial logo, we hope to reassure user's that their credentials are safe. It is from this page that external users may also request access.
+
+As mentioned before, the elements of the Material Design guidelines lend themselves very well to many devices profiles, and by using a responsive grid system, the design between desktop, tablet and mobile is essentially the same, the only difference being elements which would be horizontally adjacent on the desktop are often vertically adjacent on mobile/tablet.
+
+Moving onto the parts of the application only visible and usable by adminstrators, first we have the 'Moderate view'. This is a fairly simple interfae comprised of two list views, allowing an adminstrator to quickly and easily see both external users and submitted content which needs to be moderated, in an interface that scales very well.
+
+Moving onto the 'Schedule view', this is perhaps the most complex part of the application, however we tried to focus on making the interface both discoverable, and quick to use (a requirement we identified previously).The main part of this interface is the timeline, which contains section's for each day of the current week, and allows a user to scroll horizontally to move back and forward throughout the day. The user can also use the week selector located above it, to move forward and backward, weeks at a time. The interface automatically scrolls to the most relevant period within a day, 9am, and the timeline allows a user to add and delete timeslots, by double-clicking and pressing DEL respectively. The intelligent timeslot-editing control allows timeslots to be dragged around and resized, but is aware of conflicts and actively tries to avoid them. For examples, when resizing, timeslot edges snap to other timeslot edges, and when a conflict is created, the user is notified via a toast\footnote{A small onobtrusive notification, shown at the top of the screen}, and the conflicting timeslots remain highlighted until they no longer interfere.
+
+In order to assign content to a timeslot, the user must double click on a timeslot, at which point they are taken to the 'Timeslot editing view'. Here they are able to assign and unassign content to that timeslot via a drag-and-drop interface, which we felt was the most natural approach. One content has been assigned to the timeslots, but selecting the content item, a user is then able to edit properties associated with the content item in that timeslot, such as priority and the number of screens it should be shown on. We felt it was important that during this stage, the adminstrator should have information that may help them, situated directly within this interface, and so we took the approach that the top section contains admin-editable properties, and the bottom section contain user-provided fields which may be useful.
+
+Because a mistake made in this interface would not consittate a large amount of time to fix, we decided to make all actions in the scheduling interfaces immediate (i.e. there is no secondary Save action once actions have been made). This allows an administrator to very quickly perform the required actions to schedule content for playback.
+
 
 \subsection{Implementation Tools}
 
-\subsubsection{Front-end: }
-% TODO Andrew: please add section headings as appropriate
-TODO 
+\subsubsection{Front-end}
 
-FE: 
-  angular for one-page smooth application
-  google material design guidelines
+Given the frontend team's previous experience with Ruby on Rails standard web applications, enhanced with jQuery, they decided to take this opportunity to experiment with new technologies, as well as use their existing expertise to produce a professional looking application. They chose to use AngularJS,so they could use its useful features such as:
+\begin{itemize}
+\item Two-way data binding
+\item Simple RESTful resource integration
+\item Smooth one page experience
+\item Custom templates and directives
+\item Clear separation of controller and view logic
+\end{itemize}
 
-For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
+We also learned to appreciate AngularJS's 'declarative style' - being able to see the \textbf{behaviour} of the application by reading the HTML code. This was particularly useful at later stages, as it meant that when different members of the group were working on different parts of the frontend code, it was very easy to quickly see what another member had done, without delving too deep into the code they'd written.
+
+Apart form the controller logic, which was written in AngularJS and jQuery, we also use SASS to write our style sheets, allowing us to use variables, nested rules etc. which became useful as our codebase began to grow. We also used Bootstrap as it allowed us to get started with the frontend implementation very quickly, however apart from its responsive grid capabilities (which we used to provide one experience regardless of platform) we moved away from its preset styles, as they did not match the aesthetic direction we wanted to take.
+
+Because all the frontend controller logic was implemented on the client-side, we only used Rails to serve our Javascript, CSS and HTML (template) files. There was little to no logic for the frontend contained in Ruby code, all the interaction between server and client-side was done via our RESTful JSON API. This allowed us to use AngularJS's full capabilities, and presented a few issues which we were able to easily overcome (the main being authentication on the client side, which we solved via an OAuth-like method with authentication tokens).
 
 
-\subsubsection{Back-end: Initial Attempt - Flask (Python) \& MongoDB}
+\subsubsection{Back-end: Initial Implementation - Flask (Python) \& MongoDB}
 
 During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest and 
 learning purposes. To make sure Flask was suitable, the backend team spent time researching additional 
@@ -601,7 +623,7 @@ previous experience and was quicker to set up. We consulted with David in our we
 happy for us to change. The change would not affect end users of the system, and would still enable us 
 to develop in the same environments. 
 
-\subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
+\subsubsection{Back-end: Final Implementation - Ruby on Rails} \label{sec:impl_RoR}
 
 We used our previous experience in Ruby on Rails to quickly and easily set up the project. We could also
 use a wide range of gems for particular features, especially for authentication users with the college
@@ -615,19 +637,14 @@ users are generated by the Kerberos gem authentication with the college servers,
 by AngularJS. We also use the ``carrierwave'' gem to deal with uploading of visualisations. It allows us
 to restrict file types and manages the storage of the files automatically, reducing our workload. 
 
-\subsubsection{Playout Software: }
-For the playout software, we decided to use Python with the Gtk graphics library. This was partly down
-to previous experience with Python but mostly because we needed the software to be cross platform. Hence,
-when developing the playout software, we used dual-boot Linux and Windows machines to test after every 
-feature was implemented. 
+\subsubsection{Playout Software}
+Due to the cross-platform requirement of the playout software, we decided to explore two toolkit's which showed cross-platform functionality which Tim and Andrew had experience with, GTK and QT. We decided to write the software in Python, as the bindings for both toolkits appeared to be robust and well-maintained, we were quite familiar with Python, and for its ability to quickly write working prototypes.
 
-To continuously poll our server, we used timers in python, to make sure the software displays the 
-current visualisation. We also wanted to hide any Windows/Linux GUI elements, e.g. scroll bars, so we 
-made use of customised ``Web Kits''.
+Having experimented first with GTK3 on Windows, we found that it was not stable or robust enough, particularly when used with Webkit (to display the projected content) and finding that QT was in fact the opposite, we decided to proceed using PyQT.
 
+The playout software is essentially multiple WebKit WebView's, stacked to match the display configuration provided (which matches and area on screen to a certain projector). It polls our main server, asking for which content should currently be shown and on which screens, and upon receiving this data, creates, resizes and positions the WebView's accordingly, pointing them to load the right content.
 
-\subsection{AppStore Design}
-% Feel free to add more subsubsections!
+We chose this approach, instead of a simpler one, perhaps involving fully fledged web browsers, as it allows us to remove any UI chrome, which might reveal any implementation and hence provide a less-than-professional appearance. WebKit is also sufficiently mature and robust enough for us to rely upon it, and it provides a generous API so that we can make our application more intelligent (for example, only displaying new content once it has loaded in the WebView etc.)
 
 \subsubsection{Architecture} 
 lots TODO here
