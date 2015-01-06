@@ -577,18 +577,25 @@ Because a mistake made in this interface would not consittate a large amount of 
 
 \subsection{Implementation Tools}
 
-\subsubsection{Front-end: }
-% TODO Andrew: please add section headings as appropriate
-TODO 
+\subsubsection{Front-end}
 
-FE: 
-  angular for one-page smooth application
-  google material design guidelines
+Given the frontend team's previous experience with Ruby on Rails standard web applications, enhanced with jQuery, they decided to take this opportunity to experiment with new technologies, as well as use their existing expertise to produce a professional looking application. They chose to use AngularJS,so they could use its useful features such as:
+\begin{itemize}
+\item Two-way data binding
+\item Simple RESTful resource integration
+\item Smooth one page experience
+\item Custom templates and directives
+\item Clear separation of controller and view logic
+\end{itemize}
 
-For the frontend, given the amount of similar web application projects Andrew and Emma had worked on, they decided to explore using AngularJS, as a different way of implementing frontend logic. They have since decided to use it, as it allows interfaces to be programmed declaratively, making it much easier to 'see the behaviour' of the UI from code.
+We also learned to appreciate AngularJS's 'declarative style' - being able to see the \textbf{behaviour} of the application by reading the HTML code. This was particularly useful at later stages, as it meant that when different members of the group were working on different parts of the frontend code, it was very easy to quickly see what another member had done, without delving too deep into the code they'd written.
+
+Apart form the controller logic, which was written in AngularJS and jQuery, we also use SASS to write our style sheets, allowing us to use variables, nested rules etc. which became useful as our codebase began to grow. We also used Bootstrap as it allowed us to get started with the frontend implementation very quickly, however apart from its responsive grid capabilities (which we used to provide one experience regardless of platform) we moved away from its preset styles, as they did not match the aesthetic direction we wanted to take.
+
+Because all the frontend controller logic was implemented on the client-side, we only used Rails to serve our Javascript, CSS and HTML (template) files. There was little to no logic for the frontend contained in Ruby code, all the interaction between server and client-side was done via our RESTful JSON API. This allowed us to use AngularJS's full capabilities, and presented a few issues which we were able to easily overcome (the main being authentication on the client side, which we solved via an OAuth-like method with authentication tokens).
 
 
-\subsubsection{Back-end: Initial Attempt - Flask (Python) \& MongoDB}
+\subsubsection{Back-end: Initial Implementation - Flask (Python) \& MongoDB}
 
 During the inital phases of our project, we decided on which tools/technologies to use based on our personal preference. For the backend, we decided to use Python with Flask. Members of our team had previously used Ruby on Rails and Python with Django, so we decided to use Flask for interest and 
 learning purposes. To make sure Flask was suitable, the backend team spent time researching additional 
@@ -617,7 +624,7 @@ previous experience and was quicker to set up. We consulted with David in our we
 happy for us to change. The change would not affect end users of the system, and would still enable us 
 to develop in the same environments. 
 
-\subsubsection{Back-end: Finalised Use - Ruby on Rails} \label{sec:impl_RoR}
+\subsubsection{Back-end: Final Implementation - Ruby on Rails} \label{sec:impl_RoR}
 
 We used our previous experience in Ruby on Rails to quickly and easily set up the project. We could also
 use a wide range of gems for particular features, especially for authentication users with the college
