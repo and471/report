@@ -204,7 +204,7 @@ Whilst they don't need a large amount of input through the development process, 
 
 
 \subsection{Achievements}
-We have experimented successfully with new technologies such as AngularJS and Python using the GTk 
+We have experimented successfully with new technologies such as AngularJS and Python using the GTK 
 library. Most of our previous applications have not contained a GUI, so implementing the playout
 system has been a substantial achievement. Also, as it was a requirement for the playout software 
 to be cross platform, we had to change our way of thinking when implementing. We had to ask ourselves:
@@ -551,27 +551,107 @@ An overriding mechanism is actually a side-effect of this design - if an adminis
 \subsubsection{Overall Design Principles}
 Having settled on this high-level design, we then start to drill down on what we wanted our project to look like in a more concrete way.
 
-As mentioned previously, we wanted users to be able to access and use the Visualisation Catalogue web application on whichever device they wanted, with little or no limitations between platforms. We found that Google's Material Design\footnote{http://www.google.co.uk/design/spec/material-design/introduction.html} principles matched the way we wanted to take our product, and they allowed us to design one interface, which adapted to the user's chosen device - a cohesive approach which didn't offer some 'lesser' interface based on device. Material Design's card metaphor also seemed to match perfectly with the concept of a visualisation or advert and so we decided to base the interface around them.
+As mentioned previously, we wanted users to be able to access and use the Visualisation Catalogue web application on whichever device they wanted, with little or no limitations between platforms. We found that Google's Material Design\footnote{http://www.google.co.uk/design/spec/material-design/introduction.html} principles matched the way we wanted to take our product, and they allowed us to design one interface, which adapted to the user's chosen device - a unified experience which didn't offer some 'lesser' interface based on device. Material Design's card metaphor also seemed to match perfectly with the concept of a visualisation or advert and so we decided to base the interface around them.
 
 We began by sketching mockups of the ideas we had around the main site's interface, however due to already haven chosen to follow the Material Design guidelines, once we had agreed on basic ideas, we quickly migrated to more specific 'mockups'. We used Inkscape to create these, and presented them to our supervisors, before we started heavily implementing the UI, as a final check. We began with the main 'Visualisations View' and then migrated to the adminstrator-only parts of the site.
 
 The interface provides navigation via a side-menu, displayed whenever the user clicks the top-left 'hamburger' icon. Only the parts of the application the current user can access are shown (i.e. only administrators are shown the Schedule and Moderate menu items). The side-menu also alows access to the sign-in and out functionality of the web application.
 
-The 'Visualisations view' adopts a masonry-like grid layout, showing the approved visualisations that have been submitted. Visualisaitons can be filtered from this view via the search entry at the top right, or via the filters located in the side-menu. The search entry at the top right actually provides search for many other pages, and its behaviour depends on the current page.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/menu.jpg}
+  \caption{The side menu, providing navigation for the catalogue. Here you can see were are logged-in a an administrator and hence can see menu items for Moderation and Scheduling}
+  \label{fig:menu_screenshot}
+\end{figure}
+
+The 'Visualisations view' adopts a masonry-like grid layout, showing the approved visualisations that have been submitted. Visualisations can be filtered from this view via the search entry at the top right, or via the filters located in the side-menu. The search entry at the top right actually provides search for many other pages, and its behaviour depends on the current page.
+
+\begin{figure}[h!]
+  \centering
+
+  \caption{Vis view}
+  \label{fig:masonry_screenshot}
+\end{figure}
 
 A user can click on a visualisation card to access the 'View visualisation' page which maintaining the card metaphor, provides more information, such as a full description, details about the user which submitted it, as well as revealing comments made about the visualisation, and allowing the user to 'like' or comment on it.
 
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/like.jpg}
+  \caption{The visualisation view immediately after a user has 'liked' the visualisation}
+  \label{fig:menu_screenshot}
+\end{figure}
+
+In order to submit either an advert or a new visualisation, the user can do so using the respective submit pages. These contain a form on the left hand-side in which the user inputs information (with place-holders and suitable data validation to avoid incorrect submissions). To further reduce the possibility of a user incorrectly submitting something, guidelines for the particular content item are displayed adjacent to the form, to provide extra help when needed. 
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/submit.jpg}
+  \caption{Submit page for a visualisation}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/advert.jpg}
+  \caption{Submit page for an advert}
+\end{subfigure}
+\end{figure}
+
+
 Finally, the sign-in functionality is contained in the 'Sign in view', which allows a user to log-in with their Imperial username and password. By including the Imperial logo, we hope to reassure user's that their credentials are safe. It is from this page that external users may also request access.
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \caption{Sign in}
+
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \caption{External user request}
+
+\end{subfigure}
+\end{figure}
 
 As mentioned before, the elements of the Material Design guidelines lend themselves very well to many devices profiles, and by using a responsive grid system, the design between desktop, tablet and mobile is essentially the same, the only difference being elements which would be horizontally adjacent on the desktop are often vertically adjacent on mobile/tablet.
 
-Moving onto the parts of the application only visible and usable by adminstrators, first we have the 'Moderate view'. This is a fairly simple interfae comprised of two list views, allowing an adminstrator to quickly and easily see both external users and submitted content which needs to be moderated, in an interface that scales very well.
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \caption{mobile}
 
-Moving onto the 'Schedule view', this is perhaps the most complex part of the application, however we tried to focus on making the interface both discoverable, and quick to use (a requirement we identified previously).The main part of this interface is the timeline, which contains section's for each day of the current week, and allows a user to scroll horizontally to move back and forward throughout the day. The user can also use the week selector located above it, to move forward and backward, weeks at a time. The interface automatically scrolls to the most relevant period within a day, 9am, and the timeline allows a user to add and delete timeslots, by double-clicking and pressing DEL respectively. The intelligent timeslot-editing control allows timeslots to be dragged around and resized, but is aware of conflicts and actively tries to avoid them. For examples, when resizing, timeslot edges snap to other timeslot edges, and when a conflict is created, the user is notified via a toast\footnote{A small onobtrusive notification, shown at the top of the screen}, and the conflicting timeslots remain highlighted until they no longer interfere.
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \caption{Desktop}
 
-In order to assign content to a timeslot, the user must double click on a timeslot, at which point they are taken to the 'Timeslot editing view'. Here they are able to assign and unassign content to that timeslot via a drag-and-drop interface, which we felt was the most natural approach. One content has been assigned to the timeslots, but selecting the content item, a user is then able to edit properties associated with the content item in that timeslot, such as priority and the number of screens it should be shown on. We felt it was important that during this stage, the adminstrator should have information that may help them, situated directly within this interface, and so we took the approach that the top section contains admin-editable properties, and the bottom section contain user-provided fields which may be useful.
+\end{subfigure}
+\caption{Differences}
+\label{fig:intro_WPrender}
+\end{figure}
 
-Because a mistake made in this interface would not consittate a large amount of time to fix, we decided to make all actions in the scheduling interfaces immediate (i.e. there is no secondary Save action once actions have been made). This allows an administrator to very quickly perform the required actions to schedule content for playback.
+Moving onto the parts of the application only visible and usable by administrators, first we have the 'Moderate view'. This is a fairly simple interface comprised of two list views, allowing an administrator to quickly and easily see both external users and submitted content which needs to be moderated, in an interface that scales very well.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/moderate.jpg}
+  \label{fig:schedule_screenshot}
+\end{figure}
+
+Moving onto the 'Schedule view', this is perhaps the most complex part of the application, however we tried to focus on making the interface both discoverable, and quick to use (a requirement we identified previously). The main part of this interface is the timeline, which contains section's for each day of the current week, and allows a user to scroll horizontally to move back and forward throughout the day. The user can also use the week selector located above it, to move forward and backward, weeks at a time. The interface automatically scrolls to the most relevant period within a day, 9am, and the timeline allows a user to add and delete timeslots, by double-clicking and pressing DEL respectively. The intelligent timeslot-editing control allows timeslots to be dragged around and resized, but is aware of conflicts and actively tries to avoid them. For examples, when resizing, timeslot edges snap to other timeslot edges, and when a conflict is created, the user is notified via a toast\footnote{A small unobtrusive notification, shown at the top of the screen}, and the conflicting timeslots remain highlighted until they no longer interfere.
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.6\textwidth]{./design/schedule.jpg}
+  \caption{Creation and resizing of timeslots within the scheduling interface. You can see the result of a conflict in the top row}
+  \label{fig:schedule_screenshot}
+\end{figure}
+
+In order to assign content to a timeslot, the user must double click on a timeslot, at which point they are taken to the 'Timeslot editing view'. Here they are able to assign and un-assign content to that timeslot via a drag-and-drop interface, which we felt was the most natural approach. One content has been assigned to the timeslots, but selecting the content item, a user is then able to edit properties associated with the content item in that timeslot, such as priority and the number of screens it should be shown on. We felt it was important that during this stage, the administrator should have information that may help them, situated directly within this interface, and so we took the approach that the top section contains admin-editable properties, and the bottom section contain user-provided fields which may be useful.
+
+Because a mistake made in this interface would not constitute a large amount of time to fix, we decided to make all actions in the scheduling interfaces immediate (i.e. there is no secondary Save action once actions have been made). This allows an administrator to very quickly perform the required actions to schedule content for playback.
 
 
 \subsection{Implementation Tools}
@@ -817,7 +897,7 @@ shown before this new thread finishes its work.
 
 % TODO: Any risks anticipated, and how mitigated
 We anticipated that the cross platform playout software requirement may cause issues due to Python
-and/or Gtk versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
+and/or QT versions on two different architectures. To mitigate this risk, we made sure to use dual-boot
 machines with Windows and Linux (or virtual machines), and to test very frequently. We agreed that after
 every small feature implemented, it would need to be tested on both platforms. This resulted in robust, 
 cross-platform code.
